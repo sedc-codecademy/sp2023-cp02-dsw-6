@@ -10,16 +10,16 @@ if (searchByAuthorInput) {
 }
 
 //function for searching by title
-/*function searchBooksByTitle() {
+function searchBooksByTitle() {
   let title = searchByTitleInput.value.trim();
   if (title) {
-    let url = `https://www.googleapis.com/books/v1/volumes?q=intitle:${title}&orderBy=relevance&printType=books&maxResults=10&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)`;
+    let url = `https://www.googleapis.com/books/v1/volumes?q=intitle:${title}&orderBy=relevance&printType=books&maxResults=40&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => displayBooks(data.items))
       .catch((error) => console.error(error));
   }
-}*/
+}
 
 //function for searching by author
 function searchBooksByAuthor() {
