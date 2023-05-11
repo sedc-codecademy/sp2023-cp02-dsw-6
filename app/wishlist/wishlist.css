@@ -1,0 +1,44 @@
+body{
+font-family: 'Inter', sans-serif;
+}
+#wishlist-box {
+  height: 176px;
+  width: 393px;
+  border-radius: 0px;
+  background-color: #665858;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0%;
+  bottom: 0%;
+}
+
+.wishlist-text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25%;
+  bottom: 21.59%;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 39.9344px;
+  line-height: 35px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+#table-head {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 176px;
+  bottom: 12.5%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 35px;
+  letter-spacing: 0.02em;
+  color: #000000;
+}
+
