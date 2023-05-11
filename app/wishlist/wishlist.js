@@ -9,7 +9,8 @@ addToWishlistBtn.addEventListener("click", () => {
       const bookRowsHtml = books.map(book => `
         <tr>
           <td>${book.volumeInfo.title}</td>
-          <td>${Math.floor(Math.random() * 50) + 1}</td>  
+          <td>$${Math.floor(Math.random() * 50) + 1}</td>
+
           <td>${Math.random() >= 0.5 ? "In stock" : "Out of stock"}</td>
         </tr>
       `).join("");
