@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./mydiary.css" rel="stylesheet" type="text/css" />
+    <link href="../global.css" rel="stylesheet" type="text/css" />
+    <title>My Diary</title>
+  </head>
+  <body>
+    <div class="the_diary">
+      <label for="book_title">Book Title</label>
+      <p>Rating:</p>
+      <div class="star-rating">
+        <input type="radio" name="stars" id="star-a" value="5" />
+        <label for="star-a"></label>
+
+        <input type="radio" name="stars" id="star-b" value="4" />
+        <label for="star-b"></label>
+
+        <input type="radio" name="stars" id="star-c" value="3" />
+        <label for="star-c"></label>
+
+        <input type="radio" name="stars" id="star-d" value="2" />
+        <label for="star-d"></label>
+
+        <input type="radio" name="stars" id="star-e" value="1" />
+        <label for="star-e"></label>
+      </div>
+      <label for="note">Leave a note here:</label>
+      <div id="text_area">
+        <textarea
+          id="notes"
+          name="diary_notes"
+          cols="40"
+          rows="8"
+          placeholder="Add your text..."
+        ></textarea>
+      </div>
+    </div>
+    <div class="clicks">
+      <p>Book Title</p>
+      <p>Rating</p>
+      <p>Note</p>
+    </div>
+
+    <script src="./mydiary.js"></script>
+  </body>
+</html>
