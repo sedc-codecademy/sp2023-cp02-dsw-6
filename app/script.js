@@ -3,39 +3,29 @@ let searchByTitleInput = document.getElementById("searchByTitle");
 let searchBtn = document.getElementById("searchBtn");
 let bookList = document.getElementById("bookList");
 
-if (searchByAuthorInput) {
-  searchBtn.addEventListener("click", searchBooksByAuthor);
-} else if (searchByTitleInput) {
-  searchBtn.addEventListener("click", searchBooksByTitle);
-}
+searchBtn.addEventListener("click", searchBooks);
 
-//function for searching by title
-/*function searchBooksByTitle() {
+function searchBooks() {
   let title = searchByTitleInput.value.trim();
-  if (title) {
-    let url = `https://www.googleapis.com/books/v1/volumes?q=intitle:${title}&orderBy=relevance&printType=books&maxResults=40&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)`;
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => displayBooks(data.items))
-      .catch((error) => console.error(error));
-  }
-}*/
-
-//function for searching by author
-function searchBooksByAuthor() {
   let author = searchByAuthorInput.value.trim();
-  if (author) {
-    let url = `https://www.googleapis.com/books/v1/volumes?q=inauthor:${author}&orderBy=relevance&printType=books&maxResults=40&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)`;
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => displayBooks(data.items))
-      .catch((error) => console.error(error));
+
+  let url = `https://www.googleapis.com/books/v1/volumes?q=`;
+  if (title) {
+    url += `intitle:${title}&`;
   }
+  if (author) {
+    url += `inauthor:${author}&`;
+  }
+  url += `orderBy=relevance&printType=books&maxResults=40&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)`;
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => displayBooks(data.items))
+    .catch((error) => console.error(error));
 }
 
 //function for displaying the books after the search
-function displayBooks(books) { //books =  data.items
-  
+function displayBooks(books) {
   bookList.innerHTML = "";
   if (books) {
     books.forEach((book) => {
@@ -43,7 +33,10 @@ function displayBooks(books) { //books =  data.items
       li.innerHTML = `<img src="${book.volumeInfo.imageLinks?.thumbnail}" alt="${book.volumeInfo.title}">
         <div>
           <h2>${book.volumeInfo.title}</h2>
-                
+          <p>Author(s): ${book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : "Unknown"}</p>
+          <p>Category: ${book.volumeInfo.categories ? book.volumeInfo.categories.join(", ") : "Unknown"}</p>
+          <p>Published Date: ${book.volumeInfo.publishedDate ? book.volumeInfo.publishedDate : "Unknown"}</p>
+          <p>Description: ${book.volumeInfo.description ? book.volumeInfo.description : "N/A"}</p>
         </div>`;
       bookList.appendChild(li);
     });

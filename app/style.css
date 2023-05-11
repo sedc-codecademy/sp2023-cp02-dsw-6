@@ -1,0 +1,28 @@
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.searchFields {
+  flex: 0 0 23.0625rem;
+  height: 3.1875rem;
+  border-radius: 0.3125rem;
+  font-size: var(--card-detail-button-fontSize);
+  border: none;
+  background-color: var(--search-field-backgroundColor);
+  color: var(--card-detail-button-color);
+}
+
+#searchBtn {
+  flex: 0 0 23.0625rem;
+  height: 2.5rem;
+  color: white;
+  background-color: var(--find-button-backgroundColor);
+  border-radius: 11.25rem;
+  font-size: var(--card-detail-button-fontSize);
+  border: none;
+
+}
