@@ -10,6 +10,36 @@
     <title>Booktopia</title>
   </head>
   <body>
+
+    <div class="slideshowContainer">
+
+    <div class="slideImages">
+      <img src="./book1.jpg" >
+      <div class="text">The more that you read, the more things you will know...</div>
+    </div>
+
+    <div class="slideImages">
+      <img src="./book2.jpg">
+      <div class="text">Books are a uniquely portable magic</div>
+    </div>
+
+    <div class="slideImages">
+      <img src="./book3.jpg">
+      <div class="text">That’s the thing about books. They let you travel without moving your feet.</div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+
+    <br>
+
+<div style="text-align:center">
+  <span class="items" onclick="currentSlide(1)"></span> 
+  <span class="items" onclick="currentSlide(2)"></span> 
+  <span class="items" onclick="currentSlide(3)"></span> 
+</div>
+
     <div class="searchContainer">
       <input
         type="text"
