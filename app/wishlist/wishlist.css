@@ -1,9 +1,10 @@
-body{
-font-family: 'Inter', sans-serif;
+body {
+  font-family: 'Inter', sans-serif;
 }
+
 #wishlist-box {
-  height: 176px;
-  width: 393px;
+  height: 15.556rem;
+  width: 34.875rem;
   border-radius: 0px;
   background-color: #665858;
   position: absolute;
@@ -21,24 +22,49 @@ font-family: 'Inter', sans-serif;
   bottom: 21.59%;
   font-style: normal;
   font-weight: 700;
-  font-size: 39.9344px;
-  line-height: 35px;
+  font-size: 2.496rem;
+  line-height: 2.333rem;
   text-align: center;
   letter-spacing: 0.02em;
   color: #ffffff;
 }
 
-#table-head {
+#wishlist-table {
   position: absolute;
   left: 50%;
+  top: 15.556rem;
   transform: translateX(-50%);
-  top: 176px;
-  bottom: 12.5%;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 35px;
-  letter-spacing: 0.02em;
-  color: #000000;
+  width: 80%;
+  border-collapse: collapse;
 }
 
+#table-head {
+  top: 12.5rem;
+}
+
+#wishlist-table th {
+  text-align: left;
+  padding: 1.5rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #959595;
+}
+
+#wishlist-table td {
+  text-align: left;
+  padding: 1.5rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #959595;
+}
+
+.hidden {
+  display: none;
+}
+#wishlist-btn {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.21a5.5 5.5 0 0 0-7.78 0L12 5.17l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>') no-repeat center;
+  background-size: 1.5rem;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
