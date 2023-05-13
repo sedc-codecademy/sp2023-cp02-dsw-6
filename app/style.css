@@ -109,3 +109,29 @@ img{
   border: none;
 } 
 
+.footer{
+display: flex;
+flex-direction: column;
+width: 100%;
+background-color: #635252;
+padding: 0px 25px 15px 25px;
+font-family: var(-font-family);
+color: #FFFFFF;
+font-weight: 400;
+letter-spacing: 2px;
+font-size: 25px;
+}
+
+.footerHead{
+display: flex;
+justify-content: space-between;
+}
+.footerBody{
+  display: flex;
+  flex-direction: column;  
+}
+/* .footerSocial{
+ display: inline;
+
+
+} */

@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="style.css" rel="stylesheet" tyle="text/css" />
-    <link href="global.css" rel="stylesheet" tyle="text/css" />
-   
-    <title>Booktopia</title>
-  </head>
-  <body>
 
-    <div class="slideshowContainer">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="style.css" rel="stylesheet" tyle="text/css" />
+  <link href="global.css" rel="stylesheet" tyle="text/css" />
+
+  <title>Booktopia</title>
+</head>
+
+<body>
+
+  <div class="slideshowContainer">
 
     <div class="slideImages">
-      <img src="./book1.jpg" >
+      <img src="./book1.jpg">
       <div class="text">The more that you read, the more things you will know...</div>
     </div>
 
@@ -30,43 +32,63 @@
 
     <a class="prev" onclick="plusSlides(-1)">❮</a>
     <a class="next" onclick="plusSlides(1)">❯</a>
+  </div>
+
+  <br>
+
+  <div style="text-align:center">
+    <span class="items" onclick="currentSlide(1)"></span>
+    <span class="items" onclick="currentSlide(2)"></span>
+    <span class="items" onclick="currentSlide(3)"></span>
+  </div>
+
+  <div class="searchContainer">
+    <input type="text" id="searchByAuthor" class="searchFields" placeholder="  Book Author" />
+  </div>
+
+  <div class="searchContainer">
+    <input type="text" id="searchByTitle" class="searchFields" placeholder="  Book Title" />
+  </div>
+
+  <div class="searchContainer">
+    <button id="searchBtn">
+      <i class="fa-solid fa-magnifying-glass" style="color: #ffffff"></i> Find
+    </button>
+  </div>
+
+  <ul id="bookList"></ul>
+
+  <footer>
+    <div class="footer">
+      <div class="footerHead">
+        <p>Contact Us</p>
+        <p>Home</p>
+        <p>Categories</p>
+      </div>
+      <div class="footerBody">
+        <p>
+          <i class="fa-solid fa-location-dot fa-xl" style="color: #BABABA; margin-right: 10px;"></i>
+          5564, Ankunding Streets, Ohrid, Macedonia
+        </p>
+        <p>
+          <i class="fa-solid fa-phone fa-xl" style="color:  #BABABA; margin-right: 10px;"></i>
+          (389)-46-974-7344
+        </p>
+        <p>
+          <i class="fa-solid fa-envelope fa-xl" style="color:  #BABABA; margin-right: 10px;"></i>
+          booktopia@gmail
+        </p>
+      </div>
+      <div class="footerSocial"></div>
+      <div>
+        <img src="./images/facebook.png" style="width: 50px; float:right; " alt="">
+        <img src="./images/instagram.png" style="width: 50px; float:right; margin-right: 10px;" alt="">
+      </div>
     </div>
+  </footer>
 
-    <br>
+  <script src="script.js"></script>
+  <script src="https://kit.fontawesome.com/d3daee38c8.js" crossorigin="anonymous"></script>
+</body>
 
-<div style="text-align:center">
-  <span class="items" onclick="currentSlide(1)"></span> 
-  <span class="items" onclick="currentSlide(2)"></span> 
-  <span class="items" onclick="currentSlide(3)"></span> 
-</div>
-
-    <div class="searchContainer">
-      <input
-        type="text"
-        id="searchByAuthor"
-        class="searchFields"
-        placeholder="  Book Author"
-      />
-    </div>
-
-    <div class="searchContainer">
-      <input
-        type="text"
-        id="searchByTitle"
-        class="searchFields"
-        placeholder="  Book Title"
-      />
-    </div>
-
-    <div class="searchContainer">
-      <button id="searchBtn">
-        <i class="fa-solid fa-magnifying-glass" style="color: #ffffff"></i> Find
-      </button>
-    </div>
-
-    <ul id="bookList"></ul>
-
-    <script src="script.js"></script>
-    <script src="https://kit.fontawesome.com/d3daee38c8.js" crossorigin="anonymous"></script>
-  </body>
 </html>
