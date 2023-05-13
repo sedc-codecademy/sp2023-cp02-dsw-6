@@ -130,8 +130,7 @@ justify-content: space-around;
   display: flex;
   flex-direction: column;  
 }
-/* .footerSocial{
- display: inline;
-
-
-} */
+ .footerIcon{
+  color:  #BABABA; 
+  margin-right: 10px;
+} 
