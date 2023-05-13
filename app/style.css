@@ -124,7 +124,7 @@ font-size: 25px;
 
 .footerHead{
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
 }
 .footerBody{
   display: flex;
