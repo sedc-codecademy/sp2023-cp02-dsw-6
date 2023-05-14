@@ -9,11 +9,26 @@ body {
   align-items: center;
   text-align: center;
   background-color: #665858;
-  height: 13rem;
+  height: 10rem;
   font-style: normal;
   font-weight: 700;
   font-size: 2.496rem;
   line-height: 2.333rem;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+.mydiary_account {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #665858;
+  font-style: small;
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
   letter-spacing: 0.02em;
   color: #ffffff;
 }
@@ -38,6 +53,29 @@ body {
   transition: var(--card-detail-button-transition);
   cursor: var(--card-detail-button-cursor);
 }
+
+.searchBookTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.625rem;
+  margin-bottom: 0.625rem;
+}
+
+.searchField {
+  flex: 0 0 80%;
+  height: 3.1875rem;
+  border-radius: 0.3125rem;
+  font-size: var(--card-detail-button-fontSize);
+  width: 345px;
+  height: 42px;
+  left: calc(50% - 345px/2);
+  top: 344px;
+  border: none;
+  background-color: var(--search-field-backgroundColor);
+  color: var(--card-detail-button-color);
+}
+
 .star-rating {
   display: flex;
   align-items: center;
@@ -88,28 +126,61 @@ body {
   }
 }
 
+#notes {
+  background-color: var(--search-field-backgroundColor);
+  font-size: var(--card-detail-button-fontSize);
+  font-weight: var(--card-detail-button-fontWeight);
+  color: var(--card-detail-button-color);
+}
+
 .clicks {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-bottom: 20%;
-  font-size: var(--card-detail-button-fontSize);
-  font-weight: var(--card-detail-button-fontWeight);
+  align-items: center;
+  /* padding-bottom: 20%; */
+  
+  left: calc(50% - 345px/2);
+  background-color: #898686;
   color: var(--card-detail-button-color);
-  text-decoration: none;
-  background-color: var(--card-detail-button-bg);
-  border: var(--card-detail-button-border);
-  border-radius: var(--card-detail-button-border-radius);
-  padding: var(--card-detail-button-padding);
-  margin: var(--card-detail-button-margin);
-  width: var(--card-detail-button-width);
-  height: var(--card-detail-button-height);
-  text-align: center;
-  text-decoration: none;
-  transition: var(--card-detail-button-transition);
-  cursor: var(--card-detail-button-cursor);
 }
 
 .clicks p {
   padding: 0 20px;
+  font-size: var(--card-detail-button-fontSize);
+  font-weight: var(--card-detail-button-fontWeight);
+  color: var(--card-detail-button-color);
+  left: calc(50% - 345px/2);
 }
+
+.footer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #635252;
+  padding: 0px 25px 15px 25px;
+  font-family: var(-font-family);
+  color: #FFFFFF;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 25px;
+  }
+  
+  .footerHead{
+  display: flex;
+  justify-content: space-around;
+  }
+  .footerBody{
+    display: flex;
+    flex-direction: column;  
+  }
+   .footerIcon{
+    color:  #BABABA; 
+    margin-right: 10px;
+  } 
+
+  img{
+    vertical-align: middle;
+    width: 101.5%;
+    opacity: 0.8;
+  }
