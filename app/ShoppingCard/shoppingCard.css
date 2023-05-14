@@ -1,0 +1,116 @@
+* {box-sizing: border-box}
+ body {
+  font-family: var(--font-family);
+}
+
+
+#wishlist-box {
+    height: 11rem;
+    width: 100%;
+    border-radius: 0px;
+    background-color: #665858;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .wishlist-text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.496rem;
+    line-height: 2.333rem;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .card_info-header {
+    padding: 10px;
+    width: 95%;
+    height: 29px;
+    margin: 0 auto;
+    background-color: #B3B3B3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-right-side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 52%;
+  }
+
+  .card_info-body {
+    padding: 20px;
+    min-height: 130px;
+    width: 95%;
+    margin: 0 auto;
+    background-color: #E1E1E1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    letter-spacing: 0.5px;  
+  }
+
+  
+
+  .image_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 35%;
+    gap: 10px;
+  }
+
+  /* .card_info-body-price {
+    flex: 1 1 auto;
+  } */
+
+  .card_info-body-quantity {
+    max-width: 10%;
+    text-align: center;
+  }
+
+  .card_info-body-amount {
+    max-width: 25%;
+  }
+
+  .image-info_img {
+    height: 80px;
+    width: 55px;
+  }
+
+
+  .footer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #635252;
+    padding: 0px 25px 15px 25px;
+    font-family: var(-font-family);
+    color: #FFFFFF;
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-size: 25px;
+    }
+    
+    .footerHead{
+    display: flex;
+    justify-content: space-around;
+    }
+    .footerBody{
+      display: flex;
+      flex-direction: column;  
+    }
+     .footerIcon{
+      color:  #BABABA; 
+      margin-right: 10px;
+    } 
