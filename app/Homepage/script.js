@@ -22,7 +22,7 @@ function showAutoSlides() {
   slides[autoSlideIndex-1].style.display="block";  
   dots[autoSlideIndex-1].className += " active";
   setTimeout(showAutoSlides, 3000);
-}
+} 
 
 
 //function for slide images with press on next and previous buttons
