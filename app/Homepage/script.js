@@ -1,3 +1,27 @@
+let slides = document.getElementsByClassName("slideImages");
+let dots = document.getElementsByClassName("items");
+
+//function for automatic slideshow, changing image every 3 seconds
+let autoSlideIndex = 0;
+showAutoSlides();
+function showAutoSlides() {
+  let i;
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display="none";  
+  }
+  autoSlideIndex++;
+  if (autoSlideIndex > slides.length) {autoSlideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+    
+  }
+  slides[autoSlideIndex-1].style.display="block";  
+  dots[autoSlideIndex-1].className += " active";
+  setTimeout(showAutoSlides, 3000);
+} 
+
+
+//function for slide images with press on next and previous buttons
 let slideIndex = 1;
 function plusSlides(n) {
   showSlides((slideIndex += n));

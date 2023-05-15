@@ -1,7 +1,11 @@
-* {box-sizing: border-box}
+* {
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  
+}
 
 .slideImages{
-  display: none;
+  display: none;  
 }
 
 .slideshowContainer {
@@ -18,7 +22,7 @@ img{
 
 .prev, .next {
   cursor: pointer;
-  position: absolute;
+  position: absolute; 
   top: 50%;
   width: auto;
   padding: 1rem;
@@ -42,15 +46,18 @@ img{
 
 
 .text {
-  color: white;
+  color: var(--homepage-text-messages-color);
   font-size: var(--card-info-fontSize);
   font-weight: var(--login-button-fontWeight);
   font-style: italic;
-  padding: 0.5rem 0.75rem;
   position: absolute;
-  bottom: 0.5rem;
-  width: 21.5rem;
+  bottom: 0.1%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
   text-align: center;
+  
 }
 
 .items {
@@ -108,4 +115,85 @@ img{
   font-size: var(--card-detail-button-fontSize);
   border: none;
 } 
+
+#booksIcons{
+  display: flex;
+ flex-direction: column;
+}
+
+.tonsOfBooks, .hundredOfAuthors, .easillyBookmarked{
+  display: grid;
+  justify-items: center;
+ 
+}
+
+.title, .describeText{
+  font-family: var(--font-family);
+  font-weight: lighter;
+  line-height: 32px;
+  font-style: normal;
+  letter-spacing: 0.02em;
+}
+
+.describeText{
+  font-size: 15px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.title{
+  font-size: 20px;
+}
+
+.messagesFromTheReaders {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slideMessage {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: none;
+  padding: 20px;
+  font-style: italic;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--homepage-text-messages-color);
+  font-size: var( --login-button-fontSize);
+  line-height: 1.5;
+}
+
+
+.footer{
+display: flex;
+flex-direction: column;
+width: 100%;
+background-color: #635252;
+padding: 0px 25px 15px 25px;
+font-family: var(-font-family);
+color: #FFFFFF;
+font-weight: 400;
+letter-spacing: 2px;
+font-size: 25px;
+}
+
+.footerHead{
+display: flex;
+justify-content: space-around;
+}
+.footerBody{
+  display: flex;
+  flex-direction: column;  
+}
+ .footerIcon{
+  color:  #BABABA; 
+  margin-right: 10px;
+} 
+
+
+
+
 
