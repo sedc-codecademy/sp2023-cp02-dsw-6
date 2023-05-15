@@ -1,36 +1,41 @@
-let searchByAuthorInput = document.getElementById("searchByAuthor");
-let searchByTitleInput = document.getElementById("searchByTitle");
-let searchBtn = document.getElementById("searchBtn");
-let bookList = document.getElementById("bookList");
-
 let slideIndex = 1;
 
 showSlides(slideIndex);
 
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+  showSlides((slideIndex += n));
 }
 
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+  showSlides((slideIndex = n));
 }
 
 function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("slideImages");
   let dots = document.getElementsByClassName("items");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+    slides[i].style.display = "none";
   }
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
 }
 
+//Search element
+
+let searchByAuthorInput = document.getElementById("searchByAuthor");
+let searchByTitleInput = document.getElementById("searchByTitle");
+let searchBtn = document.getElementById("searchBtn");
+let bookList = document.getElementById("bookList");
 
 searchBtn.addEventListener("click", searchBooks);
 
@@ -59,13 +64,29 @@ function displayBooks(books) {
   if (books) {
     books.forEach((book) => {
       let li = document.createElement("li");
-      li.innerHTML = `<img src="${book.volumeInfo.imageLinks?.thumbnail}" alt="${book.volumeInfo.title}">
+      li.innerHTML = `<img src="${
+        book.volumeInfo.imageLinks?.thumbnail
+      }" alt="${book.volumeInfo.title}">
         <div>
           <h2>${book.volumeInfo.title}</h2>
-          <p>Author(s): ${book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : "Unknown"}</p>
-          <p>Category: ${book.volumeInfo.categories ? book.volumeInfo.categories.join(", ") : "Unknown"}</p>
-          <p>Published Date: ${book.volumeInfo.publishedDate ? book.volumeInfo.publishedDate : "Unknown"}</p>
-          <p>Description: ${book.volumeInfo.description ? book.volumeInfo.description : "N/A"}</p>
+          <p>Author(s): ${
+            book.volumeInfo.authors
+              ? book.volumeInfo.authors.join(", ")
+              : "Unknown"
+          }</p>
+          <p>Category: ${
+            book.volumeInfo.categories
+              ? book.volumeInfo.categories.join(", ")
+              : "Unknown"
+          }</p>
+          <p>Published Date: ${
+            book.volumeInfo.publishedDate
+              ? book.volumeInfo.publishedDate
+              : "Unknown"
+          }</p>
+          <p>Description: ${
+            book.volumeInfo.description ? book.volumeInfo.description : "N/A"
+          }</p>
         </div>`;
       bookList.appendChild(li);
     });
@@ -75,3 +96,5 @@ function displayBooks(books) {
     bookList.appendChild(li);
   }
 }
+
+

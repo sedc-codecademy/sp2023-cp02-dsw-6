@@ -1,0 +1,212 @@
+:root {
+    --font-family: 'Inter', sans-serif;
+    --card-title-color: #F503B2;
+    --card-title-font: 32px;
+    --card-info-color: #000000;
+    --card-info-fontSize: 20px;
+    --card-sale-button-backgroundColor: #EB2525;
+    --card-sale-button-color: #171C8F;
+    --card-sale-button-fontSize: 36px;
+    --card-detail-button-fontSize: 22px;
+    --card-detail-button-fontWeight: 700;
+    --card-detail-button-color: #000000;
+    --login-button-backgroundColor: #ED3535;
+    --login-button-fontSize: 16px;
+    --login-button-fontWeight: 700;
+    --search-field-backgroundColor: #D9D9D9;
+    --find-button-backgroundColor: #403535;
+  }
+  
+  * {box-sizing: border-box}
+  
+  .slideImages{
+    display: none;
+  }
+  
+  .slideshowContainer {
+    max-width:  100%;
+    position: relative;
+    margin: auto;
+  }
+  
+  img{
+    vertical-align: middle;
+    width: 101.5%;
+    opacity: 0.8;
+  }
+  
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 1rem;
+    margin-top: -1.375rem;
+    color: var(--search-field-backgroundColor);
+    font-weight: var(--login-button-fontWeight);
+    font-size: var(--card-info-fontSize);
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    
+  }
+  
+  .next {
+    right: -0.375rem;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: var(--card-detail-button-color);
+  }
+  
+  
+  .text {
+    color: white;
+    font-size: var(--card-info-fontSize);
+    font-weight: var(--login-button-fontWeight);
+    font-style: italic;
+    padding: 0.5rem 0.75rem;
+    position: absolute;
+    bottom: 0.5rem;
+    width: 21.5rem;
+    text-align: center;
+  }
+  
+  .items {
+    cursor: pointer;
+    height: 0.938rem;
+    width: 0.938rem;
+    margin: 0 0.125rem;
+    background-color: var(--card-detail-button-color);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease; 
+    
+  }
+  
+  .active, .items:hover {
+    background-color: var(--search-field-backgroundColor);
+  }
+  
+  
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  
+  .searchContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem;
+  }
+  
+  .searchFields {
+    flex: 0 0 80%;
+    height: 3.1875rem;
+    border-radius: 0.3125rem;
+    font-size: var(--card-detail-button-fontSize);
+    border: none;
+    background-color: var(--search-field-backgroundColor);
+    color: var(--card-detail-button-color);
+  }
+  
+  #searchBtn {
+    flex: 0 0 80%;
+    height: 2.5rem;
+    color: white;
+    background-color: var(--find-button-backgroundColor);
+    border-radius: 11.25rem;
+    font-size: var(--card-detail-button-fontSize);
+    border: none;
+  } 
+  
+  
+  body{
+    background-color: #edf3f4;
+    margin: 0;
+  }
+  
+  
+  
+  .container{
+    background-color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.5vw;
+    font-weight: normal;
+    line-height: 1.5;
+    padding: 10vw 5% 0;
+    max-width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  
+  .image-container {
+    max-width: 100%;
+  }
+  
+  .description-container {
+    max-width: 100%;
+  }
+  
+  .offerBox{
+    display: block;
+    clear: both;
+   
+    padding: 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    
+  }
+  
+  #titleDesc{
+    padding-top: 5%;
+    font-size: 3.6vw;
+    font-weight: 300;
+    line-height: 4vw;
+    text-align: center;
+  }
+  
+  #price{
+    display: block;
+    margin: -20px -20px 15px -20px;
+    padding: 10px 20px;
+    border-radius: 6px 6px 0 0;
+    background: #edf3f4;
+  }
+  
+  #addToCartBtn{
+    padding: 12px 30px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    /*line-height: 16px;*/
+    vertical-align: middle;
+      float: left;
+      border: none;
+      border-radius: 20px;
+      color: #ffffff;
+      background: #2f2b35;
+      text-transform: uppercase;
+  }
+  
+  #coverImg {
+    margin-bottom: 2rem;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  
+  
+  
+  
