@@ -6,18 +6,23 @@ addToWishlistBtn.addEventListener("click", () => {
     .then(response => response.json())
     .then(data => {
       const books = data.items;
-      const bookRowsHtml = books.map(book => `
-        <tr>
-          <td>${book.volumeInfo.title}</td>
-          <td>$${Math.floor(Math.random() * 50) + 1}</td>
-
-          <td>${Math.random() >= 0.5 ? "In stock" : "Out of stock"}</td>
-        </tr>
-      `).join("");
+      const bookRowsHtml = books.map(book => {
+        const stockStatus = Math.random() >= 0.5 ? "In stock" : "Out of stock";
+        const buyNowButtonHtml = stockStatus === "In stock" ? '<button>Buy Now</button>' : '';
+        return `
+          <tr>
+            <td>${book.volumeInfo.title}</td>
+            <td>$${Math.floor(Math.random() * 50) + 1}</td>
+            <td>${stockStatus}</td>
+            <td>${buyNowButtonHtml}</td>
+          </tr>
+        `;
+      }).join("");
       wishlistTableBody.innerHTML = bookRowsHtml;
     })
     .catch(error => console.log(error));
 });
+
 
 
 

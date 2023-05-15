@@ -1,7 +1,4 @@
 let slideIndex = 1;
-
-showSlides(slideIndex);
-
 function plusSlides(n) {
   showSlides((slideIndex += n));
 }
@@ -29,6 +26,19 @@ function showSlides(n) {
   slides[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1].className += " active";
 }
+showSlides(slideIndex);
+
+
+//function for slide messages from the readers
+const slides1 = document.getElementsByClassName('slideMessage');
+let currentSlide1 = 0;
+slides1[currentSlide1].style.display = 'block';
+setInterval(() => {
+  slides1[currentSlide1].style.display = 'none';
+  currentSlide1 = (currentSlide1 + 1) % slides1.length;
+  slides1[currentSlide1].style.display = 'block';
+}, 5000);
+
 
 //Search element
 
@@ -96,5 +106,4 @@ function displayBooks(books) {
     bookList.appendChild(li);
   }
 }
-
 
