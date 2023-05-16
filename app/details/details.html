@@ -39,69 +39,77 @@
     <span class="items" onclick="currentSlide(3)"></span> 
   </div>
 
-  <div class="searchContainer">
-    <input
-      type="text"
-      id="searchByAuthor"
-      class="searchFields"
-      placeholder="  Book Author"
-    />
-  </div>
-
-  <div class="searchContainer">
-    <input
-      type="text"
-      id="searchByTitle"
-      class="searchFields"
-      placeholder="  Book Title"
-    />
-  </div>
-
-  <div class="searchContainer">
-    <button id="searchBtn">
-      <i class="fa-solid fa-magnifying-glass" style="color: #ffffff"></i> Find
-    </button>
-  </div>
-
-  <ul id="bookList"></ul>
+ 
+  
 
 
-    <div class="section hero">
-      <div class="container">
-        <div class="hero-grid">
-          <div id="coverImg">
-            
-          </div>
-
-          <div id="second">
-            <div class="message">
-             
-              <h1 id="titleDesc"></h1>
-            </div>
-            <div class="rating"></div>
-            <div class="offerBox">
-              <p id="price">mila</p>              
-                <p id="stock">Stock</p>
-                <form class="cart">cart
-                </form>
-                <button type="submit" id="addToCartBtn">Add to cart</button>
-                
+  <div id="wrapper">
+  <div id="containerDetails">
+    <div id="coverImg"></div>
+    <div id="textDetails">
+      <h1 id="title">Title of the book</h1>
+      <div id="offerBox">
+        <p id="price">mila-funkcija za random price</p>              
               
-            </div>
-          </div>
-<div class="product">
-  <span id="categoriesSpan">Categories: </span>
-</div>
+              <div id="cart">Cart forma za kolicina</div>
 
-        </div>
+              <button type="submit" id="addToCartBtn">
+                <i class="fa-light fa-cart-shopping"></i>
+                Buy</button>
       </div>
     </div>
+  </div>
+
+  <div class="bookDetails">
+    <div class="bookDetailsTable">
+      <h1 id="bookDet">Book Details</h1>
+      <table id="tableDetails">
+        <tbody>
+          <tr><th id="categoryTable">Category</th></tr>
+          <tr><th id="authorTable">Author</th></tr>
+          <tr><th id="publishedTable">Published</th></tr>
 
 
+        </tbody>
+      </table>
+    </div>
+
+    <div class="descriptionDetails">
+      <h1 id="descDetails">Description</h1>
+      <p id="desc"></p>
+    </div>
+  </div>
+</div>
+
+  <footer>
+    <div class="footer">
+      <div class="footerHead">
+        <p>Contact Us</p>
+        <p>Home</p>
+        <p>Categories</p>
+      </div>
+      <div class="footerBody">
+        <p>
+          <i class="fa-solid fa-location-dot fa-xl footerIcon" ></i>
+          5564, Ankunding Streets, Ohrid, Macedonia
+        </p>
+        <p>
+          <i class="fa-solid fa-phone fa-xl footerIcon" ></i>
+          (389)-46-974-7344
+        </p>
+        <p>
+          <i class="fa-solid fa-envelope fa-xl footerIcon" ></i>
+          booktopia@gmail
+        </p>
+      </div>
+      <div class="footerSocial"></div>
+      <div>
+        <img src="../images/facebook.png" style="width: 50px; float:right; " alt="">
+        <img src="../images/instagram.png" style="width: 50px; float:right; margin-right: 10px;" alt="">
+      </div>
+    </div>
+  </footer>
     
-
-
-      
 
     <script src="details.js"></script>
     <script src="https://kit.fontawesome.com/d3daee38c8.js" crossorigin="anonymous"></script>
