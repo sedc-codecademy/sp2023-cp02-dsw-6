@@ -87,6 +87,7 @@ body {
   justify-content: space-between;
   margin: 40px auto;
   position: relative;
+  /* right: 7.5%; */
 }
 /* hide the inputs */
 .star-rating input {
@@ -136,6 +137,19 @@ body {
   color: var(--card-detail-button-color);
 }
 
+#btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--search-field-backgroundColor);
+  font-size: large;
+  font-weight: var(--card-detail-button-fontWeight);
+  color: var(--card-detail-button-color);
+  position: relative;
+  left: 35%;
+}
+
 .clicks {
   display: flex;
   flex-direction: row;
@@ -149,7 +163,8 @@ body {
 
 .clicks p {
   padding: 0 20px;
-  font-size: var(--card-detail-button-fontSize);
+  text-decoration: underline;
+  font-size: large;
   font-weight: var(--card-detail-button-fontWeight);
   color: var(--card-detail-button-color);
   left: calc(50% - 345px / 2);
