@@ -129,7 +129,6 @@ function displayBooks(books) {
   }
 }
 
-
 // Function for displaying new releases books
 const mainNewReleasesDiv = document.getElementById("mainNewReleasesDiv");
 
@@ -140,19 +139,22 @@ let displayNewReleasesBooks = () => {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      const newestBooks = data.items.slice(0, 21); // Select the last 21 published books(7 random books for each display)
+      const newestBooks = data.items.filter((item) => { //filtered the newest books, published in 2022 and 2023
+        const publishedDate = item.volumeInfo.publishedDate;
+        return publishedDate >= "2022-01-01";
+      });
       newReleasesBooks(newestBooks);
     })
     .catch((error) => console.error(error));
-}
+};
 
-let generateRandomPrice=()=> {
+let generateRandomPrice = () => {
   // Generate a random price between 5 and 50$
   const randomPrice = Math.floor(Math.random() * 45) + 5;
   return randomPrice.toFixed(2);
-}
+};
 
-let newReleasesBooks=(newBooks)=> {
+let newReleasesBooks = (newBooks) => {
   // Get a random book from the array of new books
   let randomIndex;
   const displayedBooks = [];
@@ -166,16 +168,23 @@ let newReleasesBooks=(newBooks)=> {
     const price = generateRandomPrice();
 
     const displayImage = document.getElementById(`displayImage${i}`);
-    const divTitleNewRelease = document.getElementById(`divTitleNewRelease${i}`);
-    const divAuthorNewRelease = document.getElementById(`divAuthorNewRelease${i}`);
-    const divPriceNewRelease = document.getElementById(`divPriceNewRelease${i}`);
- 
-  //Displaying a random book image, title, authors and price
-  displayImage.innerHTML = `<img class="newReleaseImg" src="${randomBook.volumeInfo.imageLinks.thumbnail}  alt="Image">`;
-  divTitleNewRelease.innerHTML = `<h1 class="titleForNewReleases"> ${randomBook.volumeInfo.title}`;
-  divAuthorNewRelease.innerHTML = `<h1 class="authorForNewReleases"> ${randomBook.volumeInfo.authors}`;
-  divPriceNewRelease.innerHTML = `<h1 class="priceForNewReleases"> $${price}`;
+    const divTitleNewRelease = document.getElementById(
+      `divTitleNewRelease${i}`
+    );
+    const divAuthorNewRelease = document.getElementById(
+      `divAuthorNewRelease${i}`
+    );
+    const divPriceNewRelease = document.getElementById(
+      `divPriceNewRelease${i}`
+    );
+
+    //Displaying a random book image, title, authors and price
+    displayImage.innerHTML = `<img class="newReleaseImg" src="${randomBook.volumeInfo.imageLinks.thumbnail}  alt="Image">`;
+    divTitleNewRelease.innerHTML = `<h1 class="titleForNewReleases"> ${randomBook.volumeInfo.title}`;
+    divAuthorNewRelease.innerHTML = `<h1 class="authorForNewReleases"> ${randomBook.volumeInfo.authors}`;
+    divPriceNewRelease.innerHTML = `<h1 class="priceForNewReleases"> $${price}`;
+
   }
-}
+};
 
 displayNewReleasesBooks();
