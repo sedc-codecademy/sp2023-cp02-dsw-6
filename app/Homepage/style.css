@@ -98,7 +98,8 @@
 
 .searchFields {
   flex: 0 0 80%;
-  height: 3.1875rem;
+  height: 50px;
+  width: 370px;
   border-radius: 0.3125rem;
   font-size: var(--card-detail-button-fontSize);
   border: none;
@@ -116,6 +117,7 @@
   border: none;
 } 
 
+/* Styling book icons, new releases and popular books */
 #booksIcons{
   display: flex;
  flex-direction: column;
@@ -127,24 +129,64 @@
  
 }
 
-.title, .describeText{
-  font-family: var(--font-family);
+.title, .describeText, .newReleasesTitleHomepage, .titleForNewReleases, .authorForNewReleases, .priceForNewReleases, .popularBooksTitleHomepage{
   font-weight: lighter;
   line-height: 32px;
   font-style: normal;
   letter-spacing: 0.02em;
 }
 
-.describeText{
+.describeText, .authorForNewReleases{
   font-size: 15px;
   text-align: center;
   opacity: 0.7;
 }
 
-.title{
+.title, .titleForNewReleases{
   font-size: 20px;
 }
 
+.newReleasesTitleHomepage, .priceForNewReleases, .popularBooksTitleHomepage{
+  text-align: center;
+  font-style: italic;
+  font-size: 32px;
+}
+
+#mainNewReleasesDiv{
+  display: grid;
+  flex-direction: column;
+  text-align: center;
+}
+
+.newReleaseImg{
+  width: 50%;
+ 
+}
+
+/* Details and buy buttons */
+
+.detailsButton, .buyButton{
+  border-radius: 180px 0px 0px 180px;
+  border: 1px solid #000000;
+  background: #FFFFFF;
+  width: 167.75px;
+  height: 40px;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.buyButton{
+  border-radius: 0px 180px 180px 0px;
+}
+
+
+/* Styling messages from the readers */
 .messagesFromTheReaders {
   width: 100%;
   height: 200px;
@@ -165,6 +207,7 @@
   font-size: var( --login-button-fontSize);
   line-height: 1.5;
 }
+
 
 
 .footer{

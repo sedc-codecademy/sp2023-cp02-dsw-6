@@ -57,7 +57,7 @@ function displayDesc(book) {
     let categoryTable=document.getElementById("categoryTable");
     let authorTable=document.getElementById("authorTable");
     let publishedTable=document.getElementById("publishedTable");
-    let desc = document.getElementById("desc");
+    let desc = document.getElementsByClassName("desc")[0];
 
     titleDesc.innerHTML=book.volumeInfo.title;
     coverImg.innerHTML = `<img src="${book.volumeInfo.imageLinks.thumbnail}  alt="Cover Image">`;
