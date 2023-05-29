@@ -3,11 +3,19 @@ let starsRating = document.getElementsByName("stars");
 let notes = document.getElementById("notes");
 let submitBtn = document.getElementById("btn");
 let theWrittenNote = document.getElementById("put");
+let bookImage = "book_image_for_mydiary.png";
 
 submitBtn.addEventListener("click", function() {
+    let title = bookTitle.value;
+    let image = document.createElement("img");
+    image.src = bookImage;
+    image.alt = title;
+    image.classList.add("book-image");
+    theWrittenNote.appendChild(image);
+  
     let paragraph1 = document.createElement(`p`);
     paragraph1.classList.add("paragraph-styling");
-    paragraph1.innerText = bookTitle.value;
+    paragraph1.innerText = title;
     theWrittenNote.appendChild(paragraph1);
     bookTitle.value = "";
 
@@ -36,3 +44,4 @@ function getStarsHTML(rating) {
     }
     return starsHTML;
 }
+

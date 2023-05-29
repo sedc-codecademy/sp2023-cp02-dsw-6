@@ -208,6 +208,12 @@ body {
   color: pink;
 }
 
+.book-image {
+  width: 100px; /* Set the desired width */
+  height: auto; /* Maintain aspect ratio */
+  margin-top: 10px; /* Add margin to separate from the previous paragraph */
+}
+
 .footer {
   display: flex;
   flex-direction: column;
