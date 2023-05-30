@@ -117,7 +117,7 @@
   border: none;
 } 
 
-/* Styling book icons and new releases */
+/* Styling book icons, new releases and popular books */
 #booksIcons{
   display: flex;
  flex-direction: column;
@@ -129,7 +129,7 @@
  
 }
 
-.title, .describeText, .newReleasesTitleHomepage, .titleForNewReleases, .authorForNewReleases, .priceForNewReleases{
+.title, .describeText, .newReleasesTitleHomepage, .titleForNewReleases, .authorForNewReleases, .priceForNewReleases, .popularBooksTitleHomepage{
   font-weight: lighter;
   line-height: 32px;
   font-style: normal;
@@ -146,7 +146,7 @@
   font-size: 20px;
 }
 
-.newReleasesTitleHomepage, .priceForNewReleases{
+.newReleasesTitleHomepage, .priceForNewReleases, .popularBooksTitleHomepage{
   text-align: center;
   font-style: italic;
   font-size: 32px;
@@ -162,6 +162,29 @@
   width: 50%;
  
 }
+
+/* Details and buy buttons */
+
+.detailsButton, .buyButton{
+  border-radius: 180px 0px 0px 180px;
+  border: 1px solid #000000;
+  background: #FFFFFF;
+  width: 167.75px;
+  height: 40px;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.buyButton{
+  border-radius: 0px 180px 180px 0px;
+}
+
 
 /* Styling messages from the readers */
 .messagesFromTheReaders {

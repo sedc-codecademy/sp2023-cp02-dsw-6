@@ -3,19 +3,34 @@ body {
 }
 
 .mydiary_heading {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #665858;
   height: 10rem;
   font-style: normal;
   font-weight: 700;
   font-size: 2.496rem;
   line-height: 2.333rem;
   letter-spacing: 0.02em;
-  color: #ffffff;
+}
+
+.mydiary_heading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(../images/book1.jpg);
+  background-size: cover;
+  opacity: 0.4;
+}
+
+.mydiary_heading p {
+  color: black;
 }
 
 .mydiary_account {
@@ -148,6 +163,7 @@ body {
   color: var(--card-detail-button-color);
   position: relative;
   left: 35%;
+  margin-top: 1.2rem;
 }
 
 .clicks {
@@ -168,6 +184,34 @@ body {
   font-weight: var(--card-detail-button-fontWeight);
   color: var(--card-detail-button-color);
   left: calc(50% - 345px / 2);
+}
+
+.addItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* padding-bottom: 20%; */
+  left: calc(50% - 345px / 2);
+  color: var(--card-detail-button-color);
+}
+
+.addItem p {
+  padding: 0 20px;
+  font-size: large;
+  font-weight: var(--card-detail-button-fontWeight);
+  color: var(--card-detail-button-color);
+  left: calc(50% - 345px / 2);
+}
+
+.smallstar {
+  color: pink;
+}
+
+.book-image {
+  width: 100px; /* Set the desired width */
+  height: auto; /* Maintain aspect ratio */
+  margin-top: 10px; /* Add margin to separate from the previous paragraph */
 }
 
 .footer {
