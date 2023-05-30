@@ -1,0 +1,84 @@
+
+
+
+  .searchContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem;
+  }
+  
+  .searchFields {
+    flex: 0 0 80%;
+    height: 50px;
+    width: 370px;
+    border-radius: 0.3125rem;
+    font-size: var(--card-detail-button-fontSize);
+    border: none;
+    background-color: var(--search-field-backgroundColor);
+    color: var(--card-detail-button-color);
+  }
+  
+  #searchBtn {
+    flex: 0 0 80%;
+    height: 2.5rem;
+    color: white;
+    background-color: var(--find-button-backgroundColor);
+    border-radius: 11.25rem;
+    font-size: var(--card-detail-button-fontSize);
+    border: none;
+  } 
+  
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .book {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .book img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .book-title {
+    font-weight: bold;
+    margin-top: 10px;
+   
+  }
+  
+  .book-price {
+    margin-top: 5px;
+    
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 5px 10px;
+    background-color:var(--find-button-backgroundColor) ;
+    color: white;
+  }
+
+
+  @media (min-width: 768px) {
+    .book {
+      width: 30%;
+    }
+  }

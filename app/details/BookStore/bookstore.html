@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bookstore.css" rel="stylesheet" tyle="text/css" />
+    <link href="global.css" rel="stylesheet" tyle="text/css" />
+    <title>Bookstore</title>
+</head>
+<body>
+
+    <div class="searchContainer">
+        <input type="text" id="searchByAuthor" class="searchFields" placeholder="  Book Author" />
+      </div>
+    
+      <div class="searchContainer">
+        <input type="text" id="searchByTitle" class="searchFields" placeholder="  Book Title" />
+      </div>
+    
+      <div class="searchContainer">
+        <button id="searchBtn">
+          <i class="fa-solid fa-magnifying-glass" style="color: #ffffff"></i> Find
+        </button>
+      </div>
+    
+      <ul id="bookList"></ul>
+
+    <div class="container"></div>
+    <div class="pagination">
+        <button id="previous"><<</button>
+        <button id="next">>></button>
+    </div>
+
+
+    <script src="bookstore.js"></script>
+    
+</body>
+</html>

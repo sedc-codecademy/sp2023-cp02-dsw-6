@@ -73,5 +73,51 @@ function displayDesc(book) {
 }
 
 descriptionFunc();
+
+
+function getRandomBooks() {
+  const apiUrl = 'https://www.googleapis.com/books/v1/volumes?q=language:en&orderBy=relevance&printType=books&maxResults=40&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)';
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      const books = data.items;
+      const randomBooks = getRandomElements(books, 3); 
+
+      randomBooks.forEach((book, index) => {
+        const bookCover = document.getElementById(`bookCover${index + 1}`);
+        const bookTitle = document.getElementById(`bookTitle${index + 1}`);
+        const bookPrice = document.getElementById(`bookPrice${index + 1}`);
+
+        bookCover.src = book.volumeInfo.imageLinks.thumbnail;
+        bookTitle.textContent = book.volumeInfo.title;
+        bookPrice.textContent = getRandomPrice();
+      });
+    })
+    .catch(error => {
+      console.log('Error:', error);
+    });
+}
+
+function getRandomElements(arr, num) {
+  const shuffled = arr.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, num);
+}
+
+function getRandomPrice() {
+  const price = Math.floor(Math.random() * 100) + 1;
+  return `$${price}`;
+}
+
+getRandomBooks();
+
+
+
+
+
+
+
+
+
   
 

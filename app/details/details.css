@@ -144,12 +144,16 @@ body {
 }
 
 
-#cart{
-  border: 1px solid black;
-  Width:20%;
-Height:30%;
-border-radius: 6px;
-margin-top: 15px;
+#addToWishList{
+  font-size: 16px;
+  border-color: #000000;
+  background: white;
+  text-transform: uppercase;
+  height: 40%;
+  width: 40%;
+  border-radius: 180px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 #addToCartBtn{
@@ -158,9 +162,9 @@ margin-top: 15px;
   background: white;
   text-transform: uppercase;
   height: 40%;
-  width: 30%;
+  width: 40%;
   border-radius: 180px;
-  margin-top: 15px;
+
   margin-bottom: 15px;
 }
 
@@ -228,6 +232,10 @@ margin-top: 15px;
   #textDetails {
     padding-left: 20px;
   }
+
+  .containerBookLikeImg {
+    justify-content: space-between;
+  }
 } 
 
 table {
@@ -251,9 +259,34 @@ table th, table td {
   justify-content: center;
 }
 
-.containerBookLike{
-  background-color: var(--button-background-color);
+.containerBookLike {
+  text-align: center;
+  background-color: #2f2b35;
+}
+
+.containerBookLikeImg {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item {
+  flex: 1;
+  text-align: center;
+  margin: 10px;
+}
+
+.item img {
   width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+
+.item p {
+  margin-top: 10px;
+  color: white;
 }
 
 
