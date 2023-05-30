@@ -7,19 +7,19 @@ showAutoSlides();
 function showAutoSlides() {
   let i;
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display="none";  
+    slides[i].style.display = "none";
   }
   autoSlideIndex++;
-  if (autoSlideIndex > slides.length) {autoSlideIndex = 1}    
+  if (autoSlideIndex > slides.length) {
+    autoSlideIndex = 1;
+  }
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
-    
   }
-  slides[autoSlideIndex-1].style.display="block";  
-  dots[autoSlideIndex-1].className += " active";
+  slides[autoSlideIndex - 1].style.display = "block";
+  dots[autoSlideIndex - 1].className += " active";
   setTimeout(showAutoSlides, 3000);
-} 
-
+}
 
 //function for slide images with press on next and previous buttons
 let slideIndex = 1;
@@ -52,17 +52,15 @@ function showSlides(n) {
 }
 showSlides(slideIndex);
 
-
 //function for slide messages from the readers
-const slides1 = document.getElementsByClassName('slideMessage');
+const slides1 = document.getElementsByClassName("slideMessage");
 let currentSlide1 = 0;
-slides1[currentSlide1].style.display = 'block';
+slides1[currentSlide1].style.display = "block";
 setInterval(() => {
-  slides1[currentSlide1].style.display = 'none';
+  slides1[currentSlide1].style.display = "none";
   currentSlide1 = (currentSlide1 + 1) % slides1.length;
-  slides1[currentSlide1].style.display = 'block';
+  slides1[currentSlide1].style.display = "block";
 }, 5000);
-
 
 //Search element
 
@@ -131,3 +129,53 @@ function displayBooks(books) {
   }
 }
 
+
+// Function for displaying new releases books
+const mainNewReleasesDiv = document.getElementById("mainNewReleasesDiv");
+
+let url =
+  "https://www.googleapis.com/books/v1/volumes?q=language:en&orderBy=relevance&printType=books&maxResults=40&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)";
+
+let displayNewReleasesBooks = () => {
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      const newestBooks = data.items.slice(0, 21); // Select the last 21 published books(7 random books for each display)
+      newReleasesBooks(newestBooks);
+    })
+    .catch((error) => console.error(error));
+}
+
+let generateRandomPrice=()=> {
+  // Generate a random price between 5 and 50$
+  const randomPrice = Math.floor(Math.random() * 45) + 5;
+  return randomPrice.toFixed(2);
+}
+
+let newReleasesBooks=(newBooks)=> {
+  // Get a random book from the array of new books
+  let randomIndex;
+  const displayedBooks = [];
+  for (let i = 1; i <= 3; i++) {
+    do {
+      randomIndex = Math.floor(Math.random() * newBooks.length);
+    } while (displayedBooks.includes(randomIndex));
+
+    displayedBooks.push(randomIndex);
+    const randomBook = newBooks[randomIndex];
+    const price = generateRandomPrice();
+
+    const displayImage = document.getElementById(`displayImage${i}`);
+    const divTitleNewRelease = document.getElementById(`divTitleNewRelease${i}`);
+    const divAuthorNewRelease = document.getElementById(`divAuthorNewRelease${i}`);
+    const divPriceNewRelease = document.getElementById(`divPriceNewRelease${i}`);
+ 
+  //Displaying a random book image, title, authors and price
+  displayImage.innerHTML = `<img class="newReleaseImg" src="${randomBook.volumeInfo.imageLinks.thumbnail}  alt="Image">`;
+  divTitleNewRelease.innerHTML = `<h1 class="titleForNewReleases"> ${randomBook.volumeInfo.title}`;
+  divAuthorNewRelease.innerHTML = `<h1 class="authorForNewReleases"> ${randomBook.volumeInfo.authors}`;
+  divPriceNewRelease.innerHTML = `<h1 class="priceForNewReleases"> $${price}`;
+  }
+}
+
+displayNewReleasesBooks();
