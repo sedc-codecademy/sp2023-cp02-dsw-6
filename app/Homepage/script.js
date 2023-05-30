@@ -1,3 +1,4 @@
+
 let slides = document.getElementsByClassName("slideImages");
 let dots = document.getElementsByClassName("items");
 
@@ -156,6 +157,7 @@ let generateRandomPrice = () => {
 
 let newReleasesBooks = (newBooks) => {
   // Get a random book from the array of new books
+  
   let randomIndex;
   const displayedBooks = [];
   for (let i = 1; i <= 3; i++) {
@@ -177,6 +179,19 @@ let newReleasesBooks = (newBooks) => {
     const divPriceNewRelease = document.getElementById(
       `divPriceNewRelease${i}`
     );
+    //
+    const buyButton = document.getElementById(`buyButton${i}`);
+
+    buyButton.addEventListener('click', () => {
+      let allProducts = JSON.parse(localStorage.getItem('products'));
+
+      if(allProducts == null) {
+        allProducts = [{...randomBook, price: Number(price)}];
+      } else {
+        allProducts.push({...randomBook, price: Number(price)});
+    }
+      localStorage.setItem('products', JSON.stringify(allProducts));
+    })
 
     //Displaying a random book image, title, authors and price
     displayImage.innerHTML = `<img class="newReleaseImg" src="${randomBook.volumeInfo.imageLinks.thumbnail}  alt="Image">`;
@@ -185,6 +200,14 @@ let newReleasesBooks = (newBooks) => {
     divPriceNewRelease.innerHTML = `<h1 class="priceForNewReleases"> $${price}`;
 
   }
-};
 
+};
 displayNewReleasesBooks();
+
+
+const buyButtons = document.querySelectorAll('.buyButton');
+
+buyButtons.forEach(btn => btn.addEventListener('click', (e) => {
+  e.preventDefault();
+  // window.location.replace('../ShoppingCard/shoppingCard.html');
+}))
