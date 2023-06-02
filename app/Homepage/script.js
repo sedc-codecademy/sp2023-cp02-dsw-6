@@ -208,6 +208,6 @@ displayNewReleasesBooks();
 const buyButtons = document.querySelectorAll('.buyButton');
 
 buyButtons.forEach(btn => btn.addEventListener('click', (e) => {
-  e.preventDefault();
-  // window.location.replace('../ShoppingCard/shoppingCard.html');
+  // e.preventDefault();
+  window.location.replace('../ShoppingCard/shoppingCard.html');
 }))

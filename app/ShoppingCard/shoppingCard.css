@@ -112,9 +112,20 @@
     max-width: 50%;
   }
 
-  .card_info-body-amount {
-    /* max-width: 25%; */
-  }
+ .product-amount {
+  display: flex;
+  align-items: center;
+ }
+ 
+
+ .remove-product {
+  border: none;
+  background-color: transparent;
+ }
+
+ .remove-product:hover {
+  cursor: pointer;
+ }
 
   .image-info_img {
     height: 80px;
