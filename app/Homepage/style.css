@@ -1,28 +1,28 @@
 * {
   box-sizing: border-box;
   font-family: var(--font-family);
-  
 }
 
-.slideImages{
-  display: none;  
+.slideImages {
+  display: none;
 }
 
 .slideshowContainer {
-  max-width:  100%;
+  max-width: 100%;
   position: relative;
   margin: auto;
 }
 
-.coverSlideImages{
+.coverSlideImages {
   vertical-align: middle;
   width: 101.5%;
   opacity: 0.8;
 }
 
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
-  position: absolute; 
+  position: absolute;
   top: 50%;
   width: auto;
   padding: 1rem;
@@ -32,7 +32,6 @@
   font-size: var(--card-info-fontSize);
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
-  
 }
 
 .next {
@@ -40,10 +39,10 @@
   border-radius: 3px 0 0 3px;
 }
 
-.prev:hover, .next:hover {
+.prev:hover,
+.next:hover {
   background-color: var(--card-detail-button-color);
 }
-
 
 .text {
   color: var(--homepage-text-messages-color);
@@ -57,7 +56,6 @@
   display: flex;
   align-items: center;
   text-align: center;
-  
 }
 
 .items {
@@ -68,14 +66,13 @@
   background-color: var(--card-detail-button-color);
   border-radius: 50%;
   display: inline-block;
-  transition: background-color 0.6s ease; 
-  
+  transition: background-color 0.6s ease;
 }
 
-.active, .items:hover {
+.active,
+.items:hover {
   background-color: var(--search-field-backgroundColor);
 }
-
 
 .fade {
   animation-name: fade;
@@ -83,12 +80,15 @@
 }
 
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-
- .searchContainer {
+.searchContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,60 +115,70 @@
   border-radius: 11.25rem;
   font-size: var(--card-detail-button-fontSize);
   border: none;
-} 
+}
 
 /* Styling book icons, new releases and popular books */
-#booksIcons{
+#booksIcons {
   display: flex;
- flex-direction: column;
+  flex-direction: column;
 }
 
-.tonsOfBooks, .hundredOfAuthors, .easillyBookmarked{
+.tonsOfBooks,
+.hundredOfAuthors,
+.easillyBookmarked {
   display: grid;
   justify-items: center;
- 
 }
 
-.title, .describeText, .newReleasesTitleHomepage, .titleForNewReleases, .authorForNewReleases, .priceForNewReleases, .popularBooksTitleHomepage{
+.title,
+.describeText,
+.newReleasesTitleHomepage,
+.titleForNewReleases,
+.authorForNewReleases,
+.priceForNewReleases,
+.popularBooksTitleHomepage {
   font-weight: lighter;
   line-height: 32px;
   font-style: normal;
   letter-spacing: 0.02em;
 }
 
-.describeText, .authorForNewReleases{
+.describeText,
+.authorForNewReleases {
   font-size: 15px;
   text-align: center;
   opacity: 0.7;
 }
 
-.title, .titleForNewReleases{
+.title,
+.titleForNewReleases {
   font-size: 20px;
 }
 
-.newReleasesTitleHomepage, .priceForNewReleases, .popularBooksTitleHomepage{
+.newReleasesTitleHomepage,
+.priceForNewReleases,
+.popularBooksTitleHomepage {
   text-align: center;
   font-style: italic;
   font-size: 32px;
 }
 
-#mainNewReleasesDiv{
-  display: grid;
-  flex-direction: column;
-  text-align: center;
-}
-
-.newReleaseImg{
-  width: 50%;
- 
+@media only screen and (max-width: 600px) {
+  #mainNewReleasesDiv,
+  #mainPopularBooksDiv {
+    display: grid;
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 /* Details and buy buttons */
 
-.detailsButton, .buyButton{
+.detailsButton,
+.buyButton {
   border-radius: 180px 0px 0px 180px;
   border: 1px solid #000000;
-  background: #FFFFFF;
+  background: #ffffff;
   width: 167.75px;
   height: 40px;
   font-style: italic;
@@ -181,10 +191,9 @@
   text-transform: uppercase;
 }
 
-.buyButton{
+.buyButton {
   border-radius: 0px 180px 180px 0px;
 }
-
 
 /* Styling messages from the readers */
 .messagesFromTheReaders {
@@ -204,39 +213,75 @@
   font-style: italic;
   background-color: rgba(0, 0, 0, 0.7);
   color: var(--homepage-text-messages-color);
-  font-size: var( --login-button-fontSize);
+  font-size: var(--login-button-fontSize);
   line-height: 1.5;
 }
 
-
-
-.footer{
-display: flex;
-flex-direction: column;
-width: 100%;
-background-color: #635252;
-padding: 0px 25px 15px 25px;
-font-family: var(-font-family);
-color: #FFFFFF;
-font-weight: 400;
-letter-spacing: 2px;
-font-size: 25px;
-}
-
-.footerHead{
-display: flex;
-justify-content: space-around;
-}
-.footerBody{
+.footer {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
+  width: 100%;
+  background-color: #635252;
+  padding: 0px 25px 15px 25px;
+  font-family: var(-font-family);
+  color: #ffffff;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 25px;
 }
- .footerIcon{
-  color:  #BABABA; 
+
+.footerHead {
+  display: flex;
+  justify-content: space-around;
+}
+.footerBody {
+  display: flex;
+  flex-direction: column;
+}
+.footerIcon {
+  color: #bababa;
   margin-right: 10px;
-} 
+}
 
+/* Added media query for desktop displaying new releases and popular books */
+@media screen and (min-width: 768px) {
+  #mainNewReleasesDiv,
+  #mainPopularBooksDiv {
+    display: flex;
+    justify-content: space-evenly;
+  }
 
+  #firstDisplay,
+  #secondDisplay,
+  #thirdDisplay {
+    width: 300px;
+    height: 50%;
+  }
 
+  .authorForNewReleases,
+  .titleForNewReleases {
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
+  .newReleaseImg,
+  .popularImg {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 250px;
+  }
 
+  .detailsButton,
+  .buyButton {
+    width: 145.75px;
+  }
+
+  .priceForNewReleases {
+    text-align: center;
+    font-style: italic;
+    font-size: 22px;
+  }
+}
