@@ -69,10 +69,15 @@ let searchByAuthorInput = document.getElementById("searchByAuthor");
 let searchByTitleInput = document.getElementById("searchByTitle");
 let searchBtn = document.getElementById("searchBtn");
 let bookList = document.getElementById("bookList");
+let containerSearch=document.querySelector(".containerSearch")
+
+
 
 searchBtn.addEventListener("click", searchBooks);
 
+
 function searchBooks() {
+
   let title = searchByTitleInput.value.trim();
   let author = searchByAuthorInput.value.trim();
 
@@ -87,48 +92,58 @@ function searchBooks() {
 
   fetch(url)
     .then((response) => response.json())
-    .then((data) => displayBooks(data.items))
+    .then((data) => displayBooksSearch(data.items))
     .catch((error) => console.error(error));
 }
 
-//function for displaying the books after the search
-function displayBooks(books) {
-  bookList.innerHTML = "";
+function displayBooksSearch(books) {
+  containerSearch.innerHTML = "";
+
   if (books) {
     books.forEach((book) => {
-      let li = document.createElement("li");
-      li.innerHTML = `<img src="${
-        book.volumeInfo.imageLinks?.thumbnail
-      }" alt="${book.volumeInfo.title}">
-        <div>
-          <h2>${book.volumeInfo.title}</h2>
-          <p>Author(s): ${
-            book.volumeInfo.authors
-              ? book.volumeInfo.authors.join(", ")
-              : "Unknown"
-          }</p>
-          <p>Category: ${
-            book.volumeInfo.categories
-              ? book.volumeInfo.categories.join(", ")
-              : "Unknown"
-          }</p>
-          <p>Published Date: ${
-            book.volumeInfo.publishedDate
-              ? book.volumeInfo.publishedDate
-              : "Unknown"
-          }</p>
-          <p>Description: ${
-            book.volumeInfo.description ? book.volumeInfo.description : "N/A"
-          }</p>
-        </div>`;
-      bookList.appendChild(li);
+      const bookElement = createBookElement(book);
+      containerSearch.appendChild(bookElement);
     });
   } else {
-    let li = document.createElement("li");
-    li.textContent = "No books found.";
-    bookList.appendChild(li);
+    let p = document.getElementById("bookList");
+    p.innerHTML = "No books found.";
+ 
   }
+
+  previousButton.disabled = true;
+  nextButton.disabled = true;
 }
+
+function createBookElement(book) {
+  const bookElement = document.createElement('div');
+  bookElement.classList.add('book');
+
+  const thumbnail = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : '';
+  const title = book.volumeInfo.title;
+  const author=book.volumeInfo.authors;
+  const price = getRandomPrice();
+
+  bookElement.innerHTML = `
+      <img src="${thumbnail}" alt="Book Cover">
+      <div class="book-title">${title}</div>
+      <div class="book-author">${author}</div>
+      <div class="book-price">$${price}</div>
+      <div class="book-buttons">
+          <button class="detailsButton"><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details </button>
+          <button class="buyButton"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i>Buy</button>
+      </div>
+  `;
+
+  return bookElement;
+}
+
+function getRandomPrice() {
+  const minPrice = 5;
+  const maxPrice = 20;
+  return (Math.random() * (maxPrice - minPrice) + minPrice).toFixed(2);
+}
+
+
 
 // Function for displaying new releases books
 const mainNewReleasesDiv = document.getElementById("mainNewReleasesDiv");

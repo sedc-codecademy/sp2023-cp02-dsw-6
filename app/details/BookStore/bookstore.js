@@ -6,6 +6,7 @@ let bookList = document.getElementById("bookList");
 
 searchBtn.addEventListener("click", searchBooks);
 
+
 function searchBooks() {
   let title = searchByTitleInput.value.trim();
   let author = searchByAuthorInput.value.trim();
@@ -21,26 +22,32 @@ function searchBooks() {
 
   fetch(url)
     .then((response) => response.json())
-    .then((data) => displayBooks2(data.items))
+    .then((data) => displayBooksSearch(data.items))
     .catch((error) => console.error(error));
 }
 
-//function for displaying the books after the search
-function displayBooks2(books) {
-    bookList.innerHTML = "";
-    if (books) {
-      books.forEach((book) => {
-        const bookElement = createBookElement(book);
-        bookList.appendChild(bookElement);
-      });
-    } else {
-      let li = document.createElement("li");
-      li.textContent = "No books found.";
-      bookList.appendChild(li);
-    }
+function displayBooksSearch(books) {
+  container.innerHTML = "";
+
+  if (books) {
+    books.forEach((book) => {
+      const bookElement = createBookElement(book);
+      container.appendChild(bookElement);
+    });
+  } else {
+    let li = document.createElement("li");
+    li.textContent = "No books found.";
+    container.appendChild(li);
   }
 
+  previousButton.disabled = true;
+  nextButton.disabled = true;
+}
 
+
+
+
+  //Displaying all books random
 const container = document.querySelector('.container');
 const previousButton = document.getElementById('previous');
 const nextButton = document.getElementById('next');
@@ -69,22 +76,25 @@ function displayBooks() {
         });
 }
 
+
+
 function createBookElement(book) {
     const bookElement = document.createElement('div');
     bookElement.classList.add('book');
 
     const thumbnail = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : '';
     const title = book.volumeInfo.title;
+    const author=book.volumeInfo.authors;
     const price = getRandomPrice();
 
     bookElement.innerHTML = `
         <img src="${thumbnail}" alt="Book Cover">
         <div class="book-title">${title}</div>
+        <div class="book-author">${author}</div>
         <div class="book-price">$${price}</div>
         <div class="book-buttons">
-            <button class="details-button">Details</button>
-            <button class="wishList-button">Wish List</button>
-            <button class="buy-button">Buy</button>
+            <button class="detailsButton"><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details </button>
+            <button class="buyButton"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i>Buy</button>
         </div>
     `;
 

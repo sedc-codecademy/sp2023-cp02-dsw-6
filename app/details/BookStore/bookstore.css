@@ -1,35 +1,33 @@
 
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.625rem;
+  margin-bottom: 0.625rem;
+}
 
+.searchFields {
+  flex: 0 0 80%;
+  height: 50px;
+  width: 370px;
+  border-radius: 0.3125rem;
+  font-size: var(--card-detail-button-fontSize);
+  border: none;
+  background-color: var(--search-field-backgroundColor);
+  color: var(--card-detail-button-color);
+}
 
-  .searchContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0.625rem;
-    margin-bottom: 0.625rem;
-  }
-  
-  .searchFields {
-    flex: 0 0 80%;
-    height: 50px;
-    width: 370px;
-    border-radius: 0.3125rem;
-    font-size: var(--card-detail-button-fontSize);
-    border: none;
-    background-color: var(--search-field-backgroundColor);
-    color: var(--card-detail-button-color);
-  }
-  
-  #searchBtn {
-    flex: 0 0 80%;
-    height: 2.5rem;
-    color: white;
-    background-color: var(--find-button-backgroundColor);
-    border-radius: 11.25rem;
-    font-size: var(--card-detail-button-fontSize);
-    border: none;
-  } 
-  
+#searchBtn {
+  flex: 0 0 80%;
+  height: 2.5rem;
+  color: white;
+  background-color: var(--find-button-backgroundColor);
+  border-radius: 11.25rem;
+  font-size: var(--card-detail-button-fontSize);
+  border: none;
+} 
+
   
   .container {
     display: flex;
@@ -76,9 +74,32 @@
     color: white;
   }
 
+  .detailsButton,
+.buyButton {
+  border-radius: 180px 0px 0px 180px;
+  border: 1px solid #000000;
+  background: #ffffff;
+  width: 167.75px;
+  height: 40px;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.buyButton {
+  border-radius: 0px 180px 180px 0px;
+}
+
 
   @media (min-width: 768px) {
     .book {
-      width: 30%;
+      width: 30%;}
+
+   
     }
-  }
+  

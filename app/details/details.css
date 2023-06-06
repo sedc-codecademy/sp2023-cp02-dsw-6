@@ -218,25 +218,7 @@ body {
 
 
 
-/* ova go naprajv samo za proba  */
- @media (min-width: 768px) {
-  #containerDetails {
-    flex-direction: row;
-  }
 
-  #coverImg,
-  #textDetails, .bookDetails, .bookDetailsTable, .descriptionDetails   {
-    flex: 1;
-  }
-
-  #textDetails {
-    padding-left: 20px;
-  }
-
-  .containerBookLikeImg {
-    justify-content: space-between;
-  }
-} 
 
 table {
   border-collapse: collapse;
@@ -287,8 +269,75 @@ table th, table td {
 .item p {
   margin-top: 10px;
   color: white;
+} 
+
+
+/* Media query for desktop  */
+@media (min-width: 768px) {
+  #containerDetails {
+    flex-direction: row;
+  }
+
+  #coverImg,
+  #textDetails, .bookDetails, .bookDetailsTable, .descriptionDetails   {
+    flex: 1;
+  }
+
+  #textDetails {
+    padding-left: 20px;
+  }
+
+  .containerBookLikeImg {
+    justify-content: space-between;
+  }
+
+  .containerBookLikeImg {
+    flex-direction: row;
+  }
+
+  .item {
+    flex: 0 0 33.33%; 
+  }
+
+} 
+
+#detailsButtonAndBuyButtonCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
+#detailsButtonCart, #buyButtonCart {
+  border-radius: 180px;
+  
+}
+
+#buyButtonCart {
+  margin-top: 20px;
+}
+.detailsButton,
+.buyButton {
+  border-radius: 180px 0px 0px 180px;
+  border: 1px solid #000000;
+  background: #ffffff;
+  width: 167.75px;
+  height: 40px;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.buyButton {
+  border-radius: 0px 180px 180px 0px;
+}
 
 .footer{
   display: flex;
