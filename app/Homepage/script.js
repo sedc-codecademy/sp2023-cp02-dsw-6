@@ -118,12 +118,15 @@ function createBookElement(book) {
   bookElement.classList.add('book');
 
   const thumbnail = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : '';
-  const title = book.volumeInfo.title;
+  let title = book.volumeInfo.title;
+  if(title.length > 42) {
+    title = title.substring(0, 40) + "...";
+  }
   const limitedWordsAuthorr = book.volumeInfo.authors.slice(0, 2).join(', '); 
   const price = getRandomPrice();
 
   bookElement.innerHTML = `
-      <img src="${thumbnail}" alt="Book Cover">
+      <img id="imgCoverBook" src="${thumbnail}" alt="Book Cover">
       <div class="book-title">${title}</div>
       <div class="book-author">${limitedWordsAuthorr}</div>
       <div class="book-price">$${price}</div>

@@ -137,10 +137,15 @@ function displayDesc(book) {
        randomBooks.forEach((book, index) => {
         const bookCover = document.getElementById(`bookCover${index + 1}`);
         const bookTitle = document.getElementById(`bookTitle${index + 1}`);
+        
          const bookPrice = document.getElementById(`bookPrice${index + 1}`);
-
+         let title = book.volumeInfo.title;
+         if(title.length > 42) {
+          title = title.substring(0, 40) + "...";
+        }
+        
          bookCover.src = book.volumeInfo.imageLinks.thumbnail;
-         bookTitle.textContent = book.volumeInfo.title;
+         bookTitle.textContent = `${title}`;
          bookPrice.textContent = getRandomPrice();
         
 
