@@ -88,6 +88,12 @@
   }
 }
 
+.search-main-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+
 .searchContainer {
   display: flex;
   justify-content: center;
@@ -99,7 +105,7 @@
 .searchFields {
   flex: 0 0 80%;
   height: 50px;
-  width: 370px;
+  /* width: 370px; */
   border-radius: 0.3125rem;
   font-size: var(--card-detail-button-fontSize);
   border: none;
@@ -116,7 +122,6 @@
   font-size: var(--card-detail-button-fontSize);
   border: none;
 } 
-
   
   .containerSearch {
     display: flex;
@@ -321,4 +326,31 @@
 
   .book {
     width: 30%;}  
+
+    .search-main-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .searchContainer:nth-of-type(2) {
+      order: 3;
+    }
+  .searchContainer:nth-of-type(3) {
+    grid-row: 1 /3 ;
+    grid-column: 2;
+  }
+  #imgCoverBook{
+    width: 200px;
+    height: 300px;
+  }
 }
+
+@media (min-width: 1030px) {
+  .search-main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .searchContainer:nth-of-type(3) {
+    grid-column: 3;
+  }
+}
+
