@@ -202,7 +202,6 @@ let newReleasesBooks = (newBooks) => {
 
     detailsButton.addEventListener('click', () => {
       localStorage.setItem('detailBook', JSON.stringify([{...randomBook, price: Number(price)}]));
-      console.log(JSON.parse(localStorage.getItem('detailBook')));
     })
 
 
@@ -260,6 +259,12 @@ let popularBooks=(showPopular)=>{
     const priceForPopular = generateRandomPrice();
     //
     const buyButton = document.getElementById(`buyButtonPopular${i +1}`);
+    const detailsButton = document.getElementById(`detailsButtonPopular${i +1}`);
+    detailsButton.addEventListener('click', () => {
+      localStorage.setItem('detailBook', JSON.stringify([{...book, price: Number(priceForPopular)}]));
+    })
+
+
     buyButton.addEventListener('click', () => {
       let allProducts = JSON.parse(localStorage.getItem('products'));
 
