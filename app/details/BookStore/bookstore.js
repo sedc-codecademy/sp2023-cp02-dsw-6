@@ -87,7 +87,10 @@ function createBookElement(book) {
     bookElement.classList.add('book');
 
     const thumbnail = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : '';
-    const title = book.volumeInfo.title;
+    let title = book.volumeInfo.title;
+    if(title.length > 42) {
+      title = title.substring(0, 40) + "...";
+    }
     const limitedWordsAuthorr = book.volumeInfo.authors.slice(0, 2).join(', '); 
     const price = getRandomPrice();
 
