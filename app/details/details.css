@@ -182,6 +182,7 @@ body {
  
 }
 
+
 #coverImg,
 #textDetails, .bookDetailsTable, .descriptionDetails {
   display: grid;
@@ -244,6 +245,7 @@ table th, table td {
 .containerBookLike {
   text-align: center;
   background-color: #2f2b35;
+ 
 }
 
 .containerBookLikeImg {
@@ -287,6 +289,10 @@ table th, table td {
     padding-left: 20px;
   }
 
+  .offerBox{
+    width: 60%;
+  }
+
   .containerBookLikeImg {
     justify-content: space-between;
   }
@@ -298,6 +304,8 @@ table th, table td {
   .item {
     flex: 0 0 33.33%; 
   }
+
+ 
 
 } 
 
