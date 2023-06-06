@@ -3,7 +3,7 @@
 
 window.addEventListener('load', () => {
     const allProducts = JSON.parse(localStorage.getItem('products')) || [];
-    console.log('ready');
+
     Products = allProducts;
     if(Products.length > 0 ) {
     Products.forEach(prod => {
@@ -19,37 +19,84 @@ window.addEventListener('load', () => {
         <p class="card_info-body-price">$${prod.price}</p>
         <div class="card_info-body-quantity">
         <input type="number" min="0" step="1" value="1" class="product-quantity">
-        <button class="add-quantity">+</button>
+        <button class="add-quantity" >+</button>
         <button class="remove-quantity">-</button>
       </div>
+        <div class="product-amount">
         <p class="card_info-body-amount">${prod.price}</p>
+        <button class="remove-product" ><i data-id="${prod.id}" class="fa fa-minus-square" style="color:#E22727" aria-hidden="true"></i></button>
+        </div>
       </div>
       </div>
       `;
       productsDiv.innerHTML += displayProduct;
+      
     });
 }
+const removeProductBtns = document.querySelectorAll('.remove-product');
+removeProductBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+
+    const productId = e.target.dataset.id;
+    let allProducts = JSON.parse(localStorage.getItem('products'));
+    allProducts = allProducts.filter(prod => prod.id !== productId);
+    localStorage.setItem('products', JSON.stringify(allProducts));
+    window.location.reload();
+  })
+})
+
+const addQuantityBtns = document.querySelectorAll('.add-quantity');
+addQuantityBtns.forEach(btn => {
+
+  btn.addEventListener('click', (e) => {
+    let productAmount = e.target.previousElementSibling;
+    productAmount.value = Number(productAmount.value) + 1;
+
+    let productTotalAmount = e.target.nextElementSibling.
+    parentElement.parentElement.lastElementChild.firstElementChild;
+    let productPrice = e.target.parentElement.previousElementSibling.textContent;
+    let parsedPrice = parseInt(productPrice.replace('$',''));
+    const totalPrice = parsedPrice * Number(productAmount.value);
+    productTotalAmount.textContent = totalPrice.toString();
+
+    const cardTotal = document.querySelector('#card-total');
+    let parsedTotal = parseInt(cardTotal.textContent.replace('$', ''));
+    parsedTotal += parsedPrice ;
+    cardTotal.textContent = parsedTotal.toString();
+  })
+})
+
+const removeQuantityBtns = document.querySelectorAll('.remove-quantity');
+removeQuantityBtns.forEach(btn => {
+
+  btn.addEventListener('click', (e) => {
+    let productAmount = e.target.previousElementSibling.previousElementSibling;
+    if(productAmount.value != 1) {
+    productAmount.value = Number(productAmount.value) - 1;
+
+    let productTotalAmount = e.target.
+    parentElement.parentElement.lastElementChild.firstElementChild;
+    let productPrice = e.target.parentElement.previousElementSibling.textContent;
+    let parsedPrice = parseInt(productPrice.replace('$',''));
+    const totalPrice = parsedPrice * Number(productAmount.value);
+    productTotalAmount.textContent = totalPrice.toString();
+
+
+    const cardTotal = document.querySelector('#card-total');
+    let parsedTotal = parseInt(cardTotal.textContent.replace('$', ''));
+    parsedTotal -= parsedPrice;
+    cardTotal.textContent = parsedTotal.toString();
+  }
+  })
+})
 
 })
+
 let Products = [];
 const productQuantity = document.querySelector('.product-quantity');
-const productAddQuantityBtn = document.querySelector('.add-quantity');
-const productRemoveQuantityBtn = document.querySelector('.remove-quantity');
-// const productDiv = document.querySelector('.card_info-body');
 const productsDiv = document.querySelector('.allproducts');
 
 
-// productAddQuantityBtn.addEventListener('click', () => {
-//     productQuantity.value++;
-//     console.log(products);
-// })
-
-
-// productRemoveQuantityBtn.addEventListener('click', () => {
-//     if(productQuantity.value != 1) {
-//     productQuantity.value --;
-//     } 
-// })
 
 
 

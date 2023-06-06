@@ -195,8 +195,12 @@ let newReleasesBooks = (newBooks) => {
 
     //Displaying a random book image, title, authors and price
     displayImage.innerHTML = `<img class="newReleaseImg" src="${randomBook.volumeInfo.imageLinks.thumbnail}  alt="Image">`;
+    
     divTitleNewRelease.innerHTML = `<h1 class="titleForNewReleases"> ${randomBook.volumeInfo.title}`;
-    divAuthorNewRelease.innerHTML = `<h1 class="authorForNewReleases"> ${randomBook.volumeInfo.authors}`;
+    
+    const limitedWordsAuthor = randomBook.volumeInfo.authors.slice(0, 2).join(', '); 
+    divAuthorNewRelease.innerHTML = `<h1 class="authorForNewReleases"> ${limitedWordsAuthor}`;
+    
     divPriceNewRelease.innerHTML = `<h1 class="priceForNewReleases"> $${price}`;
 
   }
@@ -205,9 +209,48 @@ let newReleasesBooks = (newBooks) => {
 displayNewReleasesBooks();
 
 
+// Function for displaying popular books
+let displayPopularBooks = () => {
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      const popular = data.items.slice(3,6)
+      popularBooks(popular);
+    })
+    .catch((error) => console.error(error));
+};
+
+let popularBooks=(showPopular)=>{
+  for (let i = 0; i < showPopular.length; i++){
+    const book = showPopular[i];
+  const displayPopularBooksImage = document.getElementById(`displayImagePopular${i+1}`);
+    const divTitlePopular = document.getElementById(
+      `divTitlePopular${i+1}`
+    );
+    const divAuthorPopular = document.getElementById(
+      `divAuthorPopular${i+1}`
+    );
+    const divPricePopular = document.getElementById(
+      `divPricePopular${i+1}`
+    );
+    const priceForPopular = generateRandomPrice();
+    displayPopularBooksImage .innerHTML = `<img class="popularImg" src="${book.volumeInfo.imageLinks.thumbnail}  alt="Image">`;
+    
+    divTitlePopular.innerHTML = `<h1 class="titleForNewReleases"> ${book.volumeInfo.title}`;
+    
+    const limitedWordsAuthorr = book.volumeInfo.authors.slice(0, 2).join(', '); 
+    divAuthorPopular.innerHTML = `<h1 class="authorForNewReleases"> ${limitedWordsAuthorr}`;
+    
+    divPricePopular.innerHTML = `<h1 class="priceForNewReleases"> $${priceForPopular}`;
+  }
+}
+
+displayPopularBooks();
+
+
 const buyButtons = document.querySelectorAll('.buyButton');
 
 buyButtons.forEach(btn => btn.addEventListener('click', (e) => {
-  e.preventDefault();
-  // window.location.replace('../ShoppingCard/shoppingCard.html');
+  // e.preventDefault();
+  window.location.replace('../ShoppingCard/shoppingCard.html');
 }))
