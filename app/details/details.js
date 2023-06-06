@@ -60,7 +60,7 @@ function displayDesc(book) {
     let price = getRandomPrice(); // Generate random price
 
     titleDesc.innerHTML = book.volumeInfo.title;
-    coverImg.innerHTML = `<img src="${book.volumeInfo.imageLinks.thumbnail}" alt="Cover Image">`;
+    coverImg.innerHTML = `<img id="coverImgBook" src="${book.volumeInfo.imageLinks.thumbnail}" alt="Cover Image">`;
 
     categoryTable.innerHTML += `<td>${book.volumeInfo.categories}</td>`;
     authorTable.innerHTML += `<td>${book.volumeInfo.authors}</td>`;

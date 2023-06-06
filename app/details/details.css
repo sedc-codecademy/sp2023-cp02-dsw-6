@@ -305,6 +305,15 @@ table th, table td {
     flex: 0 0 33.33%; 
   }
 
+  #coverImgBook{
+    width: 300px;
+    height: 400px;
+  }
+
+  #title{
+    font-size: 30px;
+  }
+
  
 
 } 

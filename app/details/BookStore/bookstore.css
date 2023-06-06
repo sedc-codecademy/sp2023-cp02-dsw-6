@@ -117,6 +117,11 @@
   }
   .book {
     width: 30%;}
+
+    #imgCoverBook{
+      width: 200px;
+      height: 300px;
+    }
   }
 
   
