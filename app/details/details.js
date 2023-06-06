@@ -2,7 +2,6 @@
 window.addEventListener('load', () => {
   const wrapperDiv = document.querySelector('#wrapper');
   const bookData = JSON.parse(localStorage.getItem('detailBook'))[0] || [];
-  // console.log(JSON.parse(localStorage.getItem('detailBook'))[0]);
   wrapperDiv.innerHTML += `
   <div id="containerDetails">
     <div id="coverImg"><img id="coverImgBook" src="${bookData.volumeInfo.imageLinks.thumbnail}" alt="Cover Image"></div>
