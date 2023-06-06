@@ -77,7 +77,6 @@ searchBtn.addEventListener("click", searchBooks);
 
 
 function searchBooks() {
-
   let title = searchByTitleInput.value.trim();
   let author = searchByAuthorInput.value.trim();
 
@@ -86,7 +85,7 @@ function searchBooks() {
     url += `intitle:${title}&`;
   }
   if (author) {
-    url += `inauthor:${author}&`;
+    url += `inauthor:"${author}"&`; 
   }
   url += `orderBy=relevance&printType=books&maxResults=40&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)`;
 

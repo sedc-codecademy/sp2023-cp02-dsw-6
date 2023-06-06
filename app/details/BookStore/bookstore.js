@@ -4,6 +4,9 @@ let searchByTitleInput = document.getElementById("searchByTitle");
 let searchBtn = document.getElementById("searchBtn");
 let bookList = document.getElementById("bookList");
 
+
+
+
 searchBtn.addEventListener("click", searchBooks);
 
 
@@ -16,7 +19,7 @@ function searchBooks() {
     url += `intitle:${title}&`;
   }
   if (author) {
-    url += `inauthor:${author}&`;
+    url += `inauthor:"${author}"&`; 
   }
   url += `orderBy=relevance&printType=books&maxResults=40&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)`;
 
@@ -35,14 +38,15 @@ function displayBooksSearch(books) {
       container.appendChild(bookElement);
     });
   } else {
-    let li = document.createElement("li");
-    li.textContent = "No books found.";
-    container.appendChild(li);
+    let p = document.getElementById("bookList");
+    p.innerHTML = "No books found.";
+ 
   }
 
   previousButton.disabled = true;
   nextButton.disabled = true;
 }
+
 
 
 
