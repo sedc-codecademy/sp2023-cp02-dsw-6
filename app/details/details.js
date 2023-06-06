@@ -1,3 +1,53 @@
+
+window.addEventListener('load', () => {
+  const wrapperDiv = document.querySelector('#wrapper');
+  const bookData = JSON.parse(localStorage.getItem('detailBook'))[0] || [];
+  // console.log(JSON.parse(localStorage.getItem('detailBook'))[0]);
+  wrapperDiv.innerHTML += `
+  <div id="containerDetails">
+    <div id="coverImg"><img id="coverImgBook" src="${bookData.volumeInfo.imageLinks.thumbnail}" alt="Cover Image"></div>
+    <div id="textDetails">
+      <h1 id="title">${bookData.volumeInfo.title}</h1>
+      <div class="offerBox">
+        <div class="price">$${bookData.price}</div>              
+              
+        <div id="detailsButtonAndBuyButtonCart">
+          <button class="detailsButton" id="detailsButtonCart"><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details </button>
+          <button class="buyButton" id="buyButtonCart"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i> Buy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bookDetails">
+    <div class="bookDetailsTable">
+      <h1 id="bookDet">Book Details</h1>
+      <table id="tableDetails">
+        <tbody>
+          <tr>
+            <th>Category</th>
+            <td id="categoryTable">${bookData.volumeInfo.categories}</td>
+          </tr>
+          <tr>
+            <th>Author</th>
+            <td id="authorTable">${bookData.volumeInfo.authors}</td>
+          </tr>
+          <tr>
+            <th>Published</th>
+            <td id="publishedTable">${bookData.volumeInfo.publishedDate}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="descriptionDetails">
+        <h1 id="descDetails">Description</h1>
+        <p class="desc">${bookData.volumeInfo.description}</p>
+      </div>
+    </div>
+  </div>
+  `
+  // console.log('ready');
+});
+
+
 let slideIndex = 1;
 
 showSlides(slideIndex);
@@ -56,23 +106,23 @@ function displayDesc(book) {
     let categoryTable = document.getElementById("categoryTable");
     let authorTable = document.getElementById("authorTable");
     let publishedTable = document.getElementById("publishedTable");
-    let desc = document.getElementsByClassName("desc")[0];
+    let desc = document.querySelector('.desc');
     let price = getRandomPrice(); // Generate random price
 
-    titleDesc.innerHTML = book.volumeInfo.title;
-    coverImg.innerHTML = `<img id="coverImgBook" src="${book.volumeInfo.imageLinks.thumbnail}" alt="Cover Image">`;
+    // titleDesc.innerHTML = book.volumeInfo.title;
+    // coverImg.innerHTML = `<img id="coverImgBook" src="${book.volumeInfo.imageLinks.thumbnail}" alt="Cover Image">`;
 
     categoryTable.innerHTML += `<td>${book.volumeInfo.categories}</td>`;
     authorTable.innerHTML += `<td>${book.volumeInfo.authors}</td>`;
     publishedTable.innerHTML += `<td>${book.volumeInfo.publishedDate}</td>`;
     desc.innerHTML = `${book.volumeInfo.description}`;
-    document.querySelector('.price').textContent = price; 
+    // document.querySelector('.price').textContent = price; 
   } else {
     console.log("No book found.");
   }
 }
 
-descriptionFunc();
+// descriptionFunc();
 
 
  function getRandomBooks() {
