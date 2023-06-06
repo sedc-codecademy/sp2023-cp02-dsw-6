@@ -198,6 +198,13 @@ let newReleasesBooks = (newBooks) => {
     );
     //
     const buyButton = document.getElementById(`buyButton${i}`);
+    const detailsButton = document.getElementById(`detailsButton${i}`);
+
+    detailsButton.addEventListener('click', () => {
+      localStorage.setItem('detailBook', JSON.stringify([{...randomBook, price: Number(price)}]));
+      console.log(JSON.parse(localStorage.getItem('detailBook')));
+    })
+
 
     buyButton.addEventListener('click', () => {
       let allProducts = JSON.parse(localStorage.getItem('products'));
@@ -251,6 +258,19 @@ let popularBooks=(showPopular)=>{
       `divPricePopular${i+1}`
     );
     const priceForPopular = generateRandomPrice();
+    //
+    const buyButton = document.getElementById(`buyButtonPopular${i +1}`);
+    buyButton.addEventListener('click', () => {
+      let allProducts = JSON.parse(localStorage.getItem('products'));
+
+      if(allProducts == null) {
+        allProducts = [{...book, price: Number(priceForPopular)}];
+      } else {
+        allProducts.push({...book, price: Number(priceForPopular)});
+    }
+      localStorage.setItem('products', JSON.stringify(allProducts));
+    })
+
     displayPopularBooksImage .innerHTML = `<img class="popularImg" src="${book.volumeInfo.imageLinks.thumbnail}  alt="Image">`;
     
     divTitlePopular.innerHTML = `<h1 class="titleForNewReleases"> ${book.volumeInfo.title}`;
@@ -266,8 +286,13 @@ displayPopularBooks();
 
 
 const buyButtons = document.querySelectorAll('.buyButton');
+const detailsButton = document.querySelectorAll('.detailsButton');
 
 buyButtons.forEach(btn => btn.addEventListener('click', (e) => {
-  // e.preventDefault();
   window.location.replace('../ShoppingCard/shoppingCard.html');
-}))
+}));
+
+
+detailsButton.forEach(btn => btn.addEventListener('click', (e) => {
+  window.location.replace('../details/details.html');
+}));

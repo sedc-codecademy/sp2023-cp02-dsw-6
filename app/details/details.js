@@ -1,4 +1,4 @@
-// let slideIndex = 1;
+let slideIndex = 1;
 
 // showSlides(slideIndex);
 
@@ -56,23 +56,23 @@ function displayDesc(book) {
     let categoryTable = document.getElementById("categoryTable");
     let authorTable = document.getElementById("authorTable");
     let publishedTable = document.getElementById("publishedTable");
-    let desc = document.getElementsByClassName("desc")[0];
+    let desc = document.querySelector('.desc');
     let price = getRandomPrice(); // Generate random price
 
-    titleDesc.innerHTML = book.volumeInfo.title;
-    coverImg.innerHTML = `<img id="coverImgBook" src="${book.volumeInfo.imageLinks.thumbnail}" alt="Cover Image">`;
+    // titleDesc.innerHTML = book.volumeInfo.title;
+    // coverImg.innerHTML = `<img id="coverImgBook" src="${book.volumeInfo.imageLinks.thumbnail}" alt="Cover Image">`;
 
     categoryTable.innerHTML += `<td>${book.volumeInfo.categories}</td>`;
     authorTable.innerHTML += `<td>${book.volumeInfo.authors}</td>`;
     publishedTable.innerHTML += `<td>${book.volumeInfo.publishedDate}</td>`;
     desc.innerHTML = `${book.volumeInfo.description}`;
-    document.querySelector('.price').textContent = price; 
+    // document.querySelector('.price').textContent = price; 
   } else {
     console.log("No book found.");
   }
 }
 
-descriptionFunc();
+// descriptionFunc();
 
 
  function getRandomBooks() {
