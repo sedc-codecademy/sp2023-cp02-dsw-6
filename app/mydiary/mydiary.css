@@ -102,7 +102,6 @@ body {
   justify-content: space-between;
   margin: 40px auto;
   position: relative;
-  /* right: 7.5%; */
 }
 /* hide the inputs */
 .star-rating input {
@@ -157,8 +156,10 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border: 5px solid rgb(203, 186, 186);
+  border-radius: 20px;
   background-color: var(--search-field-backgroundColor);
-  font-size: large;
+  font-size: medium;
   font-weight: var(--card-detail-button-fontWeight);
   color: var(--card-detail-button-color);
   position: relative;
@@ -171,7 +172,6 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* padding-bottom: 20%; */
   left: calc(50% - 345px / 2);
   background-color: #898686;
   color: var(--card-detail-button-color);
@@ -191,25 +191,25 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* padding-bottom: 20%; */
   left: calc(50% - 345px / 2);
   color: var(--card-detail-button-color);
+  background-color: #dbacac;
 }
 
 .addItem p {
   padding: 0 20px;
-  font-size: large;
+  font-size: small;
   font-weight: var(--card-detail-button-fontWeight);
   color: var(--card-detail-button-color);
   left: calc(50% - 345px / 2);
 }
 
 .smallstar {
-  color: pink;
+  color: yellow;
 }
 
 .book-image {
-  width: 100px; /* Set the desired width */
+  width: 80px; /* Set the desired width */
   height: auto; /* Maintain aspect ratio */
   margin-top: 10px; /* Add margin to separate from the previous paragraph */
 }
