@@ -16,9 +16,10 @@ let buttonBuy=document.getElementsByClassName("buyButton1");
   // function for displaying books with discount prices
   function bookElementFunc(book, index) {
     const i = index + 1;
-    const price = Math.floor(Math.random() * 45 + 10); //showing random prices with discount of 15%
+    const price = Math.floor(Math.random() * 45 + 10).toFixed(2); //showing random prices with discount of 15%
     const discountPercentage = 15;
     const discountPrice = price * (1 - discountPercentage / 100);
+    const discountPriceFormatted = parseInt(discountPrice).toFixed(2);
   
     let bookPic = document.getElementById(`book-pic${i}`);
     let bookTitle = document.getElementById(`book-title${i}`);
@@ -39,7 +40,7 @@ let buttonBuy=document.getElementsByClassName("buyButton1");
       priceNormal.innerHTML = `<h1 class="normalPricesForBooks"><del aria-hidden="true"> $${price}</h1>`;
     }
     if (priceDiscount) {
-      priceDiscount.innerHTML = `<h1 class="discountPricesForBooks">  $${Math.floor(discountPrice)}</h1>`;
+      priceDiscount.innerHTML = `<h1 class="discountPricesForBooks">  $${discountPriceFormatted}</h1>`;
     }
   };
 

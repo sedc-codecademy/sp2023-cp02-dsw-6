@@ -290,6 +290,53 @@ let popularBooks=(showPopular)=>{
 displayPopularBooks();
 
 
+// Function for displaying sale books
+
+let displaySaleBooks = () => {
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      const sale = data.items.slice(7,10)
+      saleBooks(sale);
+    })
+    .catch((error) => console.error(error));
+};
+
+let saleBooks=(showSale)=>{
+  for (let i = 0; i < showSale.length; i++){
+    const book1 = showSale[i];
+  const displaySaleBooksImage = document.getElementById(`displayImageSale${i+1}`);
+    const divTitleSale = document.getElementById(
+      `divTitleSale${i+1}`
+    );
+    const divAuthorSale = document.getElementById(
+      `divAuthorSale${i+1}`
+    );
+    const divPriceSale = document.getElementById(
+      `divPriceSale${i+1}`
+    );
+    const priceForSale = generateRandomPrice();
+    const discountPercentageHomepage = 15;
+    const discountPriceHomepage = priceForSale * (1 - discountPercentageHomepage / 100);
+    const formattedDiscountPrice = parseInt(discountPriceHomepage).toFixed(2);
+
+    displaySaleBooksImage .innerHTML = `<img class="saleImg" src="${book1.volumeInfo.imageLinks.thumbnail}  alt="Image">`;
+    
+    divTitleSale.innerHTML = `<h1 class="titleForNewReleases"> ${book1.volumeInfo.title}`;
+    
+    const limitedWordsAuthorrSale = book1.volumeInfo.authors.slice(0, 2).join(', '); 
+    divAuthorSale.innerHTML = `<h1 class="authorForNewReleases"> ${limitedWordsAuthorrSale}`;
+    
+    divPriceSale.innerHTML = `<h1 class="priceForNewReleases"> <span id=spanForDiscPrice> $${priceForSale} </span>  $${formattedDiscountPrice} </span>`;
+    }
+    }
+
+displaySaleBooks();
+
+
+
+
+
 const buyButtons = document.querySelectorAll('.buyButton');
 const detailsButton = document.querySelectorAll('.detailsButton');
 
