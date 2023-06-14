@@ -188,7 +188,7 @@ body {
 
 .addItem {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   left: calc(50% - 345px / 2);

@@ -15,16 +15,25 @@ submitBtn.addEventListener("keydown", function (event) {
 
 function submitNote() {
   let title = bookTitle.value;
+
+
+  let noteDiv = document.createElement("div");
+  noteDiv.style.display = "flex";
+  noteDiv.style.flexDirection = "row";
+
   let image = document.createElement("img");
   image.src = bookImage;
   image.alt = title;
   image.classList.add("book-image");
-  theWrittenNote.appendChild(image);
+
+
+  noteDiv.appendChild(image);
 
   let paragraph1 = document.createElement(`p`);
   paragraph1.classList.add("paragraph-styling");
   paragraph1.innerText = title;
-  theWrittenNote.appendChild(paragraph1);
+
+  noteDiv.appendChild(paragraph1);
   bookTitle.value = "";
 
   let selectedRating = Array.from(starsRating).find((input) => input.checked);
@@ -34,15 +43,23 @@ function submitNote() {
     let paragraph2 = document.createElement(`p`);
     paragraph2.classList.add("paragraph-styling");
     paragraph2.innerHTML = stars;
-    theWrittenNote.appendChild(paragraph2);
+
+
+    noteDiv.appendChild(paragraph2);
     selectedRating.checked = false;
   }
 
   let paragraph3 = document.createElement(`p`);
   paragraph3.classList.add("paragraph-styling");
   paragraph3.innerText = notes.value;
-  theWrittenNote.appendChild(paragraph3);
+
+
+  noteDiv.appendChild(paragraph3);
   notes.value = "";
+
+
+  let theWrittenNote = document.getElementById("theWrittenNote");
+  theWrittenNote.appendChild(noteDiv);
 }
 
 function getStarsHTML(rating) {
