@@ -348,3 +348,15 @@ buyButtons.forEach(btn => btn.addEventListener('click', (e) => {
 detailsButton.forEach(btn => btn.addEventListener('click', (e) => {
   window.location.replace('../details/details.html');
 }));
+
+
+/*Sidebar function to open on click*/
+
+
+const openArrow = document.getElementById('open-arrow');
+const sidebarOpen = document.getElementById('sidebar-show-all');
+
+openArrow.addEventListener('click', function() {
+  sidebarOpen.classList.toggle('show-sidebar');
+  openArrow.classList.toggle('open-arrow-rotate');
+});
