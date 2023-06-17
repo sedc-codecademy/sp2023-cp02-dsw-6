@@ -499,7 +499,6 @@
   font-weight: 400;
   padding: 5% 15%;
   color: var(--homepage-text-messages-color);
-  transition: all 0.3s linear;
   text-decoration: none;
   width: 100%;
 }
@@ -512,8 +511,16 @@
 /* Sidebar for Desktop */
 
 @media (min-width: 1024px) {
-  .sidebar-container {
-    position: static;
+
+  .sidebar-plus-main-container {
+    padding-top: 3%;
+    position:relative;
+    height: 100%;
+   }
+    .sidebar-container {
+    top: 0;
+    position: sticky;
+    padding-top: 0.5%;
     width: 15%;
     height: 100%;
   }
@@ -524,6 +531,9 @@
     display: block;
     padding: 3% 0;
     overflow-y: visible;
+  }
+  .sidebar-allcategories {
+    padding:20% 0;
   }
   #open-arrow {
     display: none;
