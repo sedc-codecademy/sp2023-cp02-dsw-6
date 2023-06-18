@@ -453,7 +453,7 @@
   bottom: 0;
   z-index: 5;
   height: 100%;
-}
+  }
 
 #open-arrow {
   font-size: 180%;
@@ -499,6 +499,7 @@
   font-weight: 400;
   padding: 5% 15%;
   color: var(--homepage-text-messages-color);
+  transition: all 0.3s linear;
   text-decoration: none;
   width: 100%;
 }
