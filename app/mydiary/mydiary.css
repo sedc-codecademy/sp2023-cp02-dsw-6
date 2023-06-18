@@ -207,7 +207,7 @@ body {
 }
 
 .addItem p {
-  padding: 0 20px;
+  padding: 0 15px;
   font-size: small;
   font-weight: var(--card-detail-button-fontWeight);
   color: var(--card-detail-button-color);
@@ -276,6 +276,7 @@ img {
   #btn {
     left: 40%;
   }
+
   @media (max-width: 324px) {
     #notes {
       width: 17rem;
