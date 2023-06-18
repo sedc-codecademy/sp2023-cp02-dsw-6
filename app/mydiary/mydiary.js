@@ -81,5 +81,3 @@ function getStarsHTML(rating) {
   }
   return starsHTML;
 }
-
-
