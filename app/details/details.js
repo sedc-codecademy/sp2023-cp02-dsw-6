@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 window.addEventListener('load', () => {
   const wrapperDiv = document.querySelector('#wrapper');
@@ -48,8 +47,6 @@ window.addEventListener('load', () => {
 });
 
 
-=======
->>>>>>> 19bd577f4bc5d5df1fb73c4382e89390be6fa78b
 let slideIndex = 1;
 
 // showSlides(slideIndex);

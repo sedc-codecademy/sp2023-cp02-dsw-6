@@ -177,7 +177,7 @@ let newReleasesBooks = (newBooks) => {
   
   let randomIndex;
   const displayedBooks = [];
-  for (let i = 1; i <= 3; i++) {
+  for (let i = 1; i <= 4; i++) {
     do {
       randomIndex = Math.floor(Math.random() * newBooks.length);
     } while (displayedBooks.includes(randomIndex));
@@ -232,12 +232,13 @@ let newReleasesBooks = (newBooks) => {
 displayNewReleasesBooks();
 
 
+
 // Function for displaying popular books
 let displayPopularBooks = () => {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      const popular = data.items.slice(3,6)
+      const popular = data.items.slice(3,7)
       popularBooks(popular);
     })
     .catch((error) => console.error(error));
@@ -296,7 +297,7 @@ let displaySaleBooks = () => {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      const sale = data.items.slice(7,10)
+      const sale = data.items.slice(8,12)
       saleBooks(sale);
     })
     .catch((error) => console.error(error));
@@ -348,3 +349,15 @@ buyButtons.forEach(btn => btn.addEventListener('click', (e) => {
 detailsButton.forEach(btn => btn.addEventListener('click', (e) => {
   window.location.replace('../details/details.html');
 }));
+
+
+/*Sidebar function to open on click*/
+
+
+const openArrow = document.getElementById('open-arrow');
+const sidebarOpen = document.getElementById('sidebar-show-all');
+
+openArrow.addEventListener('click', function() {
+  sidebarOpen.classList.toggle('show-sidebar');
+  openArrow.classList.toggle('open-arrow-rotate');
+});
