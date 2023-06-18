@@ -361,3 +361,4 @@ openArrow.addEventListener('click', function() {
   sidebarOpen.classList.toggle('show-sidebar');
   openArrow.classList.toggle('open-arrow-rotate');
 });
+
