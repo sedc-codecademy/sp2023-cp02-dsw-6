@@ -2,8 +2,10 @@ let bookTitle = document.getElementById("searchByTitle");
 let starsRating = document.getElementsByName("stars");
 let notes = document.getElementById("notes");
 let submitBtn = document.getElementById("btn");
-let theWrittenNote = document.getElementById("put");
+let theWrittenNote = document.getElementById("theWrittenNote");
 let bookImage = "book_image_for_mydiary.png";
+let titleValidation = document.getElementById("book_validation");
+let ratingValidation = document.getElementById("rating_validation");
 
 submitBtn.addEventListener("click", submitNote);
 submitBtn.addEventListener("keydown", function (event) {
@@ -14,18 +16,23 @@ submitBtn.addEventListener("keydown", function (event) {
 });
 
 function submitNote() {
-  let title = bookTitle.value;
+  let title = bookTitle.value.trim();
 
+  // Validate book title
+  if (title === "") {
+    titleValidation.textContent = "*Please enter a book title.";
+    return;
+  }
 
   let noteDiv = document.createElement("div");
   noteDiv.style.display = "flex";
   noteDiv.style.flexDirection = "row";
+  noteDiv.style.alignItems = "center";
 
   let image = document.createElement("img");
   image.src = bookImage;
   image.alt = title;
   image.classList.add("book-image");
-
 
   noteDiv.appendChild(image);
 
@@ -37,13 +44,19 @@ function submitNote() {
   bookTitle.value = "";
 
   let selectedRating = Array.from(starsRating).find((input) => input.checked);
+
+  // Validate rating
+  if (!selectedRating) {
+    ratingValidation.textContent = "*Please select a rating.";
+    return;
+  }
+
   if (selectedRating) {
     let ratingValue = selectedRating.value;
     let stars = getStarsHTML(ratingValue);
     let paragraph2 = document.createElement(`p`);
     paragraph2.classList.add("paragraph-styling");
     paragraph2.innerHTML = stars;
-
 
     noteDiv.appendChild(paragraph2);
     selectedRating.checked = false;
@@ -53,12 +66,11 @@ function submitNote() {
   paragraph3.classList.add("paragraph-styling");
   paragraph3.innerText = notes.value;
 
-
   noteDiv.appendChild(paragraph3);
   notes.value = "";
 
+  titleValidation.textContent = ""; // Clear any previous validation message
 
-  let theWrittenNote = document.getElementById("theWrittenNote");
   theWrittenNote.appendChild(noteDiv);
 }
 
@@ -69,3 +81,5 @@ function getStarsHTML(rating) {
   }
   return starsHTML;
 }
+
+
