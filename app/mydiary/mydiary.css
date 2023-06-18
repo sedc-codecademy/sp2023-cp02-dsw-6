@@ -94,6 +94,16 @@ body {
   color: var(--card-detail-button-color);
 }
 
+#book_validation {
+  color: red;
+  font-size: x-small;
+}
+
+#rating_validation {
+  color: red;
+  font-size: x-small;
+}
+
 .star-rating {
   display: flex;
   align-items: center;
@@ -163,7 +173,7 @@ body {
   font-weight: var(--card-detail-button-fontWeight);
   color: var(--card-detail-button-color);
   position: relative;
-  left: 35%;
+  left: 40%;
   margin-top: 1.2rem;
 }
 
@@ -178,7 +188,7 @@ body {
 }
 
 .clicks p {
-  padding: 0 20px;
+  padding: 0 25px;
   text-decoration: underline;
   font-size: large;
   font-weight: var(--card-detail-button-fontWeight);
@@ -246,20 +256,33 @@ img {
   opacity: 0.8;
 }
 
-/* @media (max-width: 1024px) {
-  body {
-    max-width: 1024px;
-    margin: 0 auto;
+/* Responsive Styles */
+
+@media (max-width: 1024px) {
+  .searchField {
+    width: 100%;
+    max-width: 345px;
+    left: calc(50% - 345px / 2);
   }
 
-  .mydiary_heading::before,
-  .the_diary,
-  .searchField,
   .clicks,
   .addItem {
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
+    left: calc(50% - 50%);
   }
-} */
+
+  #notes {
+    columns: 40;
+  }
+  #btn {
+    left: 40%;
+  }
+  @media (max-width: 324px) {
+    #notes {
+      width: 17rem;
+      height: 10rem;
+    }
+    #btn {
+      left: 35%;
+    }
+  }
+}
