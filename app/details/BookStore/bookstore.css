@@ -1,7 +1,29 @@
+.containerCover {
+  position: relative;
+  text-align: center;
+  color: var(--button-background-color);
+
+}
+
+#cover{
+  width: 100%;
+  height: 700px;
+  opacity: 80%;
+  padding-bottom: 50px ;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+}
 
 .search-main-container {
   display: grid;
   grid-template-columns: 1fr;
+
 }
 
 
@@ -11,6 +33,7 @@
   align-items: center;
   margin-top: 0.625rem;
   margin-bottom: 0.625rem;
+  padding-bottom: 50px ;
 }
 
 .searchFields {
