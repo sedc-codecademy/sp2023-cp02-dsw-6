@@ -8,7 +8,7 @@ addToWishlistBtn.addEventListener("click", () => {
       const books = data.items;
       const bookRowsHtml = books.map(book => {
         const stockStatus = Math.random() >= 0.5 ? "In stock" : "Out of stock";
-        const buyNowButtonHtml = stockStatus === "In stock" ? '<button>Buy Now</button>' : '';
+        const buyNowButtonHtml = stockStatus === "In stock" ? '<button class="buyButton">Buy</button>' : '';
         return `
           <tr>
             <td>${book.volumeInfo.title}</td>
