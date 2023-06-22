@@ -30,6 +30,9 @@
 body {
   background-color: #edf3f4;
   margin: 0;
+ 
+    font-family: var(--font-family);
+  
 }
 
 
