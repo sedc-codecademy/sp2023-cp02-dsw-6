@@ -96,12 +96,12 @@ body {
 
 #book_validation {
   color: red;
-  font-size: x-small;
+  font-size: small;
 }
 
 #rating_validation {
   color: red;
-  font-size: x-small;
+  font-size: small;
 }
 
 .star-rating {
@@ -284,6 +284,13 @@ img {
     }
     #btn {
       left: 35%;
+    }
+    #book_validation {
+      font-size: x-small;
+    }
+
+    #rating_validation {
+      font-size: x-small;
     }
   }
 }
