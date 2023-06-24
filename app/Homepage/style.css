@@ -34,9 +34,9 @@
     align-items: center;
   }
   .coverSlideImages {
-    width: auto;
-    height: 500px;
-    opacity: 0.8;
+    width: 100vw;
+    height: 550px;
+    opacity: 0.7;
   }
 
   .prev,
@@ -46,6 +46,8 @@
 
   .text {
     top: 50%;
+    font-size: 25px;
+    
   }
 
   #navBar {
@@ -82,7 +84,7 @@
 
 .text {
   color: var(--homepage-text-messages-color);
-  font-size: 100%;
+  /* font-size: 100%; */
   font-weight: var(--login-button-fontWeight);
   font-style: italic;
   position: absolute;
@@ -161,7 +163,7 @@
 .containerSearch {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .book {
@@ -171,13 +173,15 @@
   background-color: #f5f5f5;
   padding: 20px;
   border-radius: 8px;
+ 
 }
 
 .book img {
   width: 100%;
   max-width: 200px;
   height: auto;
-  border-radius: 8px;
+  border-radius: 8px; 
+
 }
 
 .book-title {
@@ -369,7 +373,8 @@
   }
 
   .authorForNewReleases,
-  .titleForNewReleases {
+  .titleForNewReleases
+ {
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -378,7 +383,8 @@
 
   .newReleaseImg,
   .popularImg,
-  .saleImg {
+  .saleImg
+  {
     display: block;
     margin: 0 auto;
     height: 200px;
@@ -397,7 +403,7 @@
     font-size: 19px;
   }
 
-  .priceForNewReleases {
+  .priceForNewReleases{
     text-align: center;
     font-style: italic;
     font-size: 22px;
@@ -595,9 +601,6 @@ header nav ul li a.active {
 
 
 
-.hiddenOption:hover {
-  text-decoration: underline;
-}
 
 .hamburger div {
   width: 30px;
@@ -641,7 +644,6 @@ header nav ul li a.active {
 .icons {
   display: flex;
   align-items: center;
-  
 }
 
 .icons a {
@@ -656,4 +658,39 @@ header nav ul li a.active {
   height: 3px;
   background-color: #000;
   margin: 5px 0;
+}
+
+.btnstyle {
+  position: relative;
+  font-size: 15px;
+  padding: 10px 10px;
+  background-color: #b6cfd0;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  color: black;
+  box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.3);
+}
+
+.btnstyle::before {
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, rgb(250, 248, 248) 0%, rgb(255, 255, 255) 50%, #62afb2 50%, #62afb2 60%);
+  border-radius: 0 0 0.5em 0;
+  box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.btnstyle:hover::before {
+  width: 1.4em;
+  height: 1.4em;
+}
+
+#backToHomepage{
+  font-size: 15px;
+  margin-left: 2%;
 }
