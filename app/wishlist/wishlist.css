@@ -12,6 +12,9 @@
   margin: 0 auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .wishlist-text {
@@ -19,14 +22,19 @@
   font-weight: 700;
   font-size: 2.496rem;
   line-height: 2.333rem;
-  text-align: center;
+  /* text-align: center; */
   letter-spacing: 0.02em;
   color: #ffffff;
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
+
+
+
+
+
 
 #wishlist-table {
   width: 100%;
@@ -38,6 +46,7 @@
   padding: 1rem;
   vertical-align: middle;
   border-bottom: 1px solid #959595;
+  background-color: #B3B3B3;
 }
 
 #wishlist-table td {
@@ -45,6 +54,7 @@
   padding: 1rem;
   vertical-align: middle;
   border-bottom: 1px solid #959595;
+  background-color: #E1E1E1;
 }
 
 #wishlist-table.hidden {
@@ -128,3 +138,7 @@
     color:  #BABABA; 
     margin-right: 10px;
   } 
+
+
+  
+  

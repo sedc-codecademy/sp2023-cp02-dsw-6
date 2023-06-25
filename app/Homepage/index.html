@@ -14,6 +14,36 @@
 </head>
 
 <body>
+  <header id="navBar">
+    <input type="checkbox" id="nav_check" hidden />
+    <label for="nav_check" class="hamburger" hidden>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </label>
+
+    <div class="logo">
+      <img src="../images/booktopia logo.png" alt="#" width="170px" />
+    </div>
+
+   
+    <div class="icons">
+      <a href="#"><i class="fas fa-heart"></i></a>
+      <a href="../ShoppingCard/shoppingCard.html"><i class="fas fa-shopping-cart"></i></a>
+    </div>
+    <nav>
+
+      <ul class="menu" >
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Bookstore</a></li>       
+        <li><a href="#">Discount</a></li>
+        <li><a href="#">Book Accessories</a></li>
+        <li><a href="#">Voucher</a></li>
+        <li><a href="../LoginPage/index.html" class="btnstyle">Login</a></li>
+      </ul>
+    
+    </nav>
+  </header>
 
   <div class="slideshowContainer">
 
@@ -23,7 +53,7 @@
     </div>
 
     <div class="slideImages">
-      <img class="coverSlideImages" src="../images/book2.jpg">
+      <img class="coverSlideImages" src="./book11.jpg">
       <div class="text">Books are a uniquely portable magic</div>
     </div>
 
@@ -43,29 +73,65 @@
     <span class="items" onclick="currentSlide(2)"></span>
     <span class="items" onclick="currentSlide(3)"></span>
   </div>
+
+  <div class="sidebar-plus-main-container">
+  
+
+    <!--Sidebar container-->
+    <aside class="sidebar-container">
+      <div id="open-arrow">
+      <i class="fas fa-angles-right" ></i>
+    </div>
+  
+      <div class="sidebar" id="sidebar-show-all">
+     
+                    <ul class="sidebar-allcategories">
+                      
+                      <li class="sidebar-category"><a href="../details/BookStore/bookstore.html" class="category-link">Computers</a></li>
+                      <li class="sidebar-category"><a href="../details/BookStore/bookstore.html" class="category-link">Language, Art <br>
+                        & Disciplines</a></li>
+                      <li class="sidebar-category"><a href="../details/BookStore/bookstore.html" class="category-link">History</a></li>
+                      <li class="sidebar-category"><a href="../details/BookStore/bookstore.html" class="category-link">Education</a></li>
+                      <li class="sidebar-category"><a href="../details/BookStore/bookstore.html" class="category-link">Comparative linguistics</a>
+                      <li class="sidebar-category"><a href="../details/BookStore/bookstore.html" class="category-link">Religion</a></li>
+                      <li class="sidebar-category"><a href="../details/BookStore/bookstore.html" class="category-link">Law</a></li>
+                      <li class="sidebar-category"><a href="../details/BookStore/bookstore.html" class="category-link">Nature</a></li>
+                      <li class="sidebar-category"><a href="../details/BookStore/bookstore.html" class="category-link">Electronic Books</a></li>
+                      
+  
+                    </ul>
+                
+                  </div>
+              </aside>
+  
+    
+  <!--Main content container-->
+ 
+    <div class="main-content">
+   
   <div class="search-main-container">
-  <div class="searchContainer">
-    <input type="text" id="searchByAuthor" class="searchFields" placeholder="  Book Author" />
-  </div>
-
-  <div class="searchContainer">
-    <input type="text" id="searchByTitle" class="searchFields" placeholder="  Book Title" />
-  </div>
-
-  <div class="searchContainer">
-    <button id="searchBtn">
-      <i class="fa-solid fa-magnifying-glass" style="color: #ffffff"></i> Find
-    </button>
-  </div>
-  </div>
-
-  <p id="bookList"></p>
-
+    <div class="searchContainer">
+        <input type="text" id="searchByAuthor" class="searchFields" placeholder="  Book Author" />
+      </div>
+    
+      <div class="searchContainer">
+        <input type="text" id="searchByTitle" class="searchFields" placeholder="  Book Title" />
+      </div>
+    
+      <div class="searchContainer">
+        <button id="searchBtn">
+          <i class="fa-solid fa-magnifying-glass" style="color: #ffffff"></i> Find
+        </button>
+      </div>
+    </div>
+      <ul id="bookList"></ul>
+      <div id="backToHomepage" hidden ><i class="fa-solid fa-arrow-left fa-beat"></i> Back to Homepage</div>   
 <div class="containerSearch"></div>
 
 
 
   <!-- Display new releases books -->
+  <div id="myDiv">
   <h1 class="newReleasesTitleHomepage">New Releases</h1>
   <div id="mainNewReleasesDiv">
     <div id="firstDisplay">
@@ -83,7 +149,7 @@
 
     </div>
 
-    <div id="detailsButtonAndBuyButton1">
+    <div id="detailsButtonAndBuyButton1" >
       <button id="detailsButton1" class="detailsButton"><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details </button><button class="buyButton" id="buyButton1"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i> Buy</button>
     </div>
   </div>
@@ -128,6 +194,28 @@
       <button id="detailsButton3" class="detailsButton" ><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details</button><button class="buyButton" id="buyButton3"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i> Buy</button>
     </div>
   </div>
+</br>
+  <div id="fourthDisplay">
+    <div id="displayImage4">
+
+    </div>
+    <div id="divTitleNewRelease4">
+
+    </div>
+    <div id="divAuthorNewRelease4">
+
+    </div>
+
+    <div id="divPriceNewRelease4">
+
+    </div>
+
+    <div id="detailsButtonAndBuyButton4">
+      <button id="detailsButton4" class="detailsButton" ><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details</button><button class="buyButton" id="buyButton4"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i> Buy</button>
+    </div>
+  </div>
+
+ 
 
   </div>
 </br> </br>
@@ -196,10 +284,117 @@
     <button id="detailsButtonPopular3" class="detailsButton" ><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details</button><button class="buyButton" id="buyButtonPopular3"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i> Buy</button>
   </div>
 </div>
+</br>
+<div id="fourthDisplay">
+  <div id="displayImagePopular4">
+
+  </div>
+  <div id="divTitlePopular4">
+
+  </div>
+  <div id="divAuthorPopular4">
+
+  </div>
+
+  <div id="divPricePopular4">
+
+  </div>
+
+  <div id="detailsButtonAndBuyButton4">
+    <button id="detailsButtonPopular4" class="detailsButton" ><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details</button><button class="buyButton" id="buyButtonPopular4"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i> Buy</button>
+  </div>
+</div>
 
 </div>
 </br>
 
+<!-- Display books on sale -->
+<h1 class="saleBooksTitleHomepage">Sale</h1>
+
+<div id="mainSaleBooksDiv">
+  <div id="firstDisplay">
+  <div id="displayImageSale1">
+  </div>
+  <div id="divTitleSale1">
+
+  </div>
+  <div id="divAuthorSale1">
+
+  </div>
+
+  <div id="divPriceSale1">
+
+  </div>
+
+  <div id="detailsButtonAndBuyButton1">
+    <button id="detailsButtonPopular1" class="detailsButton"><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details </button><button class="buyButton" id="buyButtonPopular1"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i> Buy</button>
+  </div>
+</div>
+</br>
+<div id="secondDisplay">
+  <div id="displayImageSale2">
+
+  </div>
+
+  <div id="divTitleSale2">
+
+  </div>
+  <div id="divAuthorSale2">
+
+  </div>
+
+  <div id="divPriceSale2">
+
+  </div>
+
+  <div id="detailsButtonAndBuyButton2">
+    <button id="detailsButtonPopular2" class="detailsButton"><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details</button><button class="buyButton" id="buyButtonPopular2"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i> Buy</button>
+  </div>
+</div>
+</br>
+<div id="thirdDisplay">
+  <div id="displayImageSale3">
+
+  </div>
+  <div id="divTitleSale3">
+
+  </div>
+  <div id="divAuthorSale3">
+
+  </div>
+
+  <div id="divPriceSale3">
+
+  </div>
+
+  <div id="detailsButtonAndBuyButton3">
+    <button id="detailsButtonPopular3" class="detailsButton" ><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details</button><button class="buyButton" id="buyButtonPopular3"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i> Buy</button>
+  </div>
+</div>
+</br>
+<div id="fourthDisplay">
+  <div id="displayImageSale4">
+
+  </div>
+  <div id="divTitleSale4">
+
+  </div>
+  <div id="divAuthorSale4">
+
+  </div>
+
+  <div id="divPriceSale4">
+
+  </div>
+
+  <div id="detailsButtonAndBuyButton4">
+    <button id="detailsButtonPopular4" class="detailsButton" ><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details</button><button class="buyButton" id="buyButtonPopular4"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i> Buy</button>
+  </div>
+</div>
+
+</div>
+</br>
+</div>
     <!-- Display book iconssssss -->
 </br>
   <div id="booksIcons">
@@ -214,8 +409,10 @@
     <div class="easillyBookmarked">
       <i class="fa-solid fa-bookmark" style="color: #FFC700; font-size: 350%;"></i>  <h1 class="title">Easily Bookmarked</h1>  <h3 class="describeText">Don't let a busy schedule interrupt your reading - our bookmarking feature makes it simple to pick up where you left off, anytime, anywhere.</h1>
     </div>
-
   </div>
+
+</div>
+</div>
 </br>
  
 
@@ -255,7 +452,7 @@
         </p>
         <p>
           <i class="fa-solid fa-envelope fa-xl footerIcon" ></i>
-          booktopia@gmail
+          booktopia@gmail.com
         </p>
       </div>
       <div class="footerSocial"></div>

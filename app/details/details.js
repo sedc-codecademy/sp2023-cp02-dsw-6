@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
         <div class="price">$${bookData.price}</div>              
               
         <div id="detailsButtonAndBuyButtonCart">
-          <button class="detailsButton" id="detailsButtonCart"><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details </button>
+          <button class="detailsButton" id="detailsButtonCart"><i class="fa-solid fa-heart" style="color: #0C54C0;"></i> Wish list </button>
           <button class="buyButton" id="buyButtonCart"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i> Buy</button>
         </div>
       </div>
