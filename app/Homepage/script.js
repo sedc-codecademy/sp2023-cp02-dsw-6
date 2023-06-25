@@ -207,7 +207,6 @@ let newReleasesBooks = (newBooks) => {
 
     buyButton.addEventListener('click', () => {
       let allProducts = JSON.parse(localStorage.getItem('products'));
-
       if(allProducts == null) {
         allProducts = [{...randomBook, price: Number(price)}];
       } else {
