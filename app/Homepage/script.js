@@ -237,8 +237,7 @@ let newReleasesBooks = (newBooks) => {
       );
     });
 
-    buyButton.addEventListener("click", () => {
-      let allProducts = JSON.parse(localStorage.getItem("products"));
+    
 
     buyButton.addEventListener('click', () => {
       let allProducts = JSON.parse(localStorage.getItem('products'));
@@ -262,7 +261,9 @@ let newReleasesBooks = (newBooks) => {
 
     divPriceNewRelease.innerHTML = `<h1 class="priceForNewReleases"> $${price}`;
   }
-};
+
+  }
+
 displayNewReleasesBooks();
 
 // Function for displaying popular books
