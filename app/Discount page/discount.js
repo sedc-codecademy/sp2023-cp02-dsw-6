@@ -6,7 +6,7 @@ let buttonBuy=document.getElementsByClassName("buyButton1");
  fetch('https://www.googleapis.com/books/v1/volumes?q=language:en&orderBy=relevance&printType=books&maxResults=40&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)')
     .then(response => response.json())
     .then(data => {
-      const discountBooks = data.items.slice(5, 15);//Displaying 10 books from index 5 to index 15 that are for sale
+      const discountBooks = data.items.slice(5, 17);//Displaying 12 books from index 5 to index 15 that are for sale
       discountBooks.forEach((book, index) => {
         bookElementFunc(book, index);
       });
@@ -31,10 +31,18 @@ let buttonBuy=document.getElementsByClassName("buyButton1");
       bookPic.innerHTML = `<img class="discountImg" src="${book.volumeInfo.imageLinks.thumbnail}" alt="Cover Image">`;
     }
     if (bookTitle) {
-      bookTitle.innerHTML = `<h1 class="bookTitleForDiscount">${book.volumeInfo.title}</h1>`;
+      let title = book.volumeInfo.title;
+      
+      if (title.length > 42) {
+        title = title.substring(0, 40) + "...";
+      }
+      
+      bookTitle.innerHTML = `<h1 class="bookTitleForDiscount">${title}</h1>`;
     }
+    
     if (bookAuthor) {
-      bookAuthor.innerHTML = `<h1 class="bookAuthorForDiscount">${book.volumeInfo.authors}</h1>`;
+      const limitedWordsAuthor = book.volumeInfo.authors.slice(0, 2).join(', ');
+      bookAuthor.innerHTML = `<h1 class="bookAuthorForDiscount">${limitedWordsAuthor}</h1>`;
     }
     if (priceNormal) {
       priceNormal.innerHTML = `<h1 class="normalPricesForBooks"><del aria-hidden="true"> $${price}</h1>`;
@@ -54,7 +62,7 @@ let otherProductsElement=document.getElementById("otherProducts-container");
 fetch('https://www.googleapis.com/books/v1/volumes?q=language:en&orderBy=relevance&printType=books&maxResults=40&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)')
 .then(response => response.json())
 .then(data => {
-  const boooksForOtherProducts= data.items.slice(16, 20);//Displaying 4 books from index 16 to index 20 in section Other Products
+  const boooksForOtherProducts= data.items.slice(17, 21);//Displaying 4 books from index 16 to index 20 in section Other Products
   boooksForOtherProducts.forEach((book, index) => {
     displayOtherProducts(book, index);
   });
@@ -71,9 +79,14 @@ let otherProdPrice=document.getElementById(`bookPrice${i}`);
 if (otherProdPic) {
  otherProdPic.innerHTML = `<img class="otherProductsImage" src="${book.volumeInfo.imageLinks.thumbnail}" alt="Cover Image">`;
 }
-if (otherProdTitle) {
-  
-  otherProdTitle.innerHTML = `<h5 class="bookTitleForOtherProducts">${book.volumeInfo.title}</h5>`;
+
+  if (otherProdTitle) {
+    let titleO = book.volumeInfo.title;
+    if(titleO.length > 42) {
+      titleO= titleO.substring(0, 40) + "...";
+    }
+          
+  otherProdTitle.innerHTML = `<h5 class="bookTitleForOtherProducts">${titleO}</h5>`;
 }
 if (otherProdPrice) {
  otherProdPrice.innerHTML = `<h4 class="PricesForBooks">  $${Math.floor(bookPrice)}</h4>`;
@@ -91,5 +104,5 @@ buyButtons.forEach(btn => btn.addEventListener('click', (e) => {
 
 
 detailsButton.forEach(btn => btn.addEventListener('click', (e) => {
-  window.location.replace('../details/details.html');
+  window.location.href='../details/details.html';
 }));

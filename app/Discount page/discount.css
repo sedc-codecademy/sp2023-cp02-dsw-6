@@ -2,66 +2,38 @@
     box-sizing: border-box;
     font-family: var(--font-family);
  }
-    #discountBox {
-        height: 11rem;
-        width: 100%;
-        border-radius: 0px;
-        background-color: #665858;
-        position: relative;
-        margin: 0 auto;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-  }
   
-  .discount-text{
-    font-style: normal;
-    font-weight: 700;
-    font-size: 2.496rem;
-    line-height: 2.333rem;
-    text-align: center;
-    justify-content:start;
-    letter-spacing: 0.02em;
-    color: #ffffff;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+
+    #mainPic{
+  width: 100%;
+}
+
+
+/* front image desktop version */
+@media screen and (min-width: 1034px) {
+    #mainPic{
+      width: 100%;
+    }
+
   }
  
-    
-  
-  .detailsButton, .buyButton{
-    border-radius: 180px 0px 0px 180px;
-    border: 1px solid #000000;
-    background: #FFFFFF;
-    width: 167.75px;
-    height: 40px;
-    font-style: italic;
-    font-weight: 700;
-    font-size: 15px;
-    text-align: center;
-    cursor: pointer;
-    line-height: 32px;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-  }
-  
-  .buyButton{
-    border-radius: 0px 180px 180px 0px;
-  }
   #book-element{
     display: grid;
     flex-direction: column;
     text-align: center;
 
 
-  }
-  
+  } 
+
   .discountImg{
-    width: 50%;
+    width: 60%;
    
   }
+  
+  
 
+ 
 .bookTitleForDiscount,.bookAuthorForDiscount,.normalPricesForBooks, .discountPricesForBooks{
     font-weight: lighter;
     line-height: 32px;
@@ -125,11 +97,18 @@ cursor: pointer;
   color: gold;
  
 }
-#otherProducts-container {
+
+   #otherProducts-container {
+  font-family: var(--font-family);
   display: flex;
   flex-direction: column;
-  margin-left: 3rem;
+  align-items: flex-start;
   margin-top: 5rem;
+  width: 100%;
+  margin-bottom: 20px;
+ background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
 }
 
 .otherProducts {
@@ -159,31 +138,121 @@ flex-basis: 15%;
 }
 #otherProductsTitle{
   font-weight: bold;
+} 
+
+
+
+  .wrapper{
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+
+  @media (min-width: 1030px) {
+    
+  
+  #book-element {
+ 
+    display: flex;
+    flex-direction: row;
+     flex-wrap: wrap; 
+    justify-content:space-evenly;
+    align-items:center;
+    width: 100%;
+  }
+  .wrapper{
+    width: 23.33%;
+    background-color: #f5f5f5;
+    padding: 2%;
+    border-radius: 2.76%;
+ }
+
+ .bookTitleForDiscount,.bookAuthorForDiscount{
+  text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+ }
+
+.discountImg {
+   display: block;
+   margin: 0 auto;
+   height: 200px;
+ }
+ 
+
+.normalPricesForBooks,
+ .discountPricesForBooks  {
+   text-align: center;
+   font-style: italic;
+   font-size: 22px;
+ }
+ .sale{
+  width: 50%;
+} 
+#otherProducts-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.otherProductsImage{
+  width: auto;
+  height: 120px;
+}
+.otherProducts > div {
+  margin-right: 1rem;
+}
+
+.otherProducts > div:nth-child(1) {
+flex-basis: 15%;
+ 
+}
+
+.otherProducts > div:nth-child(2) {
+  flex-grow: 1;
 }
 
 
-.footer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: #635252;
-    padding: 0px 25px 15px 25px;
-    font-family: var(-font-family);
-    color: #ffffff;
-    font-weight: 400;
-    letter-spacing: 2px;
-    font-size: 25px;
-  }
+#otherProductsTitle{
+  font-weight: bold;
+} 
+
+.bookTitle,
+.bookPrice,
+.stars-rating {
+  align-items: center;
+ margin-top: 0.2rem;
+}
+
+.bookTitleForOtherProducts {
+  font-size: 13px;
+  color: #000;
+  margin-top: 0.3rem;
   
-  .footerHead {
-    display: flex;
-    justify-content: space-around;
-  }
-  .footerBody {
-    display: flex;
-    flex-direction: column;
-  }
-  .footerIcon {
-    color: #bababa;
-    margin-right: 10px;
-  }
+}
+
+.PricesForBooks {
+  font-size: 12px;
+ 
+  margin-top: 0.3rem;
+  
+}
+
+#stars-rating1,
+#stars-rating2,
+#stars-rating3,
+#stars-rating4 {
+  font-size: 12px;
+margin-bottom: 0.3rem;
+
+}
+
+
+}
+
