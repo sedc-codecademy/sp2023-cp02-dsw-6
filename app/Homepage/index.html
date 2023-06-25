@@ -15,7 +15,34 @@
 
 <body>
   <header id="navBar">
-<h1>Navigation bar-Alden</h1>
+    <input type="checkbox" id="nav_check" hidden />
+    <label for="nav_check" class="hamburger" hidden>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </label>
+
+    <div class="logo">
+      <img src="../images/booktopia logo.png" alt="#" width="170px" />
+    </div>
+
+   
+    <div class="icons">
+      <a href="#"><i class="fas fa-heart"></i></a>
+      <a href="../ShoppingCard/shoppingCard.html"><i class="fas fa-shopping-cart"></i></a>
+    </div>
+    <nav>
+
+      <ul class="menu" >
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Bookstore</a></li>       
+        <li><a href="#">Discount</a></li>
+        <li><a href="#">Book Accessories</a></li>
+        <li><a href="#">Voucher</a></li>
+        <li><a href="../LoginPage/index.html" class="btnstyle">Login</a></li>
+      </ul>
+    
+    </nav>
   </header>
 
   <div class="slideshowContainer">
@@ -26,7 +53,7 @@
     </div>
 
     <div class="slideImages">
-      <img class="coverSlideImages" src="../images/book2.jpg">
+      <img class="coverSlideImages" src="./book11.jpg">
       <div class="text">Books are a uniquely portable magic</div>
     </div>
 
@@ -79,6 +106,7 @@
   
     
   <!--Main content container-->
+ 
     <div class="main-content">
    
   <div class="search-main-container">
@@ -97,11 +125,13 @@
       </div>
     </div>
       <ul id="bookList"></ul>
-      
+      <div id="backToHomepage" hidden ><i class="fa-solid fa-arrow-left fa-beat"></i> Back to Homepage</div>   
 <div class="containerSearch"></div>
 
 
+
   <!-- Display new releases books -->
+  <div id="myDiv">
   <h1 class="newReleasesTitleHomepage">New Releases</h1>
   <div id="mainNewReleasesDiv">
     <div id="firstDisplay">
@@ -283,9 +313,7 @@
 
 <div id="mainSaleBooksDiv">
   <div id="firstDisplay">
-   
   <div id="displayImageSale1">
-
   </div>
   <div id="divTitleSale1">
 
@@ -366,6 +394,7 @@
 
 </div>
 </br>
+</div>
     <!-- Display book iconssssss -->
 </br>
   <div id="booksIcons">
@@ -423,7 +452,7 @@
         </p>
         <p>
           <i class="fa-solid fa-envelope fa-xl footerIcon" ></i>
-          booktopia@gmail
+          booktopia@gmail.com
         </p>
       </div>
       <div class="footerSocial"></div>

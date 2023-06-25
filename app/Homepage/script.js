@@ -1,4 +1,3 @@
-
 let slides = document.getElementsByClassName("slideImages");
 let dots = document.getElementsByClassName("items");
 
@@ -69,12 +68,9 @@ let searchByAuthorInput = document.getElementById("searchByAuthor");
 let searchByTitleInput = document.getElementById("searchByTitle");
 let searchBtn = document.getElementById("searchBtn");
 let bookList = document.getElementById("bookList");
-let containerSearch=document.querySelector(".containerSearch")
-
-
+let containerSearch = document.querySelector(".containerSearch");
 
 searchBtn.addEventListener("click", searchBooks);
-
 
 function searchBooks() {
   let title = searchByTitleInput.value.trim();
@@ -85,7 +81,7 @@ function searchBooks() {
     url += `intitle:${title}&`;
   }
   if (author) {
-    url += `inauthor:"${author}"&`; 
+    url += `inauthor:"${author}"&`;
   }
   url += `orderBy=relevance&printType=books&maxResults=40&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)`;
 
@@ -96,33 +92,68 @@ function searchBooks() {
 }
 
 function displayBooksSearch(books) {
-  containerSearch.innerHTML = "";
-
+  let myDiv = document.getElementById("myDiv");
+  let backToHomepage=document.getElementById("backToHomepage");
+  myDiv.innerHTML = "";
+  searchByTitleInput.value="";
+  searchByAuthorInput.value="";
+  let bookCounter1 = 0;
   if (books) {
-    books.forEach((book) => {
-      const bookElement = createBookElement(book);
-      containerSearch.appendChild(bookElement);
+    books.forEach((book1) => {
+      if (bookCounter1 < 3) {
+        const bookElement1 = createBookElement(book1);
+        containerSearch.appendChild(bookElement1);
+        bookCounter1++;
+      } else {
+        return;
+      }
     });
   } else {
     let p = document.getElementById("bookList");
     p.innerHTML = "No books found.";
- 
+    
   }
-
+  backToHomepage.removeAttribute("hidden");
   previousButton.disabled = true;
   nextButton.disabled = true;
+
+  
 }
 
-function createBookElement(book) {
-  const bookElement = document.createElement('div');
-  bookElement.classList.add('book');
 
-  const thumbnail = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : '';
+// Search book on press Enter
+searchByTitleInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    searchBooks();
+  }
+});
+
+searchByAuthorInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    searchBooks();
+  }
+});
+
+
+//Back to homepage after search
+backToHomepage.addEventListener("click",()=>{
+  window.location.href="./index.html";
+})
+
+
+
+function createBookElement(book) {
+  const bookElement = document.createElement("div");
+  bookElement.classList.add("book");
+
+  const thumbnail = book.volumeInfo.imageLinks
+    ? book.volumeInfo.imageLinks.thumbnail
+    : "";
   let title = book.volumeInfo.title;
-  if(title.length > 42) {
+  if (title.length > 42) {
     title = title.substring(0, 40) + "...";
   }
-  const limitedWordsAuthorr = book.volumeInfo.authors.slice(0, 2).join(', '); 
+  const limitedWordsAuthorr = book.volumeInfo.authors.slice(0, 2).join(", ");
   const price = getRandomPrice();
 
   bookElement.innerHTML = `
@@ -145,8 +176,6 @@ function getRandomPrice() {
   return (Math.random() * (maxPrice - minPrice) + minPrice).toFixed(2);
 }
 
-
-
 // Function for displaying new releases books
 const mainNewReleasesDiv = document.getElementById("mainNewReleasesDiv");
 
@@ -157,7 +186,8 @@ let displayNewReleasesBooks = () => {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      const newestBooks = data.items.filter((item) => { //filtered the newest books, published in 2022 and 2023
+      const newestBooks = data.items.filter((item) => {
+        //filtered the newest books, published in 2022 and 2023
         const publishedDate = item.volumeInfo.publishedDate;
         return publishedDate >= "2022-01-01";
       });
@@ -174,7 +204,7 @@ let generateRandomPrice = () => {
 
 let newReleasesBooks = (newBooks) => {
   // Get a random book from the array of new books
-  
+
   let randomIndex;
   const displayedBooks = [];
   for (let i = 1; i <= 4; i++) {
@@ -200,96 +230,97 @@ let newReleasesBooks = (newBooks) => {
     const buyButton = document.getElementById(`buyButton${i}`);
     const detailsButton = document.getElementById(`detailsButton${i}`);
 
-    detailsButton.addEventListener('click', () => {
-      localStorage.setItem('detailBook', JSON.stringify([{...randomBook, price: Number(price)}]));
-    })
+    detailsButton.addEventListener("click", () => {
+      localStorage.setItem(
+        "detailBook",
+        JSON.stringify([{ ...randomBook, price: Number(price) }])
+      );
+    });
 
+    buyButton.addEventListener("click", () => {
+      let allProducts = JSON.parse(localStorage.getItem("products"));
 
-    buyButton.addEventListener('click', () => {
-      let allProducts = JSON.parse(localStorage.getItem('products'));
-
-      if(allProducts == null) {
-        allProducts = [{...randomBook, price: Number(price)}];
+      if (allProducts == null) {
+        allProducts = [{ ...randomBook, price: Number(price) }];
       } else {
-        allProducts.push({...randomBook, price: Number(price)});
-    }
-      localStorage.setItem('products', JSON.stringify(allProducts));
-    })
+        allProducts.push({ ...randomBook, price: Number(price) });
+      }
+      localStorage.setItem("products", JSON.stringify(allProducts));
+    });
 
     //Displaying a random book image, title, authors and price
     displayImage.innerHTML = `<img class="newReleaseImg" src="${randomBook.volumeInfo.imageLinks.thumbnail}  alt="Image">`;
-    
+
     divTitleNewRelease.innerHTML = `<h1 class="titleForNewReleases"> ${randomBook.volumeInfo.title}`;
-    
-    const limitedWordsAuthor = randomBook.volumeInfo.authors.slice(0, 2).join(', '); 
+
+    const limitedWordsAuthor = randomBook.volumeInfo.authors
+      .slice(0, 2)
+      .join(", ");
     divAuthorNewRelease.innerHTML = `<h1 class="authorForNewReleases"> ${limitedWordsAuthor}`;
-    
+
     divPriceNewRelease.innerHTML = `<h1 class="priceForNewReleases"> $${price}`;
-
   }
-
 };
 displayNewReleasesBooks();
-
-
 
 // Function for displaying popular books
 let displayPopularBooks = () => {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      const popular = data.items.slice(3,7)
+      const popular = data.items.slice(3, 7);
       popularBooks(popular);
     })
     .catch((error) => console.error(error));
 };
 
-let popularBooks=(showPopular)=>{
-  for (let i = 0; i < showPopular.length; i++){
+let popularBooks = (showPopular) => {
+  for (let i = 0; i < showPopular.length; i++) {
     const book = showPopular[i];
-  const displayPopularBooksImage = document.getElementById(`displayImagePopular${i+1}`);
-    const divTitlePopular = document.getElementById(
-      `divTitlePopular${i+1}`
+    const displayPopularBooksImage = document.getElementById(
+      `displayImagePopular${i + 1}`
     );
+    const divTitlePopular = document.getElementById(`divTitlePopular${i + 1}`);
     const divAuthorPopular = document.getElementById(
-      `divAuthorPopular${i+1}`
+      `divAuthorPopular${i + 1}`
     );
-    const divPricePopular = document.getElementById(
-      `divPricePopular${i+1}`
-    );
+    const divPricePopular = document.getElementById(`divPricePopular${i + 1}`);
     const priceForPopular = generateRandomPrice();
     //
-    const buyButton = document.getElementById(`buyButtonPopular${i +1}`);
-    const detailsButton = document.getElementById(`detailsButtonPopular${i +1}`);
-    detailsButton.addEventListener('click', () => {
-      localStorage.setItem('detailBook', JSON.stringify([{...book, price: Number(priceForPopular)}]));
-    })
+    const buyButton = document.getElementById(`buyButtonPopular${i + 1}`);
+    const detailsButton = document.getElementById(
+      `detailsButtonPopular${i + 1}`
+    );
+    detailsButton.addEventListener("click", () => {
+      localStorage.setItem(
+        "detailBook",
+        JSON.stringify([{ ...book, price: Number(priceForPopular) }])
+      );
+    });
 
+    buyButton.addEventListener("click", () => {
+      let allProducts = JSON.parse(localStorage.getItem("products"));
 
-    buyButton.addEventListener('click', () => {
-      let allProducts = JSON.parse(localStorage.getItem('products'));
-
-      if(allProducts == null) {
-        allProducts = [{...book, price: Number(priceForPopular)}];
+      if (allProducts == null) {
+        allProducts = [{ ...book, price: Number(priceForPopular) }];
       } else {
-        allProducts.push({...book, price: Number(priceForPopular)});
-    }
-      localStorage.setItem('products', JSON.stringify(allProducts));
-    })
+        allProducts.push({ ...book, price: Number(priceForPopular) });
+      }
+      localStorage.setItem("products", JSON.stringify(allProducts));
+    });
 
-    displayPopularBooksImage .innerHTML = `<img class="popularImg" src="${book.volumeInfo.imageLinks.thumbnail}  alt="Image">`;
-    
+    displayPopularBooksImage.innerHTML = `<img class="popularImg" src="${book.volumeInfo.imageLinks.thumbnail}  alt="Image">`;
+
     divTitlePopular.innerHTML = `<h1 class="titleForNewReleases"> ${book.volumeInfo.title}`;
-    
-    const limitedWordsAuthorr = book.volumeInfo.authors.slice(0, 2).join(', '); 
+
+    const limitedWordsAuthorr = book.volumeInfo.authors.slice(0, 2).join(", ");
     divAuthorPopular.innerHTML = `<h1 class="authorForNewReleases"> ${limitedWordsAuthorr}`;
-    
+
     divPricePopular.innerHTML = `<h1 class="priceForNewReleases"> $${priceForPopular}`;
   }
-}
+};
 
 displayPopularBooks();
-
 
 // Function for displaying sale books
 
@@ -297,67 +328,65 @@ let displaySaleBooks = () => {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      const sale = data.items.slice(8,12)
+      const sale = data.items.slice(8, 12);
       saleBooks(sale);
     })
     .catch((error) => console.error(error));
 };
 
-let saleBooks=(showSale)=>{
-  for (let i = 0; i < showSale.length; i++){
+let saleBooks = (showSale) => {
+  for (let i = 0; i < showSale.length; i++) {
     const book1 = showSale[i];
-  const displaySaleBooksImage = document.getElementById(`displayImageSale${i+1}`);
-    const divTitleSale = document.getElementById(
-      `divTitleSale${i+1}`
+    const displaySaleBooksImage = document.getElementById(
+      `displayImageSale${i + 1}`
     );
-    const divAuthorSale = document.getElementById(
-      `divAuthorSale${i+1}`
-    );
-    const divPriceSale = document.getElementById(
-      `divPriceSale${i+1}`
-    );
+    const divTitleSale = document.getElementById(`divTitleSale${i + 1}`);
+    const divAuthorSale = document.getElementById(`divAuthorSale${i + 1}`);
+    const divPriceSale = document.getElementById(`divPriceSale${i + 1}`);
     const priceForSale = generateRandomPrice();
     const discountPercentageHomepage = 15;
-    const discountPriceHomepage = priceForSale * (1 - discountPercentageHomepage / 100);
+    const discountPriceHomepage =
+      priceForSale * (1 - discountPercentageHomepage / 100);
     const formattedDiscountPrice = parseInt(discountPriceHomepage).toFixed(2);
 
-    displaySaleBooksImage .innerHTML = `<img class="saleImg" src="${book1.volumeInfo.imageLinks.thumbnail}  alt="Image">`;
     
+    displaySaleBooksImage.innerHTML = ` <p id="saleSale">SALE!</p> <img class="saleImg" src="${book1.volumeInfo.imageLinks.thumbnail}  alt="Image">  `;
+
     divTitleSale.innerHTML = `<h1 class="titleForNewReleases"> ${book1.volumeInfo.title}`;
-    
-    const limitedWordsAuthorrSale = book1.volumeInfo.authors.slice(0, 2).join(', '); 
+
+    const limitedWordsAuthorrSale = book1.volumeInfo.authors
+      .slice(0, 2)
+      .join(", ");
     divAuthorSale.innerHTML = `<h1 class="authorForNewReleases"> ${limitedWordsAuthorrSale}`;
-    
+
     divPriceSale.innerHTML = `<h1 class="priceForNewReleases"> <span id=spanForDiscPrice> $${priceForSale} </span>  $${formattedDiscountPrice} </span>`;
-    }
-    }
+  }
+};
 
 displaySaleBooks();
 
+const buyButtons = document.querySelectorAll(".buyButton");
+const detailsButton = document.querySelectorAll(".detailsButton");
 
+buyButtons.forEach((btn) =>
+  btn.addEventListener("click", (e) => {
+    window.location.replace("../ShoppingCard/shoppingCard.html");
+  })
+);
 
-
-
-const buyButtons = document.querySelectorAll('.buyButton');
-const detailsButton = document.querySelectorAll('.detailsButton');
-
-buyButtons.forEach(btn => btn.addEventListener('click', (e) => {
-  window.location.replace('../ShoppingCard/shoppingCard.html');
-}));
-
-
-detailsButton.forEach(btn => btn.addEventListener('click', (e) => {
-  window.location.replace('../details/details.html');
-}));
+detailsButton.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    window.location.href="../details/details.html";
+  })
+);
 
 
 /*Sidebar function to open on click*/
 
+const openArrow = document.getElementById("open-arrow");
+const sidebarOpen = document.getElementById("sidebar-show-all");
 
-const openArrow = document.getElementById('open-arrow');
-const sidebarOpen = document.getElementById('sidebar-show-all');
-
-openArrow.addEventListener('click', function() {
-  sidebarOpen.classList.toggle('show-sidebar');
-  openArrow.classList.toggle('open-arrow-rotate');
+openArrow.addEventListener("click", function () {
+  sidebarOpen.classList.toggle("show-sidebar");
+  openArrow.classList.toggle("open-arrow-rotate");
 });
