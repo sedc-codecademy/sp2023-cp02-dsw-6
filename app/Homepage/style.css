@@ -472,7 +472,8 @@
   bottom: 0;
   z-index: 5;
   height: 100%;
-}
+  
+  }
 
 #open-arrow {
   font-size: 180%;
@@ -506,7 +507,7 @@
   flex-direction: column;
   margin: 0;
   padding: 5% 0;
-  padding-bottom: 100%;
+  padding-bottom: 30%;
 }
 
 .sidebar-allcategories a {
@@ -520,7 +521,7 @@
   color: var(--homepage-text-messages-color);
   transition: all 0.3s linear;
   text-decoration: none;
-  width: 100%;
+   
 }
 
 .sidebar-allcategories a:hover {
@@ -531,28 +532,33 @@
 /* Sidebar for Desktop */
 
 @media (min-width: 1024px) {
+
   .sidebar-plus-main-container {
     padding-top: 3%;
-    position: relative;
+    position:relative;
     height: 100%;
-  }
-  .sidebar-container {
+   }
+    .sidebar-container {
     top: 0;
     position: sticky;
     padding-top: 0.5%;
     width: 15%;
-    height: 100%;
+    height: 100vh;
+    background-color: #635252;
+    overflow-y: auto;
   }
   #sidebar-show-all {
-    height: 100%;
+    height: inherit;
     width: 100%;
     position: static;
     display: block;
     padding: 3% 0;
     overflow-y: visible;
+    
   }
   .sidebar-allcategories {
-    padding: 20% 0;
+    padding:0 0;
+    
   }
   #open-arrow {
     display: none;
@@ -560,6 +566,19 @@
   .main-content {
     width: 85%;
   }
+  .sidebar-container::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  
+  .sidebar-container::-webkit-scrollbar-track {
+    background:beige;
+  }
+  
+  .sidebar-container::-webkit-scrollbar-thumb {
+    
+    background: var(--find-button-backgroundColor)
+  }
+  
 }
 
 header {
