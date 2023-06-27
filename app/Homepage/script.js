@@ -237,11 +237,12 @@ let newReleasesBooks = (newBooks) => {
       );
     });
 
-    buyButton.addEventListener("click", () => {
-      let allProducts = JSON.parse(localStorage.getItem("products"));
+    
 
-      if (allProducts == null) {
-        allProducts = [{ ...randomBook, price: Number(price) }];
+    buyButton.addEventListener('click', () => {
+      let allProducts = JSON.parse(localStorage.getItem('products'));
+      if(allProducts == null) {
+        allProducts = [{...randomBook, price: Number(price)}];
       } else {
         allProducts.push({ ...randomBook, price: Number(price) });
       }
@@ -260,7 +261,9 @@ let newReleasesBooks = (newBooks) => {
 
     divPriceNewRelease.innerHTML = `<h1 class="priceForNewReleases"> $${price}`;
   }
-};
+
+  }
+
 displayNewReleasesBooks();
 
 // Function for displaying popular books
@@ -349,7 +352,8 @@ let saleBooks = (showSale) => {
       priceForSale * (1 - discountPercentageHomepage / 100);
     const formattedDiscountPrice = parseInt(discountPriceHomepage).toFixed(2);
 
-    displaySaleBooksImage.innerHTML = `<img class="saleImg" src="${book1.volumeInfo.imageLinks.thumbnail}  alt="Image">`;
+    
+    displaySaleBooksImage.innerHTML = ` <p id="saleSale">SALE!</p> <img class="saleImg" src="${book1.volumeInfo.imageLinks.thumbnail}  alt="Image">  `;
 
     divTitleSale.innerHTML = `<h1 class="titleForNewReleases"> ${book1.volumeInfo.title}`;
 
@@ -374,10 +378,11 @@ buyButtons.forEach((btn) =>
 );
 
 detailsButton.forEach((btn) =>
-  btn.addEventListener("click", (e) => {
-    window.location.replace("../details/details.html");
+  btn.addEventListener("click", () => {
+    window.location.href="../details/details.html";
   })
 );
+
 
 /*Sidebar function to open on click*/
 

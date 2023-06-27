@@ -3,6 +3,8 @@
 
 window.addEventListener('load', () => {
     const allProducts = JSON.parse(localStorage.getItem('products')) || [];
+    let initialAmount = 0;
+
 
     Products = allProducts;
     if(Products.length > 0 ) {
@@ -30,7 +32,9 @@ window.addEventListener('load', () => {
       </div>
       `;
       productsDiv.innerHTML += displayProduct;
-      
+      initialAmount += prod.price;
+      const cardTotal = document.querySelector('#card-total');
+      cardTotal.textContent = `$${initialAmount.toString()}`
     });
 }
 const removeProductBtns = document.querySelectorAll('.remove-product');
@@ -44,6 +48,8 @@ removeProductBtns.forEach(btn => {
     window.location.reload();
   })
 })
+
+const cardTotal = document.querySelector('#card-total');
 
 const addQuantityBtns = document.querySelectorAll('.add-quantity');
 addQuantityBtns.forEach(btn => {
@@ -59,7 +65,6 @@ addQuantityBtns.forEach(btn => {
     const totalPrice = parsedPrice * Number(productAmount.value);
     productTotalAmount.textContent = totalPrice.toString();
 
-    const cardTotal = document.querySelector('#card-total');
     let parsedTotal = parseInt(cardTotal.textContent.replace('$', ''));
     parsedTotal += parsedPrice ;
     cardTotal.textContent = parsedTotal.toString();
@@ -82,7 +87,6 @@ removeQuantityBtns.forEach(btn => {
     productTotalAmount.textContent = totalPrice.toString();
 
 
-    const cardTotal = document.querySelector('#card-total');
     let parsedTotal = parseInt(cardTotal.textContent.replace('$', ''));
     parsedTotal -= parsedPrice;
     cardTotal.textContent = parsedTotal.toString();
