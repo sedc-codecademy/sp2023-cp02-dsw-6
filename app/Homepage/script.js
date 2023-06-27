@@ -324,7 +324,6 @@ let popularBooks = (showPopular) => {
 };
 
 displayPopularBooks();
-
 // Function for displaying sale books
 
 let displaySaleBooks = () => {
