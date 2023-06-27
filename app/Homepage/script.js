@@ -351,6 +351,27 @@ let saleBooks = (showSale) => {
       priceForSale * (1 - discountPercentageHomepage / 100);
     const formattedDiscountPrice = parseInt(discountPriceHomepage).toFixed(2);
 
+    const buyButton = document.getElementById(`buyButtonSale${i + 1}`);
+    const detailsButton = document.getElementById(
+      `detailsButtonSale${i + 1}`
+    );
+    detailsButton.addEventListener("click", () => {
+      localStorage.setItem(
+        "detailBook",
+        JSON.stringify([{ ...book1, price: Number(formattedDiscountPrice) }])
+      );
+    });
+
+    buyButton.addEventListener("click", () => {
+      let allProducts = JSON.parse(localStorage.getItem("products"));
+
+      if (allProducts == null) {
+        allProducts = [{ ...book1, price: Number(formattedDiscountPrice) }];
+      } else {
+        allProducts.push({ ...book1, price: Number(formattedDiscountPrice) });
+      }
+      localStorage.setItem("products", JSON.stringify(allProducts));
+    });
     
     displaySaleBooksImage.innerHTML = ` <p id="saleSale">SALE!</p> <img class="saleImg" src="${book1.volumeInfo.imageLinks.thumbnail}  alt="Image">  `;
 
