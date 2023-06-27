@@ -585,6 +585,9 @@ header nav ul li a {
   transition: 0.2s;
 }
 
+
+
+
 header nav ul li a:hover,
 header nav ul li a.active {
   border-bottom-color: dodgerblue;
@@ -682,7 +685,7 @@ header nav ul li a.active {
     rgb(250, 248, 248) 0%,
     rgb(255, 255, 255) 50%,
     #62afb2 50%,
-    #62afb2 60%
+    #62afb2 55%
   );
   border-radius: 0 0 0.5em 0;
   box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
