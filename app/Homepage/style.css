@@ -5,7 +5,6 @@
   list-style: none;
 }
 
-
 .slideImages {
   display: none;
 }
@@ -27,16 +26,16 @@
 /* Media query desctop-slide images */
 @media screen and (min-width: 1034px) {
   .slideshowContainer {
-    max-width: 100%;
+    width: 100%;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .coverSlideImages {
-    width: auto;
-    height: 500px;
-    opacity: 0.8;
+    width: 100vw;
+    height: 550px;
+    opacity: 0.7;
   }
 
   .prev,
@@ -46,12 +45,12 @@
 
   .text {
     top: 50%;
+    font-size: 25px;
   }
 
   #navBar {
     width: 100%;
     height: 70px;
-   
   }
 }
 
@@ -82,7 +81,7 @@
 
 .text {
   color: var(--homepage-text-messages-color);
-  font-size: 100%;
+  /* font-size: 100%; */
   font-weight: var(--login-button-fontWeight);
   font-style: italic;
   position: absolute;
@@ -161,7 +160,7 @@
 .containerSearch {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .book {
@@ -191,34 +190,33 @@
 
 /* Styling book icons, new releases, popular books and sale */
 
-@media only screen and (max-width: 600px){
-
-#booksIcons {
-  display: flex;
-  flex-direction: column;
-}
-
-.tonsOfBooks,
-.hundredOfAuthors,
-.easillyBookmarked {
-  display: grid;
-  justify-items: center;
-}
-}
-
-/* Media query book icons */
-
-@media only screen and (min-width: 1034px){
+@media only screen and (max-width: 600px) {
   #booksIcons {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
   }
-  
+
   .tonsOfBooks,
   .hundredOfAuthors,
   .easillyBookmarked {
     display: grid;
-   justify-items:center;
+    justify-items: center;
+  }
+}
+
+/* Media query book icons */
+
+@media only screen and (min-width: 1034px) {
+  #booksIcons {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .tonsOfBooks,
+  .hundredOfAuthors,
+  .easillyBookmarked {
+    display: grid;
+    justify-items: center;
   }
 }
 
@@ -262,6 +260,18 @@
   text-decoration: line-through;
 }
 
+#saleSale {
+  margin: -0.4em -0.5em 0 4em;
+  width: 7.5rem;
+  text-align: center;
+  border-radius: 4px;
+  color: #ffffff;
+  background: #00afd8;
+  font-weight: 700;
+  line-height: 20 px;
+  font-size: 1.857em;
+}
+
 @media only screen and (max-width: 600px) {
   #mainNewReleasesDiv,
   #mainPopularBooksDiv,
@@ -274,6 +284,8 @@
   #detailsButtonAndBuyButton1 {
     display: block;
   }
+
+
 }
 
 /* Details and buy buttons */
@@ -403,6 +415,10 @@
     font-size: 22px;
   }
 
+  #saleSale {
+    margin: -0.9em -0.9em 0.5em 2.1em;
+  }
+
   .book {
     width: 30%;
   }
@@ -456,7 +472,7 @@
   bottom: 0;
   z-index: 5;
   height: 100%;
-  }
+}
 
 #open-arrow {
   font-size: 180%;
@@ -515,13 +531,12 @@
 /* Sidebar for Desktop */
 
 @media (min-width: 1024px) {
-
   .sidebar-plus-main-container {
     padding-top: 3%;
-    position:relative;
+    position: relative;
     height: 100%;
-   }
-    .sidebar-container {
+  }
+  .sidebar-container {
     top: 0;
     position: sticky;
     padding-top: 0.5%;
@@ -537,7 +552,7 @@
     overflow-y: visible;
   }
   .sidebar-allcategories {
-    padding:20% 0;
+    padding: 20% 0;
   }
   #open-arrow {
     display: none;
@@ -547,8 +562,6 @@
   }
 }
 
-
-
 header {
   background: #fff;
   width: 100%;
@@ -556,12 +569,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
 }
 
 header nav ul {
   display: flex;
-  
 }
 
 header nav ul li a {
@@ -572,7 +583,6 @@ header nav ul li a {
   border: 3px solid transparent;
   text-transform: uppercase;
   transition: 0.2s;
-  
 }
 
 
@@ -587,7 +597,6 @@ header nav ul li a.active {
   margin-right: auto;
 }
 
-
 .hamburger {
   position: relative;
   width: 30px;
@@ -595,19 +604,11 @@ header nav ul li a.active {
   cursor: pointer;
 }
 
-
-
-
-.hiddenOption:hover {
-  text-decoration: underline;
-}
-
 .hamburger div {
   width: 30px;
   height: 3px;
   margin: 5px 0;
   background: #000;
-  
 }
 
 @media only screen and (max-width: 900px) {
@@ -628,7 +629,7 @@ header nav ul li a.active {
     padding: 2px;
     transition: 0.3s;
     left: -100%;
-   
+
     width: 100%;
   }
 
@@ -644,7 +645,6 @@ header nav ul li a.active {
 .icons {
   display: flex;
   align-items: center;
-  
 }
 
 .icons a {
@@ -659,4 +659,45 @@ header nav ul li a.active {
   height: 3px;
   background-color: #000;
   margin: 5px 0;
+}
+
+.btnstyle {
+  position: relative;
+  font-size: 15px;
+  padding: 10px 10px;
+  background-color: #b6cfd0;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  color: black;
+  box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.3);
+}
+
+.btnstyle::before {
+  position: absolute;
+  content: "";
+  height: 0;
+  width: 0;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    135deg,
+    rgb(250, 248, 248) 0%,
+    rgb(255, 255, 255) 50%,
+    #62afb2 50%,
+    #62afb2 60%
+  );
+  border-radius: 0 0 0.5em 0;
+  box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.btnstyle:hover::before {
+  width: 1.4em;
+  height: 1.4em;
+}
+
+#backToHomepage {
+  font-size: 15px;
+  margin-left: 2%;
 }

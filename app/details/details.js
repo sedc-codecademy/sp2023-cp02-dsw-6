@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
         <div class="price">$${bookData.price}</div>              
               
         <div id="detailsButtonAndBuyButtonCart">
-          <button class="detailsButton" id="detailsButtonCart"><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details </button>
+          <button class="detailsButton" id="detailsButtonCart"><i class="fa-solid fa-heart" style="color: #0C54C0;"></i> Wish list </button>
           <button class="buyButton" id="buyButtonCart"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i> Buy</button>
         </div>
       </div>
@@ -43,8 +43,26 @@ window.addEventListener('load', () => {
     </div>
   </div>
   `
-  // console.log('ready');
+
+const buyButton = document.querySelector('#buyButtonCart');
+buyButton.addEventListener('click', () => {
+  let allProducts = JSON.parse(localStorage.getItem('products'));
+
+  if(allProducts == null) {
+    allProducts = [{...bookData}];
+  } else {
+    allProducts.push({...bookData});
+}
+  localStorage.setItem('products', JSON.stringify(allProducts));
+window.location.replace('../ShoppingCard/shoppingCard.html');
+})
 });
+
+
+// buy 
+
+
+
 
 
 let slideIndex = 1;
@@ -136,7 +154,29 @@ function displayDesc(book) {
        randomBooks.forEach((book, index) => {
         const bookCover = document.getElementById(`bookCover${index + 1}`);
         const bookTitle = document.getElementById(`bookTitle${index + 1}`);
-        
+        const randomBookPrice = getRandomPrice();
+        // buy btn
+        const buyBtn = document.getElementById(`buyButton${index + 1}`);
+        buyBtn.addEventListener('click', () => {
+          let allProducts = JSON.parse(localStorage.getItem('products'));
+  
+    if(allProducts == null) {
+      allProducts = [{...book, price: randomBookPrice}];
+    } else {
+      allProducts.push({...book, price: randomBookPrice});
+  }
+    localStorage.setItem('products', JSON.stringify(allProducts));
+  window.location.replace('../ShoppingCard/shoppingCard.html');
+        })
+
+        // details button
+
+        const detailsBtn = document.querySelector(`#detailsButton${index + 1}`)
+        detailsBtn.addEventListener('click', () => {
+          localStorage.setItem('detailBook', JSON.stringify([{...book, price: randomBookPrice}]));
+          window.location.reload();
+        })
+
          const bookPrice = document.getElementById(`bookPrice${index + 1}`);
          let title = book.volumeInfo.title;
          if(title.length > 42) {
@@ -145,7 +185,7 @@ function displayDesc(book) {
         
          bookCover.src = book.volumeInfo.imageLinks.thumbnail;
          bookTitle.textContent = `${title}`;
-         bookPrice.textContent = getRandomPrice();
+         bookPrice.textContent = randomBookPrice;
         
 
        });
