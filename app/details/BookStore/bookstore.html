@@ -12,8 +12,46 @@
 <body>
   <div class="containerCover">
     <img id="cover" src="book3.jpg" alt="bookCover"/>
-    <div class="centered">Bookstore</div>
+    <div class="centered" id="cover-title">Bookstore</div>
   </div>
+
+  <div class="sidebar-plus-main-container">
+  
+
+    <!--Sidebar container-->
+    <aside class="sidebar-container">
+      <div id="open-arrow">
+      <i class="fas fa-angles-right" ></i>
+    </div>
+  
+      <div class="sidebar" id="sidebar-show-all">
+     
+                    <ul class="sidebar-allcategories">
+                      
+                      <li class="sidebar-category"><a href="?action=computers" id="computers">Computers</a></li>
+                      <li class="sidebar-category"><a href="?action=language" id="lang-art-disc">Language, Art <br>
+                        & Disciplines</a></li>
+                      <li class="sidebar-category"><a href="?action=history" id="history">History</a></li>
+                      <li class="sidebar-category"><a href="?action=education"  id="education">Education</a></li>
+                      <li class="sidebar-category"><a href="?action=political"  id="political-science">Political Science</a></li>
+                      <li class="sidebar-category"><a href="?action=religion"  id="religion">Religion</a></li>
+                      <li class="sidebar-category"><a href="?action=law"  id="law">Law</a></li>
+                      <li class="sidebar-category"><a href="?action=nature"  id="nature">Nature</a></li>
+                      <li class="sidebar-category"><a href="?action=electronic"  id="electronic-books">Electronic Books</a></li>
+                      <li class="sidebar-category"><a href="?action=science"  id="science">Science</a></li>
+                      <li class="sidebar-category"><a href="?action=comparativeling"  id="comparative-ling">Comparative linguistics</a></li>
+                                          <li class="sidebar-category"><a href="?action=computernet"  id="computer-network">Cataloging of computer network resources</a></li>
+                      <li class="sidebar-category"><a href="?action=englishlang"  id="english-lang">English language</a></li>
+                      <li class="sidebar-category"><a href="?action=foreignlang"  id="foreign-lang">Foreign Language Study</a></li>
+  
+                    </ul>
+                
+                  </div>
+              </aside>
+  
+    
+  <!--Main content container-->
+    <div class="main-content">
     <div class="search-main-container">
     <div class="searchContainer">
         <input type="text" id="searchByAuthor" class="searchFields" placeholder="  Book Author" />
@@ -36,7 +74,11 @@
         <button id="previous"><<</button>
         <button id="next">>></button>
     </div>
-
+    <div class="backToAllBooks">
+      <a id="backToAll" href = "?action=bookstore" >All Books</a>
+    </div>
+  </div>
+  </div>
 
     <script src="bookstore.js"></script>
     <script src="https://kit.fontawesome.com/d3daee38c8.js" crossorigin="anonymous"></script>
