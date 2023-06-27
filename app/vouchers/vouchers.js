@@ -7,3 +7,5 @@ buyButton.addEventListener('click', () => {
     console(selectedValue)
     let photo =document.getElementById("img")
 })
+
+
