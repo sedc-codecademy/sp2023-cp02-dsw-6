@@ -1,12 +1,11 @@
 let bookElement=document.getElementById("book-element");
-let buttonDetail=document.getElementsByClassName("detailsButton1");
-let buttonBuy=document.getElementsByClassName("buyButton1");
+
 
 
  fetch('https://www.googleapis.com/books/v1/volumes?q=language:en&orderBy=relevance&printType=books&maxResults=40&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)')
     .then(response => response.json())
     .then(data => {
-      const discountBooks = data.items.slice(5, 17);//Displaying 12 books from index 5 to index 15 that are for sale
+      const discountBooks = data.items.slice(5, 17);//Displaying 12 books from index 5 to index 17 that are for sale
       discountBooks.forEach((book, index) => {
         bookElementFunc(book, index);
       });
@@ -62,7 +61,7 @@ let otherProductsElement=document.getElementById("otherProducts-container");
 fetch('https://www.googleapis.com/books/v1/volumes?q=language:en&orderBy=relevance&printType=books&maxResults=40&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)')
 .then(response => response.json())
 .then(data => {
-  const boooksForOtherProducts= data.items.slice(17, 21);//Displaying 4 books from index 16 to index 20 in section Other Products
+  const boooksForOtherProducts= data.items.slice(18, 22);//Displaying 4 books from index 17 to index 21 in section Other Products
   boooksForOtherProducts.forEach((book, index) => {
     displayOtherProducts(book, index);
   });
@@ -77,8 +76,21 @@ let otherProdPic=document.getElementById(`bookPic${i}`);
 let otherProdTitle=document.getElementById(`bookTitle${i}`);
 let otherProdPrice=document.getElementById(`bookPrice${i}`);
 if (otherProdPic) {
- otherProdPic.innerHTML = `<img class="otherProductsImage" src="${book.volumeInfo.imageLinks.thumbnail}" alt="Cover Image">`;
+otherProdPic.innerHTML = `<img class="otherProductsImage" src="${book.volumeInfo.imageLinks.thumbnail}" alt="Cover Image">`;
+ const imageElement = otherProdPic.querySelector('.otherProductsImage');
+
+  imageElement.addEventListener('click', () => {
+    const bookIndex = book.index; // Assuming `id` is the unique identifier for the book
+
+    // Construct the details page URL with the book ID as a query parameter
+    const detailsPageURL = `../details/details.html?bookIndex=${bookIndex}`;
+
+    // Redirect to the details page
+    window.location.href = detailsPageURL;
+  }); 
+
 }
+  
 
   if (otherProdTitle) {
     let titleO = book.volumeInfo.title;
