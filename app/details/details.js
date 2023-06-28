@@ -44,6 +44,20 @@ window.addEventListener('load', () => {
   </div>
   `
 
+  const wishlistButton = document.querySelector('#detailsButtonCart');
+  wishlistButton.addEventListener('click', () => {
+    let allProducts = JSON.parse(localStorage.getItem('wishlist'));
+  
+    if (allProducts == null) {
+      allProducts = [{ ...bookData }];
+    } else {
+      allProducts.push({ ...bookData });
+    }
+    localStorage.setItem('wishlist', JSON.stringify(allProducts));
+    window.location.replace('../wishlist/wishlist.html');
+  });
+
+
 const buyButton = document.querySelector('#buyButtonCart');
 buyButton.addEventListener('click', () => {
   let allProducts = JSON.parse(localStorage.getItem('products'));

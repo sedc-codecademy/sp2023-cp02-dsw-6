@@ -1,66 +1,48 @@
-const addToWishlistBtn = document.getElementById("wishlist-btn");
-const wishlistTableBody = document.getElementById("wishlist-table-body");
-const allBooks = [];
+window.addEventListener('load', () => {
+  const allProducts = JSON.parse(localStorage.getItem('wishlist')) || [];
+  const productsDiv = document.querySelector('.allproducts');
 
-addToWishlistBtn.addEventListener("click", () => {
-  fetch("https://www.googleapis.com/books/v1/volumes?q=language:en&orderBy=relevance&printType=books&maxResults=10&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)")
-    .then(response => response.json())
-    .then(data => {
-      const books = data.items;
-      const bookRowsHtml = books.map(book => {
-        const stockStatus = Math.random() >= 0.5 ? "In stock" : "Out of stock";
-        const buyNowButtonHtml = stockStatus === "In stock" ? `<button data-id="${book.id}" class="buyButtonCard">Buy Now</button>` : '';
-        const randomPrice = Math.floor(Math.random() * 50) + 1;
+  allProducts.forEach((product) => {
+    const displayProduct = `
+      <div class="card_info-body">
+        <div class="image_title">
+          <img class="image-info_img" src="${product.volumeInfo.imageLinks.thumbnail}" alt="book-photo">
+          <p class="image-info_book_title">${product.volumeInfo.title}</p>
+        </div>
+        <div class="info-body_right-side">
+          <p class="card_info-body-price">$${product.price}</p>
+          <button class="buyButtonCard" data-id="${product.id}">Buy</button>
+          <button class="remove-btn" data-id="${product.id}">Remove</button>
+        </div>
+      </div>
+    `;
+    productsDiv.innerHTML += displayProduct;
+  });
 
-        if(stockStatus === "In stock") {
-          allBooks.push({...book, price: randomPrice});
-        }
-        
+  const removeButtons = document.querySelectorAll('.remove-btn');
+  removeButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const productId = event.target.dataset.id;
+      const updatedProducts = allProducts.filter((product) => product.id !== productId);
+      localStorage.setItem('wishlist', JSON.stringify(updatedProducts));
+      event.target.parentElement.parentElement.remove();
+    });
+  });
 
-        return `
-          <tr>
-            <td>${book.volumeInfo.title}</td>
-            <td>$${randomPrice}</td>
-            <td>${stockStatus}</td>
-            <td>${buyNowButtonHtml}</td>
-          </tr>
-        `;
-        
-      }).join("");
+  const buyButtons = document.querySelectorAll('.buyButtonCard');
+  buyButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const itemId = e.target.dataset.id;
+      const itemToBuy = allProducts.find((product) => product.id === itemId);
+      let allProducts = JSON.parse(localStorage.getItem('products')) || [];
 
-      wishlistTableBody.innerHTML = bookRowsHtml;
+      allProducts.push({ ...itemToBuy });
+      localStorage.setItem('products', JSON.stringify(allProducts));
 
+      const updatedWishlist = allProducts.filter((product) => product.id !== itemId);
+      localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
 
-      const buyButtons = document.querySelectorAll('.buyButtonCard');
-  buyButtons.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    const itemId = e.target.dataset.id;
-    const itemToBuy = allBooks.find(book => book.id === itemId);
-    let allProducts = JSON.parse(localStorage.getItem('products'));
-  
-    if(allProducts == null) {
-      allProducts = [{...itemToBuy}];
-    } else {
-      allProducts.push({...itemToBuy});
-  }
-    localStorage.setItem('products', JSON.stringify(allProducts));
-  window.location.replace('../ShoppingCard/shoppingCard.html');
-  })
-})
-    })
-    .catch(error => console.log(error));
+      window.location.replace('../ShoppingCard/shoppingCard.html');
+    });
+  });
 });
-
-
-// buy
-
-
-        
-
-
-
-
-
-
-
-
