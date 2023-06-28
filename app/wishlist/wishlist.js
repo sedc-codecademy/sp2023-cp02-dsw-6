@@ -10,9 +10,9 @@ window.addEventListener('load', () => {
           <p class="image-info_book_title">${product.volumeInfo.title}</p>
         </div>
         <div class="info-body_right-side">
-          <p class="card_info-body-price">$${product.price}</p>
-          <button class="buyButtonCard" data-id="${product.id}">Buy</button>
-          <button class="remove-btn" data-id="${product.id}">Remove</button>
+          <p class="card_info-body-price">${product.price}</p>
+          <button class="buyButtonCard" data-id="${product.id}"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i>Buy</button>
+          <button class="remove-btn" data-id="${product.id}">X</button>
         </div>
       </div>
     `;
@@ -34,15 +34,18 @@ window.addEventListener('load', () => {
     btn.addEventListener('click', (e) => {
       const itemId = e.target.dataset.id;
       const itemToBuy = allProducts.find((product) => product.id === itemId);
-      let allProducts = JSON.parse(localStorage.getItem('products')) || [];
-
-      allProducts.push({ ...itemToBuy });
-      localStorage.setItem('products', JSON.stringify(allProducts));
-
-      const updatedWishlist = allProducts.filter((product) => product.id !== itemId);
-      localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
-
+      const wishlistProducts = JSON.parse(localStorage.getItem('wishlist')) || [];
+  
+      // Check if the item already exists in the wishlist
+      const itemInWishlist = wishlistProducts.find((product) => product.id === itemId);
+  
+      if (!itemInWishlist) {
+        wishlistProducts.push({ ...itemToBuy });
+        localStorage.setItem('wishlist', JSON.stringify(wishlistProducts));
+      }
+  
       window.location.replace('../ShoppingCard/shoppingCard.html');
     });
   });
-});
+  
+    });
