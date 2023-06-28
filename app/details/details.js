@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
     <div id="textDetails">
       <h1 id="title">${bookData.volumeInfo.title}</h1>
       <div class="offerBox">
-        <div class="price">$${bookData.price}</div>              
+        <div class="price">${bookData.price}</div>              
               
         <div id="detailsButtonAndBuyButtonCart">
           <button class="detailsButton" id="detailsButtonCart"><i class="fa-solid fa-heart" style="color: #0C54C0;"></i> Wish list </button>
