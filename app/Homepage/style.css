@@ -239,6 +239,12 @@
   font-size: 15px;
   text-align: center;
   opacity: 0.7;
+  
+}
+
+.describeText{
+   width: 75%;
+    
 }
 
 .title,
@@ -279,6 +285,7 @@
     display: grid;
     flex-direction: column;
     text-align: center;
+   
   }
 
   #detailsButtonAndBuyButton1 {
