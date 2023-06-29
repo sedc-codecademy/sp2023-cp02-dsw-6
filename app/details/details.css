@@ -45,7 +45,7 @@ body {
 
 #cover{
   width: 100%;
-  height: 700px;
+  height: 400px;
   opacity: 80%;
   padding-bottom: 50px ;
 }
@@ -55,7 +55,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 80px;
+  font-size: 50px;
+  color: var(--find-button-backgroundColor);
 }
 
 #wrapper{
@@ -85,6 +86,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 60px;
 }
 
 
@@ -108,7 +110,6 @@ body {
   height: 40%;
   width: 40%;
   border-radius: 180px;
-
   margin-bottom: 15px;
 }
 
@@ -122,8 +123,11 @@ body {
   display: flex;
   flex-direction: column;
   background-color: white;
-  padding-top: 50px;
+  padding-top: 30px;
  
+}
+#coverImg {
+  padding-top: 30px;
 }
 
 
@@ -134,7 +138,9 @@ body {
   max-width: 100%;
 }
 
-
+#titleMayLike{
+  padding-bottom: 30px;
+}
 
 
 #title, #bookDet, #descDetails, #titleMayLike {
@@ -143,8 +149,8 @@ body {
   line-height: 32px;
   font-style: normal;
   letter-spacing: 0.02em;
-  font-size: 20px;
-  padding-top: 50px;
+  font-size: 30px;
+  padding-top: 30px;
   align-items: center;
 }
 
@@ -156,18 +162,15 @@ body {
   border-radius: 6px;
   padding: 15px;
   width: 100%;
+  font-size: 50px;
  
 }
 
 
 
-
-
-
-
 table {
   border-collapse: collapse;
-  width: 50%;
+  width: 80%;
 }
 
 table th, table td {
@@ -178,12 +181,13 @@ table th, table td {
 
 
 .descriptionDetails {
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .desc{
   width: 90%;
   justify-content: center;
+  font-size: 18px;
 }
 
 .containerBookLike {
@@ -235,7 +239,7 @@ table th, table td {
   }
 
   .offerBox{
-    width: 60%;
+    width: 40%;
   }
 
   .containerBookLikeImg {
