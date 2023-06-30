@@ -18,8 +18,8 @@
 @media only screen and (max-width: 600px) {
   .coverSlideImages {
     vertical-align: middle;
-    width: 101.5%;
-    opacity: 0.8;
+    width: 100%;
+    opacity: 0.2;
   }
 }
 
@@ -681,10 +681,10 @@ header nav ul li a.active {
 }
 
 .line {
-  width: 25px;
-  height: 3px;
+  width: 15px;
+  height: 5px;
   background-color: #000;
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 .btnstyle {
