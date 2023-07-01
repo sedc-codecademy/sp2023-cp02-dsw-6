@@ -239,12 +239,10 @@
   font-size: 15px;
   text-align: center;
   opacity: 0.7;
-  
 }
 
-.describeText{
-   width: 75%;
-    
+.describeText {
+  width: 75%;
 }
 
 .title,
@@ -285,14 +283,11 @@
     display: grid;
     flex-direction: column;
     text-align: center;
-   
   }
 
   #detailsButtonAndBuyButton1 {
     display: block;
   }
-
-
 }
 
 /* Details and buy buttons */
@@ -479,8 +474,7 @@
   bottom: 0;
   z-index: 5;
   height: 100%;
-  
-  }
+}
 
 #open-arrow {
   font-size: 180%;
@@ -528,7 +522,6 @@
   color: var(--homepage-text-messages-color);
   transition: all 0.3s linear;
   text-decoration: none;
-   
 }
 
 .sidebar-allcategories a:hover {
@@ -539,13 +532,12 @@
 /* Sidebar for Desktop */
 
 @media (min-width: 1024px) {
-
   .sidebar-plus-main-container {
     padding-top: 3%;
-    position:relative;
+    position: relative;
     height: 100%;
-   }
-    .sidebar-container {
+  }
+  .sidebar-container {
     top: 0;
     position: sticky;
     padding-top: 0.5%;
@@ -561,11 +553,9 @@
     display: block;
     padding: 3% 0;
     overflow-y: visible;
-    
   }
   .sidebar-allcategories {
-    padding:0 0;
-    
+    padding: 0 0;
   }
   #open-arrow {
     display: none;
@@ -576,16 +566,14 @@
   .sidebar-container::-webkit-scrollbar {
     width: 0.25rem;
   }
-  
+
   .sidebar-container::-webkit-scrollbar-track {
-    background:beige;
+    background: beige;
   }
-  
+
   .sidebar-container::-webkit-scrollbar-thumb {
-    
-    background: var(--find-button-backgroundColor)
+    background: var(--find-button-backgroundColor);
   }
-  
 }
 
 header {
@@ -610,9 +598,6 @@ header nav ul li a {
   text-transform: uppercase;
   transition: 0.2s;
 }
-
-
-
 
 header nav ul li a:hover,
 header nav ul li a.active {
@@ -687,11 +672,16 @@ header nav ul li a.active {
   margin: 10px 0;
 }
 
+.nav-logo-icons {
+  display: flex;
+  justify-content: space-between;
+}
+
 .btnstyle {
   position: relative;
   font-size: 15px;
   padding: 10px 10px;
-  background-color: #b6cfd0;
+  background-color: #7092c5;
   text-decoration: none;
   border: none;
   border-radius: 10px;
@@ -710,8 +700,8 @@ header nav ul li a.active {
     135deg,
     rgb(250, 248, 248) 0%,
     rgb(255, 255, 255) 50%,
-    #62afb2 50%,
-    #62afb2 55%
+    #7092c5 50%,
+    #7092c5 55%
   );
   border-radius: 0 0 0.5em 0;
   box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
