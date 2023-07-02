@@ -36,7 +36,7 @@
 
 
 
-#wishlist-table {
+/* #wishlist-table {
   width: 100%;
   border-collapse: collapse;
 }
@@ -47,9 +47,9 @@
   vertical-align: middle;
   border-bottom: 1px solid #959595;
   background-color: #B3B3B3;
-}
+} */
 
-#wishlist-table td {
+/* #wishlist-table td {
   text-align: left;
   padding: 1rem;
   vertical-align: middle;
@@ -73,7 +73,7 @@
   top: 50%;
   right: 0.5rem;
   transform: translateY(-50%);
-}
+} */
 
 @media only screen and (max-width: 767px) {
   #wishlist-box {
@@ -99,7 +99,7 @@
     margin-top: 1.5rem;
   }
 
-  #wishlist-table {
+  /* #wishlist-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 2rem;
@@ -111,7 +111,7 @@
     vertical-align: middle;
     border-bottom: 1px solid #959595;
     font-size: 1.
-  }
+  } */
 } 
 .footer{
   display: flex;
@@ -140,5 +140,112 @@
   } 
 
 
+  .card_info-header {
+    padding: 10px;
+    width: 95%;
+    height: 29px;
+    margin: 0 auto;
+    background-color: #B3B3B3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px 5px 0 0;
+    font-size: 20px;
+
+  }
+
+  .header-right-side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 52%;
+    font-size: 20px;
+
+  }
+
+  .card_info-body {
+    border-radius: 0 0 5px 5px;
+    padding: 20px;
+    min-height: 130px;
+    width: 95%;
+    margin: 0 auto;
+    background-color: #E1E1E1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    letter-spacing: 0.5px;  
+    gap: 15px;
+  }
+
+  .info-body_right-side {
+    width: 52%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .remove-btn {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
   
+  .remove-btn:hover {
+    background-color: darkred;
+  }
+  
+
+  .buyButtonCard {
+    border-radius: 50px;
+    border: 1px solid #000000;
+    color: hsl(0, 0%, 0%);
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic; 
+  background-color: transparent;
+  }
+  
+  .buyButtonCard  i {
+    margin-right: 5px;
+  }
+  
+  .image-info_book_title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .card_info-body-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0C54C0;
+  }
+  
+  .card_info-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    color: #FFFFFF;
+  }
+  
+
   
