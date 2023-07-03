@@ -70,8 +70,31 @@ function displayBooks() {
 
             for (let i = startIndex; i < startIndex + 12 && i < books.length; i++) {
                 const book = books[i];
-                const bookElement = createBookElement(book);
+                const bookElement = createBookElement(book,i);
+                  
                 container.appendChild(bookElement);
+                const detailsBtn = document.querySelector(`.detailsButton${i}`);
+                // console.log(bookElement);
+                  detailsBtn.addEventListener('click', () => {
+                    // console.log(detailsBtn.dataset.price);
+                    localStorage.setItem(
+                      "detailBook",
+                      JSON.stringify([{ ...book, price: Number(detailsBtn.dataset.price) }])
+                    );
+                    window.location.replace('../details.html');
+                  })
+                  const buyBtn = document.querySelector(`.buyButton${i}`);
+                  buyBtn.addEventListener('click', () => {
+                    let allProducts = JSON.parse(localStorage.getItem('products'));
+
+  if(allProducts == null) {
+    allProducts = [{ ...book, price: Number(detailsBtn.dataset.price) }];
+  } else {
+    allProducts.push({ ...book, price: Number(detailsBtn.dataset.price) });
+}
+  localStorage.setItem('products', JSON.stringify(allProducts));
+window.location.replace('../../../ShoppingCard/shoppingCard.html');
+                  })
             }
             previousButton.style.display = "block";
             nextButton.style.display = "block";
@@ -85,7 +108,7 @@ function displayBooks() {
 
 
 
-function createBookElement(book) {
+function createBookElement(book, i) {
     const bookElement = document.createElement('div');
     bookElement.classList.add('book');
 
@@ -103,8 +126,8 @@ function createBookElement(book) {
         <div class="book-author">${limitedWordsAuthorr}</div>
         <div class="book-price">$${price}</div>
         <div class="book-buttons">
-            <button class="detailsButton"><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details </button>
-            <button class="buyButton" id="buyButton"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i>Buy</button>
+            <button data-price='${price}' class="detailsButton${i}"><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details </button>
+            <button class="buyButton${i}" id="buyButton"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i>Buy</button>
         </div>
     `;
 
@@ -247,14 +270,14 @@ function displayBooksByCategory(category) {
 
 
 
-const buyButton = document.getElementById(`buyButton${i}`);
+// const buyButton = document.getElementById(`buyButton${i}`);
 
-buyButton.addEventListener('click', () => {
-  let allProducts = JSON.parse(localStorage.getItem('products'));
-  if(allProducts == null) {
-    allProducts = [{...randomBook, price: Number(price)}];
-  } else {
-    allProducts.push({ ...randomBook, price: Number(price) });
-  }
-  localStorage.setItem("products", JSON.stringify(allProducts));
-});
+// buyButton.addEventListener('click', () => {
+//   let allProducts = JSON.parse(localStorage.getItem('products'));
+//   if(allProducts == null) {
+//     allProducts = [{...randomBook, price: Number(price)}];
+//   } else {
+//     allProducts.push({ ...randomBook, price: Number(price) });
+//   }
+//   localStorage.setItem("products", JSON.stringify(allProducts));
+// });
