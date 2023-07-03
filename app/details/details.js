@@ -7,19 +7,7 @@ window.addEventListener('load', () => {
     <div id="coverImg"><img id="coverImgBook" src="${bookData.volumeInfo.imageLinks.thumbnail}" alt="Cover Image"></div>
     <div id="textDetails">
       <h1 id="title">${bookData.volumeInfo.title}</h1>
-      <div class="offerBox">
-        <div class="price">$${bookData.price}</div>              
-              
-        <div id="detailsButtonAndBuyButtonCart">
-          <button class="detailsButton" id="detailsButtonCart"><i class="fa-solid fa-heart" style="color: #0C54C0;"></i> Wish list </button>
-          <button class="buyButton" id="buyButtonCart"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i> Buy</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="bookDetails">
-    <div class="bookDetailsTable">
-      <h1 id="bookDet">Book Details</h1>
+     
       <table id="tableDetails">
         <tbody>
           <tr>
@@ -36,6 +24,19 @@ window.addEventListener('load', () => {
           </tr>
         </tbody>
       </table>
+    </div>
+  </div>
+  <div class="bookDetails">
+  <div class="offerBox">
+        <div class="price">${bookData.price}</div>              
+              
+        <div id="detailsButtonAndBuyButtonCart">
+          <button class="detailsButton" id="detailsButtonCart"><i class="fa-solid fa-heart" style="color: #0C54C0;"></i> Wish list </button>
+          <button class="buyButton" id="buyButtonCart"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i> Buy</button>
+        </div>
+      </div>
+    <div class="bookDetailsTable">
+      
       <div class="descriptionDetails">
         <h1 id="descDetails">Description</h1>
         <p class="desc">${bookData.volumeInfo.description}</p>
@@ -43,6 +44,20 @@ window.addEventListener('load', () => {
     </div>
   </div>
   `
+
+  const wishlistButton = document.querySelector('#detailsButtonCart');
+  wishlistButton.addEventListener('click', () => {
+    let allProducts = JSON.parse(localStorage.getItem('wishlist'));
+  
+    if (allProducts == null) {
+      allProducts = [{ ...bookData }];
+    } else {
+      allProducts.push({ ...bookData });
+    }
+    localStorage.setItem('wishlist', JSON.stringify(allProducts));
+    window.location.replace('../wishlist/wishlist.html');
+  });
+
 
 const buyButton = document.querySelector('#buyButtonCart');
 buyButton.addEventListener('click', () => {
@@ -59,39 +74,6 @@ window.location.replace('../ShoppingCard/shoppingCard.html');
 });
 
 
-// buy 
-
-
-
-
-
-let slideIndex = 1;
-
-// showSlides(slideIndex);
-
-// function plusSlides(n) {
-//   showSlides(slideIndex += n);
-// }
-
-// function currentSlide(n) {
-//   showSlides(slideIndex = n);
-// }
-
-// function showSlides(n) {
-//   let i;
-//   let slides = document.getElementsByClassName("slideImages");
-//   let dots = document.getElementsByClassName("items");
-//   if (n > slides.length) {slideIndex = 1}    
-//   if (n < 1) {slideIndex = slides.length}
-//   for (i = 0; i < slides.length; i++) {
-//     slides[i].style.display = "none";  
-//   }
-//   for (i = 0; i < dots.length; i++) {
-//     dots[i].className = dots[i].className.replace(" active", "");
-//   }
-//   slides[slideIndex-1].style.display = "block";  
-//   dots[slideIndex-1].className += " active";
-// }
 
 
 

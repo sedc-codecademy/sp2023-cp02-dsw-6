@@ -31,6 +31,8 @@ function searchBooks() {
 
 function displayBooksSearch(books) {
   container.innerHTML = "";
+  previousButton.style.display = "block";
+  nextButton.style.display = "block";
 
   if (books) {
     books.forEach((book) => {
@@ -71,7 +73,8 @@ function displayBooks() {
                 const bookElement = createBookElement(book);
                 container.appendChild(bookElement);
             }
-
+            previousButton.style.display = "block";
+            nextButton.style.display = "block";
             previousButton.disabled = startIndex === 0;
             nextButton.disabled = startIndex + 12 >= books.length;
         })
@@ -101,7 +104,7 @@ function createBookElement(book) {
         <div class="book-price">$${price}</div>
         <div class="book-buttons">
             <button class="detailsButton"><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details </button>
-            <button class="buyButton"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i>Buy</button>
+            <button class="buyButton" id="buyButton"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i>Buy</button>
         </div>
     `;
 
@@ -125,3 +128,133 @@ nextButton.addEventListener('click', () => {
 });
 
 displayBooks();
+
+
+
+/*Sidebar function to open on click*/
+
+const openArrow = document.getElementById('open-arrow');
+const sidebarOpen = document.getElementById('sidebar-show-all');
+
+openArrow.addEventListener('click', function() {
+  sidebarOpen.classList.toggle('show-sidebar');
+  openArrow.classList.toggle('open-arrow-rotate');
+});
+
+
+//Displaying books by category
+let backToAllBooks = document.getElementById("backToAll");
+let categoryTitle = document.getElementById("cover-title");
+
+backToAllBooks.addEventListener("click", () => {
+categoryTitle.innerHTML = "Bookstore";
+displayBooks()
+backToAllBooks.style.visibility = (backToAllBooks.style.visibility === "hidden") ? "visible" : "hidden";})
+
+
+
+// Get the value of the query parameter
+const urlParams = new URLSearchParams(window.location.search);
+const action = urlParams.get('action');
+
+
+// Check the action value and calling the corresponding function
+if (action === 'computers') {
+  categoryTitle.innerHTML = "Computers";
+  displayBooksByCategory("Computers");
+} else if (action === 'language') {
+  categoryTitle.innerHTML = "Language, Arts & Disciplines"
+  displayBooksByCategory("Language Arts & Disciplines");
+} else if (action === "history") {
+  categoryTitle.innerHTML = "History"
+  displayBooksByCategory("History");
+}else if (action === "education") {
+  categoryTitle.innerHTML = "Education"
+  displayBooksByCategory("Education");
+}else if (action === "political") {
+  categoryTitle.innerHTML = "Political Science"
+  displayBooksByCategory("Political Science");
+}else if (action === "religion") {
+  categoryTitle.innerHTML = "Religion"
+  displayBooksByCategory("Religion");
+}else if (action === "law") {
+  categoryTitle.innerHTML = "Law"
+  displayBooksByCategory("Law");
+}else if (action === "nature") {
+  categoryTitle.innerHTML = "Nature"
+  displayBooksByCategory("Nature");
+}else if (action === "electronic") {
+  categoryTitle.innerHTML = "Electronic Books"
+  displayBooksByCategory("Electronic books");
+}else if (action === "science") {
+    categoryTitle.innerHTML = "Science"
+    displayBooksByCategory("Science");
+}else if (action === "comparativeling") {
+    categoryTitle.innerHTML = "Comparative linguistics"
+    displayBooksByCategory("Comparative linguistics");
+}else if (action === "computernet") {
+    categoryTitle.innerHTML = "Cataloging of computer network resources"
+    displayBooksByCategory("Cataloging of computer network resources");
+}else if (action === "englishlang") {
+    categoryTitle.innerHTML = "English language"
+    displayBooksByCategory("English language");
+}else if (action === "foreignlang") {
+    categoryTitle.innerHTML = "Foreign Language Study"
+    displayBooksByCategory("Foreign Language Study");
+}else if (action === "bookstore") {
+  displayBooks();
+}
+
+
+//function for displaying books by Category 
+
+function displayBooksByCategory(category) {
+
+  
+  const apiUrl = 'https://www.googleapis.com/books/v1/volumes?q=language:en&orderBy=relevance&printType=books&maxResults=40&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)';
+  
+  fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+          const books = data.items;
+          container.innerHTML = " ";
+          const booksInCategory = books.filter(book => {
+            const { volumeInfo } = book;
+            if (volumeInfo && volumeInfo.categories) {
+              return volumeInfo.categories.some(bookCategory =>
+                bookCategory.toLowerCase() === category.toLowerCase()
+              );
+            }
+            return false;
+          });
+          for (let i = startIndex; i < booksInCategory.length; i++) {
+            const book = booksInCategory[i];
+            const bookElement = createBookElement(book);
+            container.appendChild(bookElement);
+        }
+        previousButton.style.display = "none";
+        nextButton.style.display = "none";
+        
+        backToAllBooks.style.visibility = "visible"
+        console.log(booksInCategory)
+        
+        return booksInCategory;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+
+
+const buyButton = document.getElementById(`buyButton${i}`);
+
+buyButton.addEventListener('click', () => {
+  let allProducts = JSON.parse(localStorage.getItem('products'));
+  if(allProducts == null) {
+    allProducts = [{...randomBook, price: Number(price)}];
+  } else {
+    allProducts.push({ ...randomBook, price: Number(price) });
+  }
+  localStorage.setItem("products", JSON.stringify(allProducts));
+});

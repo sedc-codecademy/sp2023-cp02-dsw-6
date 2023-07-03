@@ -1,66 +1,51 @@
-const addToWishlistBtn = document.getElementById("wishlist-btn");
-const wishlistTableBody = document.getElementById("wishlist-table-body");
-const allBooks = [];
+window.addEventListener('load', () => {
+  const allProducts = JSON.parse(localStorage.getItem('wishlist')) || [];
+  const productsDiv = document.querySelector('.allproducts');
 
-addToWishlistBtn.addEventListener("click", () => {
-  fetch("https://www.googleapis.com/books/v1/volumes?q=language:en&orderBy=relevance&printType=books&maxResults=10&filter=partial&fields=items(id,volumeInfo/title,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/categories,volumeInfo/publishedDate,volumeInfo/description)")
-    .then(response => response.json())
-    .then(data => {
-      const books = data.items;
-      const bookRowsHtml = books.map(book => {
-        const stockStatus = Math.random() >= 0.5 ? "In stock" : "Out of stock";
-        const buyNowButtonHtml = stockStatus === "In stock" ? `<button data-id="${book.id}" class="buyButtonCard">Buy Now</button>` : '';
-        const randomPrice = Math.floor(Math.random() * 50) + 1;
+  allProducts.forEach((product) => {
+    const displayProduct = `
+      <div class="card_info-body">
+        <div class="image_title">
+          <img class="image-info_img" src="${product.volumeInfo.imageLinks.thumbnail}" alt="book-photo">
+          <p class="image-info_book_title">${product.volumeInfo.title}</p>
+        </div>
+        <div class="info-body_right-side">
+          <p class="card_info-body-price">${product.price}</p>
+          <button class="buyButtonCard" data-id="${product.id}"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i>Buy</button>
+          <button class="remove-btn" data-id="${product.id}">X</button>
+        </div>
+      </div>
+    `;
+    productsDiv.innerHTML += displayProduct;
+  });
 
-        if(stockStatus === "In stock") {
-          allBooks.push({...book, price: randomPrice});
-        }
-        
+  const removeButtons = document.querySelectorAll('.remove-btn');
+  removeButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const productId = event.target.dataset.id;
+      const updatedProducts = allProducts.filter((product) => product.id !== productId);
+      localStorage.setItem('wishlist', JSON.stringify(updatedProducts));
+      event.target.parentElement.parentElement.remove();
+    });
+  });
 
-        return `
-          <tr>
-            <td>${book.volumeInfo.title}</td>
-            <td>$${randomPrice}</td>
-            <td>${stockStatus}</td>
-            <td>${buyNowButtonHtml}</td>
-          </tr>
-        `;
-        
-      }).join("");
-
-      wishlistTableBody.innerHTML = bookRowsHtml;
-
-
-      const buyButtons = document.querySelectorAll('.buyButtonCard');
-  buyButtons.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    const itemId = e.target.dataset.id;
-    const itemToBuy = allBooks.find(book => book.id === itemId);
-    let allProducts = JSON.parse(localStorage.getItem('products'));
+  const buyButtons = document.querySelectorAll('.buyButtonCard');
+  buyButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const itemId = e.target.dataset.id;
+      const itemToBuy = allProducts.find((product) => product.id === itemId);
+      const wishlistProducts = JSON.parse(localStorage.getItem('wishlist')) || [];
   
-    if(allProducts == null) {
-      allProducts = [{...itemToBuy}];
-    } else {
-      allProducts.push({...itemToBuy});
-  }
-    localStorage.setItem('products', JSON.stringify(allProducts));
-  window.location.replace('../ShoppingCard/shoppingCard.html');
-  })
-})
-    })
-    .catch(error => console.log(error));
-});
-
-
-// buy
-
-
-        
-
-
-
-
-
-
-
-
+      // Check if the item already exists in the wishlist
+      const itemInWishlist = wishlistProducts.find((product) => product.id === itemId);
+  
+      if (!itemInWishlist) {
+        wishlistProducts.push({ ...itemToBuy });
+        localStorage.setItem('wishlist', JSON.stringify(wishlistProducts));
+      }
+  
+      window.location.replace('../ShoppingCard/shoppingCard.html');
+    });
+  });
+  
+    });
