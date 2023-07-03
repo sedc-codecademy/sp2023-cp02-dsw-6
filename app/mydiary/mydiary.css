@@ -31,6 +31,7 @@ body {
 
 .mydiary_heading p {
   color: black;
+  opacity: 0.9;
 }
 
 .mydiary_account {
@@ -166,8 +167,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border: 5px solid rgb(203, 186, 186);
-  border-radius: 20px;
+  border: 6px solid rgb(203, 186, 186);
   background-color: var(--search-field-backgroundColor);
   font-size: medium;
   font-weight: var(--card-detail-button-fontWeight);
