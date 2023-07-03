@@ -104,7 +104,7 @@ function createBookElement(book) {
         <div class="book-price">$${price}</div>
         <div class="book-buttons">
             <button class="detailsButton"><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details </button>
-            <button class="buyButton"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i>Buy</button>
+            <button class="buyButton" id="buyButton"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i>Buy</button>
         </div>
     `;
 
@@ -244,3 +244,17 @@ function displayBooksByCategory(category) {
         console.error('Error:', error);
     });
 }
+
+
+
+const buyButton = document.getElementById(`buyButton${i}`);
+
+buyButton.addEventListener('click', () => {
+  let allProducts = JSON.parse(localStorage.getItem('products'));
+  if(allProducts == null) {
+    allProducts = [{...randomBook, price: Number(price)}];
+  } else {
+    allProducts.push({ ...randomBook, price: Number(price) });
+  }
+  localStorage.setItem("products", JSON.stringify(allProducts));
+});
