@@ -11,6 +11,8 @@ searchBtn.addEventListener("click", searchBooks);
 
 
 function searchBooks() {
+ 
+  categoryTitle.innerHTML =  "Bookstore"
   let title = searchByTitleInput.value.trim();
   let author = searchByAuthorInput.value.trim();
 
@@ -93,7 +95,7 @@ function displayBooks() {
     allProducts.push({ ...book, price: Number(detailsBtn.dataset.price) });
 }
   localStorage.setItem('products', JSON.stringify(allProducts));
-window.location.replace('../../../ShoppingCard/shoppingCard.html');
+window.location.replace('../../ShoppingCard/shoppingCard.html');
                   })
             }
             previousButton.style.display = "block";
@@ -252,14 +254,36 @@ function displayBooksByCategory(category) {
           });
           for (let i = startIndex; i < booksInCategory.length; i++) {
             const book = booksInCategory[i];
-            const bookElement = createBookElement(book);
-            container.appendChild(bookElement);
+            const bookElement = createBookElement(book,i);
+                  
+                container.appendChild(bookElement);
+                const detailsBtn = document.querySelector(`.detailsButton${i}`);
+                // console.log(bookElement);
+                  detailsBtn.addEventListener('click', () => {
+                    // console.log(detailsBtn.dataset.price);
+                    localStorage.setItem(
+                      "detailBook",
+                      JSON.stringify([{ ...book, price: Number(detailsBtn.dataset.price) }])
+                    );
+                    window.location.replace('../details.html');
+                  })
+                  const buyBtn = document.querySelector(`.buyButton${i}`);
+                  buyBtn.addEventListener('click', () => {
+                    let allProducts = JSON.parse(localStorage.getItem('products'));
+
+  if(allProducts == null) {
+    allProducts = [{ ...book, price: Number(detailsBtn.dataset.price) }];
+  } else {
+    allProducts.push({ ...book, price: Number(detailsBtn.dataset.price) });
+}
+  localStorage.setItem('products', JSON.stringify(allProducts));
+window.location.replace('../../ShoppingCard/shoppingCard.html');
+                  })
         }
         previousButton.style.display = "none";
         nextButton.style.display = "none";
         
         backToAllBooks.style.visibility = "visible"
-        console.log(booksInCategory)
         
         return booksInCategory;
     })
