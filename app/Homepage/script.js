@@ -414,10 +414,17 @@ openArrow.addEventListener("click", function () {
   openArrow.classList.toggle("open-arrow-rotate");
 });
 
-const hamburger = document.querySelector('.hamburger');
-const icons = document.querySelector('.icons');
 
-hamburger.addEventListener('click', () => {
-  icons.style.display = icons.style.display === 'none' ? 'flex' : 'none';
+document.addEventListener("DOMContentLoaded", function() {
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+
+  hamburger.addEventListener("click", mobileMenu);
+
+  function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  }
 });
+
 
