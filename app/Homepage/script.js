@@ -413,3 +413,11 @@ openArrow.addEventListener("click", function () {
   sidebarOpen.classList.toggle("show-sidebar");
   openArrow.classList.toggle("open-arrow-rotate");
 });
+
+const hamburger = document.querySelector('.hamburger');
+const icons = document.querySelector('.icons');
+
+hamburger.addEventListener('click', () => {
+  icons.style.display = icons.style.display === 'none' ? 'flex' : 'none';
+});
+

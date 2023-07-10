@@ -607,19 +607,37 @@ header nav ul li a.active {
 .logo {
   margin-right: auto;
 }
-
 .hamburger {
-  position: relative;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
+  display: block;
+}
+.LogoIconsNav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.hamburger div {
-  width: 30px;
-  height: 3px;
-  margin: 5px 0;
-  background: #000;
+.logo {
+  margin-right: 20px; 
+}
+
+.icons {
+  display: flex;
+}
+.icons a {
+  margin-right: 10px; 
+  color: #000;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.InOutBtn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.InOutBtn a {
+  margin: 0 8px;
+  
 }
 
 @media only screen and (max-width: 900px) {
@@ -632,6 +650,8 @@ header nav ul li a.active {
   .hamburger {
     display: block;
   }
+
+
 
   header nav {
     position: absolute;
@@ -651,18 +671,6 @@ header nav ul li a.active {
   header nav ul {
     display: block;
   }
-}
-
-.icons {
-  display: flex;
-  align-items: center;
-}
-
-.icons a {
-  margin-left: 10px;
-  color: #000;
-  text-decoration: none;
-  font-size: 24px;
 }
 
 .line {

@@ -16,23 +16,25 @@
 
 <body>
   <header id="navBar">
-    <input type="checkbox" id="nav_check" hidden />
-    <label for="nav_check" class="hamburger" hidden>
+    <input type="checkbox" id="nav_check" style="display: none;">
+    <label for="nav_check" class="hamburger" style="display: none;">
       <div class="line"></div>
       <div class="line"></div>
       <div class="line"></div>
     </label>
-
-   
-    <div class="logo">
-      <img src="../images/booktopia logo.png" alt="#" width="170px" />
-    </div>
-
-    <div class="icons">
-      <a href="../wishlist/wishlist.html"><i class="fas fa-heart"></i></a>
-      <a href="../ShoppingCard/shoppingCard.html"><i class="fas fa-shopping-cart"></i></a>
-    </div>
     
+    
+
+    <div class="LogoIconsNav">
+      <div class="logo">
+        <img src="../images/booktopia logo.png" alt="#" width="170px" />
+      </div>
+      <div class="icons">
+        <a href="../wishlist/wishlist.html"><i class="fas fa-heart"></i></a>
+        <a href="../ShoppingCard/shoppingCard.html"><i class="fas fa-shopping-cart"></i></a>
+      </div>
+    </div>
+
     <nav>
       <ul class="menu" >
         <li><a href="#" class="active">Home</a></li>
@@ -40,10 +42,12 @@
         <li><a href="../Discount page/discount.html">Discount</a></li>
         <li><a href="../BookAccesories/bookAccesories.html">Book Accessories</a></li>
         <li><a href="#">Voucher</a></li>
-        <li><a href="../LoginPage/index.html" class="btnstyle">Login</a></li>
-        <li><a class="btnstyle">Logout</a></li>
       </ul>
     </nav>
+    <div class="InOutBtn">
+    <a href="../LoginPage/index.html" class="btnstyle">Login</a>
+    <a class="btnstyle">Logout</a>
+  </div>
   </header>
 
   <div class="slideshowContainer">
