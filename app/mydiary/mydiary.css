@@ -273,6 +273,7 @@
   }
 }
 
+
 header {
   background: #fff;
   width: 100%;
@@ -301,72 +302,110 @@ header nav ul li a.active {
   border-bottom-color: dodgerblue;
 }
 
-.logo {
-  margin-right: auto;
-}
+
 
 .hamburger {
-  position: relative;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
+  display: none;
 }
 
-.hamburger div {
-  width: 30px;
+.bar {
+  display: block;
+  width: 25px;
   height: 3px;
-  margin: 5px 0;
-  background: #000;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #101010;
 }
 
-@media only screen and (max-width: 900px) {
-  header {
-    padding: 0 30px;
+@media (max-width: 700px) {
+  .nav-menu {
+    position: absolute;
+    left: -100%;
+    top: 5rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 9000;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
   }
-}
+  .nav-menu.active {
+    left: 0;
+    top: 72px;
+  }
 
-@media only screen and (max-width: 700px) {
+  .nav-item {
+    margin: 1rem 0;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
   .hamburger {
     display: block;
+    cursor: pointer;
   }
 
-  header nav {
-    position: absolute;
-    top: 70px;
-    background: #fff;
-    padding: 2px;
-    transition: 0.3s;
-    left: -100%;
+  #menu-toggle ~ .menu li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
 
+  #menu-toggle:checked ~ .menu li {
+    border: 1px solid #9f9a9a;
+    height: 2.5em;
+  }
+
+  .menu > li {
+    display: flex;
+    justify-content: center;
+    margin: 0;
     width: 100%;
+    color: black;
+    background-color: white;
   }
+}
+.LogoIconsNav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
 
-  header #nav_check:checked ~ nav {
-    left: 0;
-  }
-
-  header nav ul {
-    display: block;
-  }
+.logo {
+  margin-right: 15px;
 }
 
 .icons {
   display: flex;
-  align-items: center;
 }
 
 .icons a {
-  margin-left: 10px;
+  margin-right: 10px;
   color: #000;
   text-decoration: none;
   font-size: 24px;
 }
 
-.line {
-  width: 15px;
-  height: 5px;
-  background-color: #000;
-  margin: 10px 0;
+.InOutBtn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.InOutBtn a {
+  margin: 0 8px;
 }
 
 .nav-logo-icons {

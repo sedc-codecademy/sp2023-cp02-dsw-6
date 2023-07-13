@@ -426,5 +426,15 @@ document.addEventListener("DOMContentLoaded", function() {
     navMenu.classList.toggle("active");
   }
 });
+const logoutBtn = document.getElementById("logoutBtn");
+
+  logoutBtn.addEventListener('click', function() {
+     alert('You have been logged out!');
+
+    setTimeout(function() {
+      window.location.href = "../LoginPage/Index.html";
+    }, 1450);
+  });
+    
 
 

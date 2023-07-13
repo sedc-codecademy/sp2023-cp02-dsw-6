@@ -46,6 +46,7 @@ loginLabel.onclick = () => {
 
 //login and signup buttons
 loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
   login();
 });
 signupForm.addEventListener('submit', (e) => {
@@ -101,7 +102,9 @@ function login() {
         const user = userCredential.user;
         console.log("User logged in", user); 
         setSuccessFor(loginUsername,"User logged in! ")      
-        setSuccessFor(loginPassword," ")      
+        setSuccessFor(loginPassword," ")   
+        
+        window.location.href ="../Homepage/Index.html";
       })
       .catch((error) => {
         console.log("Not logged in:", error); 
@@ -113,7 +116,7 @@ function login() {
   }
 }
 
-//Regiter form
+//Register form
 function signup() {
   const email = signupUsername.value;
   const password = signupPassword.value;
@@ -131,7 +134,7 @@ function signup() {
           setSuccessFor(confirmPassword,"");
 
           setTimeout(function() {
-            showLoginForm();           
+            showLoginForm()           
           }, 2500);                   
        
         })
@@ -155,3 +158,13 @@ else{
   
   }
 }
+
+  // signOut()
+  //   .then(() => {
+    //   alert("User logged out");
+    //   window.location.href = "../LoginPage/Index.html";
+    // })
+    // .catch((error) => {
+    //   console.log("Logout error:", error);
+    // });
+// });
