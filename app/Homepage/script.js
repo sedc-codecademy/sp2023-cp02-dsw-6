@@ -421,3 +421,14 @@ hamburger.addEventListener('click', () => {
   icons.style.display = icons.style.display === 'none' ? 'flex' : 'none';
 });
 
+const logoutBtn = document.getElementById("logoutBtn");
+
+  logoutBtn.addEventListener('click', function() {
+     alert('You have been logged out!');
+
+    setTimeout(function() {
+      window.location.href = "../LoginPage/Index.html";
+    }, 1450);
+  });
+    
+
