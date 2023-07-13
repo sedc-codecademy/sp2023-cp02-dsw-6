@@ -30,6 +30,20 @@ button150.addEventListener("click",()=>{
 button50.addEventListener("click",()=>{
   console.log("50");
 })
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+
+  hamburger.addEventListener("click", mobileMenu);
+
+  function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  }
+});
+
 // window.addEventListener('load', () => {
 //   const wrapperDiv = document.querySelector('#wrapper');
 //   const bookData = JSON.parse(localStorage.getItem('detailBook'))[0] || [];
