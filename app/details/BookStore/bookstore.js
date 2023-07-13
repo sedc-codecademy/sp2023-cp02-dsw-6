@@ -128,7 +128,7 @@ function createBookElement(book, i) {
         <div class="book-author">${limitedWordsAuthorr}</div>
         <div class="book-price">$${price}</div>
         <div class="book-buttons">
-            <button data-price='${price}' class="detailsButton${i}"><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details </button>
+            <button id="detailsButton" data-price='${price}' class="detailsButton${i}"><i class="fa-solid fa-check" style="color: #0C54C0;"></i> Details </button>
             <button class="buyButton${i}" id="buyButton"><i class="fa-solid fa-cart-shopping" style="color: #0C54C0;"></i>Buy</button>
         </div>
     `;
@@ -291,6 +291,20 @@ window.location.replace('../../ShoppingCard/shoppingCard.html');
         console.error('Error:', error);
     });
 }
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+
+  hamburger.addEventListener("click", mobileMenu);
+
+  function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  }
+});
 
 
 
