@@ -265,7 +265,8 @@ table th, table td {
   #bookCover1,#bookCover2, #bookCover3{
     width: 200px;
     height: 300px;
-  }
+    align-items: center !important;  
+}
 
  
 
