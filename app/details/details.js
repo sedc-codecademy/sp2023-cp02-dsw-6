@@ -48,7 +48,6 @@ window.addEventListener('load', () => {
   const wishlistButton = document.querySelector('#detailsButtonCart');
   wishlistButton.addEventListener('click', () => {
     let allProducts = JSON.parse(localStorage.getItem('wishlist'));
-  
     if (allProducts == null) {
       allProducts = [{ ...bookData }];
     } else {

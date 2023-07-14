@@ -34,7 +34,7 @@ window.addEventListener('load', () => {
       productsDiv.innerHTML += displayProduct;
       initialAmount += prod.price;
       const cardTotal = document.querySelector('#card-total');
-      cardTotal.textContent = `$${initialAmount.toString()}`
+      cardTotal.textContent = `$${initialAmount.toFixed(2).toString()}`
     });
 }
 const removeProductBtns = document.querySelectorAll('.remove-product');
