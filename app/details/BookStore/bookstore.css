@@ -79,6 +79,7 @@ body {
     background-color: #f5f5f5;
     padding: 20px;
     border-radius: 8px;
+
   }
   
   .book img {
@@ -117,7 +118,7 @@ body {
   #detailsButton,
 #buyButton {
   margin-right: 3px;
-  border-radius: 180px; 
+  
   border: 1px solid #000000;
   background: #ffffff;
   width: 167.75px;
@@ -132,6 +133,14 @@ body {
   text-transform: uppercase;
 }
 
+#buyButton{
+  border-radius: 0px 180px 180px 0px;
+
+}
+
+#detailsButton {
+  border-radius: 180px 0px 0px 180px;
+}
 .buyButton {
   border-radius: 0px 180px 180px 0px;
 }
