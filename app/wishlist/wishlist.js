@@ -1,8 +1,10 @@
 window.addEventListener('load', () => {
-  const allProducts = JSON.parse(localStorage.getItem('wishlist')) || [];
+  let allProducts = JSON.parse(localStorage.getItem('wishlist')) || [];
   const productsDiv = document.querySelector('.allproducts');
-
+ 
+  allProducts = allProducts.filter(prod => prod.volumeInfo);
   allProducts.forEach((product) => {
+    
     const displayProduct = `
       <div class="card_info-body">
         <div class="image_title">
@@ -18,7 +20,6 @@ window.addEventListener('load', () => {
     `;
     productsDiv.innerHTML += displayProduct;
   });
-
   const removeButtons = document.querySelectorAll('.remove-btn');
   removeButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
