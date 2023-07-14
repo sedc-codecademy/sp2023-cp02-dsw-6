@@ -82,13 +82,18 @@
     gap: 20px;
   }
 
+  .image-info_book_title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 
+  }
 
   .card_info-body-quantity {
     /* min-width: 10%;
     max-width: 20%; */
-    width: 20%;
-    text-align: center;
+    width: 30%;
+    /* text-align: center; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,9 +102,11 @@
 
   .add-quantity,
   .remove-quantity {
-
-    max-width: 20px;
-    max-height: 20px;
+    /* flex: 1 0 20px; */
+    /* max-width: 20px;
+    max-height: 20px; */
+    width: 20px;
+    height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,8 +116,11 @@
   }
 
   .card_info-body-quantity > input{
+    /* flex: 1 2 50px; */
     /* min-width: 30px; */
-    max-width: 50%;
+    height: 20px;
+    width: 50%;
+    min-width: 45%;
   }
 
  .product-amount {
@@ -201,6 +211,20 @@
       margin-right: 10px;
     } 
 
+
+    @media(max-width:800px) {
+      /* .image_title {
+        width: 40%;
+      } */
+      .image-info_book_title {
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        /* white-space: hidden; */
+      }
+      .card_info-body-quantity > input {
+        padding: 0;
+      }
+    }
 
     @media(min-width: 600px) {
       .card_info-header ,
