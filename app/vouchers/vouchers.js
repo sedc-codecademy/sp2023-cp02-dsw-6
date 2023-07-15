@@ -17,18 +17,23 @@ button200.addEventListener("click",()=>{
 })
 button100.addEventListener("click",()=>{
   console.log("100");
+  window.location.replace('../ShoppingCard/shoppingCard.html');
 })
 button200s.addEventListener("click",()=>{
   console.log("200");
+  window.location.replace('../ShoppingCard/shoppingCard.html');
 })
 button100s.addEventListener("click",()=>{
   console.log("100");
+  window.location.replace('../ShoppingCard/shoppingCard.html');
 })
 button150.addEventListener("click",()=>{
   console.log("150");
+  window.location.replace('../ShoppingCard/shoppingCard.html');
 })
 button50.addEventListener("click",()=>{
   console.log("50");
+  window.location.replace('../ShoppingCard/shoppingCard.html');
 })
 
 
