@@ -268,7 +268,7 @@
   margin: -0.4em -0.5em 0 4em;
   width: 7.5rem;
   text-align: center;
-  border-radius: 4px;
+ border-radius: 4px;
   color: #ffffff;
   background: #00afd8;
   font-weight: 700;
@@ -297,7 +297,7 @@
   border-radius: 180px 0px 0px 180px;
   border: 1px solid #000000;
   background: #ffffff;
-  width: 167.75px;
+  width: 160px;
   height: 40px;
   font-style: italic;
   font-weight: 700;
@@ -334,7 +334,7 @@
   font-size: var(--login-button-fontSize);
   line-height: 1.5;
 }
-
+/* 
 .footer {
   display: flex;
   flex-direction: column;
@@ -359,7 +359,7 @@
 .footerIcon {
   color: #bababa;
   margin-right: 10px;
-}
+} */
 
 /* Added media query for desktop displaying new releases, popular books and sale */
 @media screen and (min-width: 768px) {
@@ -401,14 +401,32 @@
   .detailsButton,
   .buyButton {
     width: 50%;
-    border-radius: 0%;
-    border: none;
     background-color: #f5f5f5;
+    background-color: #f5f5f5;
+    border-radius: 180px 0px 0px 180px;
+    border: 1px solid #000000;
+    background: #ffffff;
+    width: 100px;
+    height: 30px; 
+    font-style: italic;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 32px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  
+  .buyButton {
+    border-radius: 0px 180px 180px 0px;
+  }
+
   }
 
   .buyButton:hover,
   .detailsButton:hover {
-    font-size: 19px;
+    font-size: 15px;
   }
 
   .priceForNewReleases {
@@ -418,6 +436,7 @@
   }
 
   #saleSale {
+    display: none;
     margin: -0.9em -0.9em 0.5em 2.1em;
   }
 
@@ -440,7 +459,7 @@
     width: 200px;
     height: 300px;
   }
-}
+
 
 @media (min-width: 1030px) {
   .search-main-container {

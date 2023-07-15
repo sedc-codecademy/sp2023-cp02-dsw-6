@@ -1,21 +1,52 @@
  * {
     box-sizing: border-box;
     font-family: var(--font-family);
+    
+    }
   
- }
-  
+ 
+    #discountBox{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 10rem;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 2.496rem;
+      line-height: 2.333rem;
+      letter-spacing: 0.02em;
+    }
+    
+    #discountBox::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url(../images/book1.jpg);
+      background-size: cover;
+      opacity: 0.4;
+    }
+    
+    #discountBox p {
+      color: black;
+      opacity: 0.9;
+    }
 
 
-    #mainPic{
-  width: 100%;
+ 
 
-}
 
 
 /* front image desktop version */
 @media screen and (min-width: 1034px) {
     #mainPic{
       width: 100%;
+
     }
 
   }
@@ -23,7 +54,11 @@
   #book-element{
     display: grid;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+  
+    
 
 
   } 
@@ -105,6 +140,8 @@ cursor: pointer;
   font-family: var(--font-family);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+
   align-items: flex-start;
   margin-top: 5rem;
   width: 100%;
@@ -117,6 +154,7 @@ cursor: pointer;
 .otherProducts {
   display: flex;
   align-items: flex-start;
+  justify-content: space-evenly;
   margin-bottom: 1rem;
 }
 
@@ -163,15 +201,16 @@ flex-basis: 15%;
     display: flex;
     flex-direction: row;
      flex-wrap: wrap; 
-    justify-content:space-evenly;
+     justify-content:space-between;
     align-items:center;
     width: 100%;
   }
   .wrapper{
-    width: 23.33%;
+    width: 24%;
     background-color: #f5f5f5;
     padding: 2%;
     border-radius: 2.76%;
+    margin-bottom: 2%;
  }
 
  .bookTitleForDiscount,.bookAuthorForDiscount{
@@ -206,8 +245,13 @@ flex-basis: 15%;
 }
 
 .otherProductsImage{
- width: auto;
+
+ width: auto; 
  height: 100px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
 }
 .otherProducts > div {
   margin-right: 1rem;
@@ -263,7 +307,7 @@ margin-bottom: 0.3rem;
   margin-right: 2px;
 
 }
-  }
+  
 
 
 
